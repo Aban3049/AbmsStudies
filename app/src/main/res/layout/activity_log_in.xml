@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.LogIn">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/closeBtn"
+        android:background="@android:color/transparent"
+        android:src="@drawable/round_close_24"
+        android:padding="10dp"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/Scroll_view_LogIn"
+
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/logoIv"
+                android:layout_width="200dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
+                android:scaleType="center"
+                android:src="@drawable/logo"
+                app:tint="@color/purple_500"
+                app:tintMode="src_in" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/LogInGoogleBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/m_button_height"
+                android:text="Continue with Google"
+                app:cornerRadius="8dp"
+                app:icon="@drawable/ic_google_white"
+
+
+                />
+
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/LogInPhoneBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/m_button_height"
+                android:text="Continue with Phone"
+                app:icon="@drawable/ic_call_white"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/LogInEmailBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/m_button_height"
+                android:text="Continue with Email"
+                app:icon="@drawable/ic_email_white"
+                />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

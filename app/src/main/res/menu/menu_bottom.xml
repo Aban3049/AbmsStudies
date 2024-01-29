@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_home"
+        android:title="@string/bottom_menu_home"
+        android:icon="@drawable/ic_home_white"
+    />
+
+    <item android:id="@+id/menu_chats"
+        android:title="@string/bottom_menu_chats"
+        android:icon="@drawable/ic_chat_white"
+
+        />
+
+    <item android:id="@+id/menu_sell"
+        android:title="@string/bottom_menu_sell"
+
+
+        />
+
+    <item android:id="@+id/menu_myAds"
+        android:title="@string/bottom_menu_myAds"
+        android:icon="@drawable/round_favorite_24"
+        />
+
+    <item android:id="@+id/menu_account"
+        android:title="@string/bottom_menu_account"
+        android:icon="@drawable/ic_person_white"
+        />
+
+
+
+</menu>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Abms Studies</string>
+    <string name="bottom_menu_home">Home</string>
+    <string name="bottom_menu_chats">Chats</string>
+    <string name="bottom_menu_sell">Sell</string>
+    <string name="bottom_menu_myAds">My Ads</string>
+    <string name="bottom_menu_account">Account</string>
+    <string name="sell_Fab_description">Sell btn</string>
+    <string name="Scroll_view_LogIn">LogIN Scroll</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="not_have_account">Not have Account? <b>Register</b></string>
+    <string name="already_have_account">Already have Account <b>LogIn</b></string>
+    <string name="register_btn">Register</string>
+    <string name="default_web_client_id">815260149117-u55fqt3v3o4llrua74jjf0vqd3sa6e11.apps.googleusercontent.com</string>
+    <string name="did_t_receive_otp_resend">Did\'t Receive OTP? <b>Resend</b></string>
+    <string name="back_btn">back_Btn</string>
+    <string name="forget_password">Forgot Pasword?<b>Recover</b></string>
+    <string name="submit_btn">Forgot submit btn</string>
+    <string name="image_btn">Image button</string>
+    <string name="price_symbol">Rs</string>
+    <string name="ad_favourite_btn">Ad favourite Button</string>
+    <string name="myName">Muhammad Aban<b>(Leader)</b></string>
+    <string name="mission_thisApp_text">The purpose of this App is to provide students of <b>CTTI</b> to have an easy access to <b>fees slip,Books , Past Papers ,Math Video Lectures</b>.Providing students a platform to <b>sell and purchase books</b>.Providing students of all departments a <b>collaborative chat System</b> platform to discuss their thoughts and Matters.<b>Notice Board</b> for Instant notices via notifications</string>
+
+    <string name="about_thisApp_text">This App is developed by <b>Abms Group</b>.As final Year Project To facilitate the Students of <b>CTTI</b>.If you have any <b>suggestions</b>, questions or Issues regarding this App.You can Contact Us</string>
+    <string name="sign_up_already">Already have an Account? Log In</string>
+
+</resources>

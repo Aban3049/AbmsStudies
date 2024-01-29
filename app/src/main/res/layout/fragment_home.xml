@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.HomeFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/locationCv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="10dp">
+
+        <TextView
+            android:id="@+id/locationTv"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_location_gray"
+            android:drawableEnd="@drawable/ic_next_gray"
+            android:text="Choose Location"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Search Ads -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchCv"
+        app:cardCornerRadius="5dp"
+        app:cardUseCompatPadding="true">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchEt"
+            android:hint="Search"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:drawableStart="@drawable/ic_search_gray"
+            android:drawablePadding="10dp"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Browse category Label -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Browse Category"
+        android:textStyle="bold"
+        android:layout_marginStart="6dp"
+        style="@style/TextAppearance.MaterialComponents.Overline"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/categoriesRv"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        tools:listitem="@layout/row_category"/>
+
+    <!-- Recycled view show Ads Category -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/adsRv"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_ad"/>
+
+
+</LinearLayout>

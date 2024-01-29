@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "815260149117",
+    "project_id": "abmsstudies",
+    "storage_bucket": "abmsstudies.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815260149117:android:625b1a7744dad3b2635814",
+        "android_client_info": {
+          "package_name": "com.pandaapps.abmsstudies"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATtpGS9Q5dJLTItorhT45HrdQ-l3UMW-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
