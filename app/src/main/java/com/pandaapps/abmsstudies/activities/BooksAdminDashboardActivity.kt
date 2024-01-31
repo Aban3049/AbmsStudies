@@ -45,7 +45,6 @@ class BooksAdminDashboardActivity : AppCompatActivity() {
                 }
 
 
-
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

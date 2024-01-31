@@ -26,6 +26,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.BookPdfAdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PdfAddActivityBooks"
             android:exported="false" />
         <activity
