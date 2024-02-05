@@ -14,16 +14,19 @@ import java.util.Locale
 
 object Utils {
 
+
     const val MESSAGE_TYPE_TEXT = "TEXT"
     const val MESSAGE_TYPE_IMAGE = "IMAGE"
     const val USER_MODE = "USER"
+    const val MAX_BYTES_PDF:Long = 100000000 // 50MB
 
     // constants to define Ads status, when ad is published the Ad status will be set Available in firebase db,so user can mark as SOLD later when it is sold
     const val AD_STATUS_AVAILABLE = "AVAILABLE"
     const val AD_STATUS_SOLD = "SOLD"
 
     const val NOTIFICATION_TYPE_NEW_MESSAGE = "NOTIFICATION_TYPE_NEW_MESSAGE"
-    const val FCM_SERVER_KEY ="AAAAvdFKpX0:APA91bGKbZgEg8q_UZ3WqY345O_w1lCuasP4Vyh6jBOuDPbY-Sk2g-GBOMMAJcsbrb5jmo3IP45HCOhWfEXxzTL9V5Mx3jtBheNR2lUZFCQ3mLRzaKJjqcHGcmcJxj6dyqttd5uDd5s3"
+    const val FCM_SERVER_KEY =
+        "AAAAvdFKpX0:APA91bGKbZgEg8q_UZ3WqY345O_w1lCuasP4Vyh6jBOuDPbY-Sk2g-GBOMMAJcsbrb5jmo3IP45HCOhWfEXxzTL9V5Mx3jtBheNR2lUZFCQ3mLRzaKJjqcHGcmcJxj6dyqttd5uDd5s3"
 
     //Categories array of the Ads
     val categories = arrayOf(
@@ -79,6 +82,7 @@ object Utils {
         return DateFormat.format("dd/MM/yyyy hh:mm:a", calendar).toString()
 
     }
+
 
     fun chatPath(receiptUid: String, yourUid: String): String {
         val arrayUids = arrayOf(receiptUid, yourUid)

@@ -3,6 +3,7 @@ package com.pandaapps.abmsstudies.adapters
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,8 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
 import com.pandaapps.abmsstudies.FilterBooksCategoryAdmin
+import com.pandaapps.abmsstudies.activities.BookPdfAdminActivity
+import com.pandaapps.abmsstudies.activities.PdfAddActivityBooks
 import com.pandaapps.abmsstudies.databinding.RowCategoryBooksAdminBinding
 import com.pandaapps.abmsstudies.models.ModelBooksCategoryAdmin
 import www.sanju.motiontoast.MotionToast
@@ -96,6 +99,18 @@ class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin
             builder.setNegativeButton("Cancel"){a,d->
                 a.dismiss()
             }.show()
+
+        }
+
+        // handle click ,start pdf list admin activity,also pdf Id, Title
+
+        holder.itemView.setOnClickListener {
+
+            val intent = Intent(context,BookPdfAdminActivity::class.java)
+            intent.putExtra("categoryId",id)
+            intent.putExtra("category",category)
+            context.startActivity(intent)
+
 
         }
 

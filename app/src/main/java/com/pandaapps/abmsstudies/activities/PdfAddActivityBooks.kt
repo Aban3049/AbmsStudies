@@ -226,13 +226,14 @@ class PdfAddActivityBooks : AppCompatActivity() {
 
         val hashMap:HashMap<String,Any> = HashMap()
 
+
         hashMap["uid"] = "$uid"
         hashMap["id"] = "$timestamp"
         hashMap["title"] = "$title"
         hashMap["description"] = "$description"
-        hashMap["categoryId"] = "$selectedCategoryTitle"
+        hashMap["categoryId"] = "$selectedCategoryId"
         hashMap["url"] = "$uploadPdfUrl"
-        hashMap["timestamp"] = "$timestamp"
+        hashMap["timestamp"] = timestamp
         hashMap["viewsCount"] = 0
         hashMap["downloadsCount"] = 0
 

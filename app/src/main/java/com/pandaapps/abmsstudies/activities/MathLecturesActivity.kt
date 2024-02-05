@@ -54,10 +54,12 @@ class MathLecturesActivity : AppCompatActivity() {
 
         val arrayAdapter = ArrayAdapter(
             this,
-            com.google.android.material.R.layout.support_simple_spinner_dropdown_item,
+            android.R.layout.simple_spinner_dropdown_item,
+           // com.google.android.material.R.layout.support_simple_spinner_dropdown_item,
             listItem
         )
-        arrayAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
+//        arrayAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = arrayAdapter
 
         spinner.onItemSelectedListener =
