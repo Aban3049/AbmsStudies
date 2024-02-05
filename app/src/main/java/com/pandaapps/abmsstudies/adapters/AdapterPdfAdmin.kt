@@ -1,5 +1,6 @@
 package com.pandaapps.abmsstudies.adapters
 
+import android.app.AlertDialog
 import android.app.Application
 import com.pandaapps.abmsstudies.MyApplication
 import android.content.Context
@@ -82,6 +83,39 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
         //load pdf size
         MyApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
 
+        // handle clicks show options Edit Book, Delte Books
+        holder.moreBtn.setOnClickListener {
+            moreOptionsDialog(model, holder)
+        }
+
+
+    }
+
+    private fun moreOptionsDialog(model: ModelBookPdf, holder: AdapterPdfAdmin.HolderPdfAdmin) {
+
+        //get id,url ,title of the book
+        val bookId = model.id
+        val bookUrl = model.url
+        val bookTitle = model.title
+
+        // options to show in Dialog
+
+        val options = arrayOf("Edit", "Delete")
+
+        // alert dialog
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Choose Option")
+            .setItems(options) { dialog, position ->
+
+                if (position ==0){
+
+                    //Edit is Clicked
+
+                }else if (position==1){
+                }
+
+            }
+            .show()
 
     }
 
