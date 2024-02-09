@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back01"
-    tools:context=".activities.BookPdfAdminActivity">
+
+    tools:context=".books.activities.BookPdfAdminActivity">
 
 
     <RelativeLayout
@@ -48,21 +48,30 @@
 
     </RelativeLayout>
 
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchCv"
+        app:cardCornerRadius="5dp"
+        android:layout_below="@+id/toolbarRl"
+        app:cardUseCompatPadding="true">
+
     <EditText
         android:id="@+id/searchEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbarRl"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/white"
         android:drawableStart="@drawable/ic_search_gray"
         android:drawablePadding="10dp"
+        android:background="@android:color/transparent"
         android:hint="Search"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/colorGray01" />
+
+    </com.google.android.material.card.MaterialCardView>
 
     <!--Pdf/Book List -->
 
@@ -70,7 +79,7 @@
         android:id="@+id/booksRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/searchEt"
+        android:layout_below="@id/searchCv"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"

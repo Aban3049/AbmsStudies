@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="10dp"
-
-    tools:context=".activities.AccountActivity">
+    tools:context=".AccountActivity">
 
 
 

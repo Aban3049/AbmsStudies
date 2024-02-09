@@ -10,7 +10,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.pandaapps.abmsstudies.activities.ChatActivity
+import com.pandaapps.abmsstudies.sell.activities.ChatActivity
 import java.util.Random
 
 class MyFcmService:FirebaseMessagingService() {

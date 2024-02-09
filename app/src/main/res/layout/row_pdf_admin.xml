@@ -12,27 +12,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <FrameLayout
             android:id="@+id/pdfRl"
             android:layout_width="100dp"
             android:layout_height="140dp"
             android:layout_margin="5dp"
             android:background="#615F5F">
 
-            <com.github.barteksc.pdfviewer.PDFView
-                android:id="@+id/pdfView"
+<!--            <com.github.barteksc.pdfviewer.PDFView-->
+<!--                android:id="@+id/pdfView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"/>-->
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/booksIv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@color/colorGray01"
+                style="@style/ImageStyle_CornerRounded"
+                />
+
 
             <!--ProgressBar -->
 
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="match_parent"
+                android:visibility="visible"
                 android:layout_height="match_parent"/>
 
 
-        </RelativeLayout>
+        </FrameLayout>
 
         <TextView
             android:id="@+id/titleTv"

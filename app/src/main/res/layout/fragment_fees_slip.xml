@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FeesSlipFragment">
+    tools:context=".fees.fragments.FeesSlipFragment">
 
     <im.delight.android.webview.AdvancedWebView
         android:id="@+id/webView"

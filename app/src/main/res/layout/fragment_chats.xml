@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragments.ChatsFragment">
+    tools:context=".sell.fragments.ChatsFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/searchCv"
