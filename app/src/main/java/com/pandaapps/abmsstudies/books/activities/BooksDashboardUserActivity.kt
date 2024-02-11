@@ -63,7 +63,7 @@ class BooksDashboardUserActivity : AppCompatActivity() {
                 //Add data to model
                 val modelAll = ModelBooksCategoryAdmin("01","All",1,"")
                 val modelMostViewed = ModelBooksCategoryAdmin("01","Most Viewed",1,"")
-                val modelMostDownloaded = ModelBooksCategoryAdmin("01","Most Downloaded",1,"")
+                val modelMostDownloaded = ModelBooksCategoryAdmin("01","Most Download",1,"")
 
                 //add to load list
                 categoryArrayList.add(modelAll)

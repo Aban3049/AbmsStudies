@@ -1,7 +1,9 @@
 package com.pandaapps.abmsstudies.books.activities
 
 import android.Manifest
+import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.EntityIterator
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,19 +11,26 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.datastore.preferences.protobuf.Value
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
 import com.pandaapps.abmsstudies.books.MyApplication
+import com.pandaapps.abmsstudies.books.adapter.AdapterComment
+import com.pandaapps.abmsstudies.books.model.ModelComments
 import com.pandaapps.abmsstudies.databinding.ActivityPdfDetailBinding
+import com.pandaapps.abmsstudies.databinding.DialogCommentAddBinding
+import com.pandaapps.abmsstudies.sell.activities.AdDetailsActivity
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 import java.io.FileOutputStream
@@ -39,14 +48,28 @@ class PdfDetailActivity : AppCompatActivity() {
     private var bookTitle = ""
     private var bookUrl = ""
     private var bookImageUrl = ""
+    private var favourites = false
 
     private lateinit var progressDialog: ProgressDialog
+    private lateinit var firebaseAuth: FirebaseAuth
+
+    //arraylist to hold comments
+    private lateinit var commentArrayList: ArrayList<ModelComments>
+
+    //adapter set to recyclerView
+    private lateinit var adapterComment:AdapterComment
     override fun onCreate(savedInstanceState: Bundle?) {
 
         binding = ActivityPdfDetailBinding.inflate(layoutInflater)
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        if (firebaseAuth.currentUser != null) {
+            checkIsFavorite()
+        }
 
         bookId = intent.getStringExtra("bookId")!!
 
@@ -60,6 +83,7 @@ class PdfDetailActivity : AppCompatActivity() {
         MyApplication.incrementBooksViewCount(bookId)
 
         loadBookDetail()
+        showComments()
 
 
         binding.backBtn.setOnClickListener {
@@ -86,6 +110,143 @@ class PdfDetailActivity : AppCompatActivity() {
                 requestStoragePermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
             }
         }
+
+        binding.favouriteBtn.setOnClickListener {
+            if (firebaseAuth.currentUser == null) {
+                MotionToast.createColorToast(
+                    this,
+                    "Failed",
+                    "Log In Required",
+                    MotionToastStyle.WARNING,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION,
+                    ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helvetica_regular)
+                )
+            }
+            else {
+
+                if (favourites){
+                    //already in favourite remove on clicked
+                    removeFromFavourite(bookId)
+                }
+                else{
+                    addToFavourite(bookId)
+                }
+
+            }
+        }
+
+        //handle click show comment dialog
+        binding.addCommentBtn.setOnClickListener {
+            //user must be logged in to comment
+            if (firebaseAuth.currentUser == null){
+                //user not logged in,comment not allowed
+                Utils.toast(this,"Only Logged in Use can Comment")
+            }
+            else{
+                //user loggged in comment allowed
+                addCommentDialog()
+            }
+        }
+
+    }
+
+    private fun showComments() {
+        //init arrayList
+        commentArrayList = ArrayList()
+
+        //db path to loadComments
+        val ref =FirebaseDatabase.getInstance().getReference("Books")
+        ref.child(bookId).child("Comments")
+            .addValueEventListener(object:ValueEventListener{
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    //clear list
+                    commentArrayList.clear()
+
+                    for (ds in snapshot.children){
+                        //get data
+                        val model = ds.getValue(ModelComments::class.java)
+
+                        //add to list
+                        commentArrayList.add(model!!)
+
+                    }
+
+                    //setup adapter
+                    adapterComment = AdapterComment(this@PdfDetailActivity,commentArrayList)
+                    binding.commentsRv.adapter = adapterComment
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+
+            })
+    }
+
+    private var comment = ""
+
+    private fun addCommentDialog(){
+        //inflate view for dialog_comment_add.xml
+        val commentAddBinding = DialogCommentAddBinding.inflate(LayoutInflater.from(this))
+
+        //setup alert dialog
+        val builder = AlertDialog.Builder(this,R.style.CustomDialog)
+        builder.setView(commentAddBinding.root)
+
+        //create and show alert dialog
+        val alertDialog = builder.create()
+        alertDialog.show()
+
+        //handle click , dismiss dialog
+        commentAddBinding.backBtn.setOnClickListener {alertDialog.dismiss()}
+
+        // handle click add comment
+        commentAddBinding.submitBtn.setOnClickListener {
+            //GET data
+            comment = commentAddBinding.commentEt.text.toString().trim()
+            // validate data
+            if (comment.isEmpty()){
+                Utils.toast(this,"Enter Comment....")
+            }else{
+                addComment()
+            }
+        }
+
+    }
+
+    private fun addComment(){
+        //show progress
+        progressDialog.setMessage("Adding Comment")
+        progressDialog.show()
+
+        // timestamp for current id comment timestamp e.t.c
+        val timestamp = Utils.getTimestamp()
+
+        //set data to HashMap
+
+        val hashMap = HashMap<String,Any>()
+        hashMap["id"] = "$timestamp"
+        hashMap["bookId"] = "$bookId"
+        hashMap["timestamp"] = "$timestamp"
+        hashMap["comment"] = "$comment"
+        hashMap["uid"] = "${firebaseAuth.uid}"
+
+        //Db path to add data into it
+
+        //Books >bookId >> Comments >> Comment Id >> Comment DATA
+
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
+        ref.child(bookId).child("Comments").child("$timestamp")
+            .setValue(hashMap).addOnSuccessListener {
+                progressDialog.dismiss()
+                Utils.toast(this,"Comment Added Successfully")
+            }.addOnFailureListener{e ->
+                progressDialog.dismiss()
+                Utils.toast(this,"Failed to Comment due to ${e.message} ")
+            }
 
     }
 
@@ -218,7 +379,12 @@ class PdfDetailActivity : AppCompatActivity() {
 //                    )
 
                     //load boo Image
-                    MyApplication.loadBookImage(bookImageUrl,binding.progressBar,baseContext,binding.booksImageIv)
+                    MyApplication.loadBookImage(
+                        bookImageUrl,
+                        binding.progressBar,
+                        baseContext,
+                        binding.booksImageIv
+                    )
 
                     //load pdf size
                     MyApplication.loadPdfSize("$bookUrl", "$title", binding.sizeTv)
@@ -255,17 +421,20 @@ class PdfDetailActivity : AppCompatActivity() {
                     //get download count
 
                     var downloadsCount = "${snapshot.child("downloadsCount").value}"
-                    Log.d(TAG, "onDataChange: onDataChange: Current Downloads Count $downloadsCount")
+                    Log.d(
+                        TAG,
+                        "onDataChange: onDataChange: Current Downloads Count $downloadsCount"
+                    )
 
-                    if (downloadsCount == "" || downloadsCount == "null"){
+                    if (downloadsCount == "" || downloadsCount == "null") {
                         downloadsCount = "0"
                     }
 
                     //covert to Long and increment
-                    val newDownloadCount:Long = downloadsCount.toLong() + 1
+                    val newDownloadCount: Long = downloadsCount.toLong() + 1
                     Log.d(TAG, "onDataChange: New Download Count $newDownloadCount")
 
-                    val hashMap:HashMap<String,Any> = HashMap()
+                    val hashMap: HashMap<String, Any> = HashMap()
                     hashMap["downloadsCount"] = newDownloadCount
 
                     //Update Increment downloads Count
@@ -274,8 +443,8 @@ class PdfDetailActivity : AppCompatActivity() {
                         .updateChildren(hashMap)
                         .addOnSuccessListener {
                             Log.d(TAG, "onDataChange: Download Count increment")
-                        }.addOnFailureListener {e ->
-                            Log.e(TAG, "onDataChange: Failed to increment due to ${e.message}", )
+                        }.addOnFailureListener { e ->
+                            Log.e(TAG, "onDataChange: Failed to increment due to ${e.message}")
                         }
 
                 }
@@ -288,5 +457,79 @@ class PdfDetailActivity : AppCompatActivity() {
 
     }
 
+    private fun checkIsFavorite() {
+        Log.d(TAG, "checkIsFavorite")
+        //Db path to check if Ad is in Favourite of Current user
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child("${firebaseAuth.uid}").child("FavouriteBooks").child(bookId)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    favourites = snapshot.exists()
+                    Log.d(TAG, "onDataChange: favorite: $favourites")
+
+                    if (favourites) {
+                        binding.favouriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_fav_yes_white,
+                            0,
+                            0
+                        )
+                    } else {
+                        binding.favouriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0,
+                            R.drawable.ic_fav_no_white,
+                            0,
+                            0
+                        )
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+    }
+
+   private fun addToFavourite(bookId: String) {
+        val firebaseAuth = FirebaseAuth.getInstance()
+        if (firebaseAuth.currentUser == null) {
+            Utils.toast(this, "Your are not logged in!")
+        } else {
+
+            val timestamp = Utils.getTimestamp()
+
+            val hashMap = HashMap<String, Any>()
+            hashMap["bookId"] = bookId
+            hashMap["timestamp"] = timestamp
+
+            val ref = FirebaseDatabase.getInstance().getReference("Users")
+            ref.child(firebaseAuth.uid!!).child("FavouriteBooks").child(bookId)
+                .setValue(hashMap)
+                .addOnSuccessListener {
+                    Utils.toast(this, "Added to favourite...")
+                }.addOnFailureListener { e ->
+                    Utils.toast(this, "Failed to add to favourite due to ${e.message}")
+                }
+        }
+    }
+
+   private fun removeFromFavourite(bookId: String) {
+
+        val firebaseAuth = FirebaseAuth.getInstance()
+        if (firebaseAuth.currentUser == null) {
+
+            Utils.toast(this, "You are not logged-in!")
+        } else {
+            val ref = FirebaseDatabase.getInstance().getReference("Users")
+            ref.child(firebaseAuth.uid!!).child("FavouriteBooks").child(bookId)
+                .removeValue()
+                .addOnSuccessListener {
+
+                    Utils.toast(this, "Removed from favourite!")
+                }.addOnFailureListener { e ->
+                    Utils.toast(this, "Failed to remove from Favourite due to ${e.message}")
+                }
+        }
+    }
 
 }

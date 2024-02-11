@@ -35,8 +35,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbarRl"
         android:layout_above="@+id/booOptionsLl"
+        android:layout_below="@+id/toolbarRl"
         android:padding="10dp">
 
         <LinearLayout
@@ -56,13 +56,13 @@
 
 
                     <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/booksImageIv"
+                        style="@style/ImageStyle_CornerRounded"
                         android:layout_width="120dp"
                         android:layout_height="150dp"
-                        android:id="@+id/booksImageIv"
                         android:background="@color/colorGray02"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/ic_image_gray"
-                        style="@style/ImageStyle_CornerRounded" />
+                        android:src="@drawable/ic_image_gray" />
 
                     <ProgressBar
                         android:id="@+id/progressBar"
@@ -77,9 +77,9 @@
                     style="@style/TextAppearance.MaterialComponents.Headline6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
                     android:layout_toEndOf="@+id/pdfRl"
-                    android:text="Book Title" />
+                    android:text="Book Title"
+                    android:textColor="@color/black" />
 
 
                 <TableLayout
@@ -96,18 +96,18 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
-                            android:textColor="@color/black"
-                            android:text="Category" />
+                            android:text="Category"
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/categoryTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
                             android:layout_marginEnd="5dp"
                             android:layout_weight="1"
-                            android:text="N/A" />
+                            android:text="N/A"
+                            android:textColor="@color/black" />
 
                     </TableRow>
 
@@ -119,9 +119,9 @@
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
                             android:layout_marginEnd="5dp"
-                            android:text="Date" />
+                            android:text="Date"
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/dateTv"
@@ -129,9 +129,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
-                            android:textColor="@color/black"
                             android:layout_weight="1"
-                            android:text="N/A" />
+                            android:text="N/A"
+                            android:textColor="@color/black" />
 
                     </TableRow>
 
@@ -142,19 +142,19 @@
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
                             android:layout_marginEnd="5dp"
-                            android:text="Size" />
+                            android:text="Size"
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/sizeTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
                             android:layout_marginEnd="5dp"
                             android:layout_weight="1"
-                            android:text="N/A" />
+                            android:text="N/A"
+                            android:textColor="@color/black" />
 
                     </TableRow>
 
@@ -165,19 +165,19 @@
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
                             android:layout_marginEnd="5dp"
-                            android:text="Views" />
+                            android:text="Views"
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/viewsTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
                             android:layout_marginEnd="5dp"
                             android:layout_weight="1"
-                            android:text="N/A" />
+                            android:text="N/A"
+                            android:textColor="@color/black" />
 
                     </TableRow>
 
@@ -188,43 +188,42 @@
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
                             android:layout_marginEnd="5dp"
-                            android:text="Downloads" />
+                            android:text="Downloads"
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/downloadsTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
                             android:layout_marginEnd="5dp"
                             android:layout_weight="1"
-                            android:text="N/A" />
+                            android:text="N/A"
+                            android:textColor="@color/black" />
 
                     </TableRow>
 
-                    <TableRow
-                        android:layout_marginTop="5dp">
+                    <TableRow android:layout_marginTop="5dp">
 
                         <TextView
                             android:id="@+id/pagesLabelTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
                             android:layout_marginEnd="5dp"
-                            android:text="Pages" />
+                            android:text="Pages"
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/pagesTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black"
-                            android:layout_weight="1"
                             android:layout_marginEnd="5dp"
-                            android:text="N/A" />
+                            android:layout_weight="1"
+                            android:text="N/A"
+                            android:textColor="@color/black" />
 
                     </TableRow>
 
@@ -240,8 +239,46 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="The description of the Book"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
+            <!-- View seprate -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/gray03"
+                android:layout_marginTop="5dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Comments"
+                    android:padding="5dp"
+                    android:textSize="16sp"/>
+
+                <ImageButton
+                    android:id="@+id/addCommentBtn"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_comment_add_black"
+                    android:background="@android:color/transparent"
+                    android:layout_alignParentEnd="true"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/commentsRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/addCommentBtn"
+                    tools:listitem="@layout/row_comments"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            </RelativeLayout>
 
         </LinearLayout>
 
@@ -251,29 +288,43 @@
         android:id="@+id/booOptionsLl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
         android:background="@color/design_default_color_primary"
-        android:layout_alignParentBottom="true">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/readBookBtn"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:text="Read"
-           android:background="@color/design_default_color_primary"
+            android:background="@color/design_default_color_primary"
             android:drawableTop="@drawable/ic_book_white"
-            android:textColor="@color/white" />
+            android:text="Read"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
 
         <Button
             android:id="@+id/downloadBookBtn"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:text="Download"
             android:background="@color/design_default_color_primary"
             android:drawableTop="@drawable/ic_download_white"
-            android:textColor="@color/white" />
+            android:text="Download"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/favouriteBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/design_default_color_primary"
+            android:drawableTop="@drawable/ic_fav_no_white"
+            android:text="Add to Favourite"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
 
     </LinearLayout>
 

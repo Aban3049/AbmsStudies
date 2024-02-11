@@ -16,6 +16,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import com.bumptech.glide.Glide
 import com.github.barteksc.pdfviewer.PDFView
 import com.google.android.material.imageview.ShapeableImageView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -343,6 +344,8 @@ class MyApplication : Application() {
             }
 
         }
+
+
 
     }
 
