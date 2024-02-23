@@ -25,4 +25,30 @@
     <string name="about_thisApp_text">This App is developed by <b>Abms Group</b>.As final Year Project To facilitate the Students of <b>CTTI</b>.If you have any <b>suggestions</b>, questions or Issues regarding this App.You can Contact Us</string>
     <string name="sign_up_already">Already have an Account? Log In</string>
 
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="signup_line">Start turning your ideas into reality.</string>
+    <string name="sugnup_btn">Get started</string>
+    <string name="chkbox_txt">I agree with</string>
+    <string name="chkboxtxt2">Terms</string>
+    <string name="chkboxtxt3">and</string>
+    <string name="chkboxtxt4">Privacy</string>
+    <string name="sigup_alreadttxt">Already have an account?</string>
+    <string name="signup_logintxt">Log In</string>
+    <string name="or">or</string>
+    <string name="login">Log in</string>
+    <string name="login_chkbox">Remember me</string>
+    <string name="login_btn">Log in</string>
+    <string name="signup_txt">Sign up</string>
+    <string name="facebook">facebook logo</string>
+    <string name="apple">apple logo</string>
+    <string name="google">Google logo</string>
+    <string name="twitter">Twitter logo</string>
+    <string name="guest_user">Continue as Guest user</string>
+    <string name="hello">Welcome,</string>
+    <string name="username">UserName</string>
+
 </resources>

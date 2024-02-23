@@ -84,6 +84,8 @@ object Utils {
     }
 
 
+
+
     fun chatPath(receiptUid: String, yourUid: String): String {
         val arrayUids = arrayOf(receiptUid, yourUid)
 

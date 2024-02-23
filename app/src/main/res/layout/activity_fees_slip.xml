@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.FeesSlipActivity">
+    tools:context=".fees.activity.FeesSlipActivity">
 
     <RelativeLayout
         android:id="@+id/toolbarRl"
@@ -22,19 +22,6 @@
             android:padding="10dp"
             android:src="@drawable/ic_back" />
 
-        <ImageButton
-            android:id="@+id/downloadBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/back_btn"
-            android:minHeight="488dp"
-            android:padding="10dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_download" />
-
-
 
         <TextView
             style="@style/TextAppearance.MaterialComponents.Body2"
@@ -42,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="Fess Slip" />
-
 
 
         <View
@@ -55,8 +41,8 @@
 
     <FrameLayout
         android:id="@+id/fragmentFl"
-        android:layout_below="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarRl" />
 
 </RelativeLayout>

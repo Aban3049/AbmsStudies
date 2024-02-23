@@ -9,7 +9,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.pandaapps.abmsstudies.books.activities.AddCategoryBooksActivity
+import com.pandaapps.abmsstudies.LogInActivity
+import com.pandaapps.abmsstudies.Utils
 import com.pandaapps.abmsstudies.books.adapter.AdapterBooksCategoryAdmin
 import com.pandaapps.abmsstudies.databinding.ActivityBooksAdminDashboardBinding
 import com.pandaapps.abmsstudies.books.model.ModelBooksCategoryAdmin
@@ -42,7 +43,7 @@ class BooksAdminDashboardActivity : AppCompatActivity() {
                     adapterBooksCategoryAdmin.filter.filter(s)
 
                 } catch (e: Exception) {
-
+                    Utils.toast(this@BooksAdminDashboardActivity,"Failed to search due to ${e.message}")
                 }
 
 
@@ -75,6 +76,13 @@ class BooksAdminDashboardActivity : AppCompatActivity() {
                     PdfAddActivityBooks::class.java
                 )
             )
+        }
+
+        binding.logOutBtn.setOnClickListener {
+            startActivity(Intent(this,LogInActivity::class.java))
+        }
+        binding.backBtn.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
 
     }

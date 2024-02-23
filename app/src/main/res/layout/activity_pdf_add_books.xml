@@ -128,7 +128,7 @@
             android:layout_height="65dp"
             android:layout_centerVertical="true"
             android:layout_marginTop="10dp"
-            android:drawableStart="@drawable/ic_add_photo_white"
+            app:icon="@drawable/ic_add_photo_white"
             android:layout_toStartOf="@+id/imageIv"
             android:background="@drawable/shape_button01"
             android:text="Select Book Image"

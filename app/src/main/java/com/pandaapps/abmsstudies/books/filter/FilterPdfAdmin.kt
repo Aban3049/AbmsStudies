@@ -60,7 +60,7 @@ class FilterPdfAdmin : Filter {
     override fun publishResults(constraint: CharSequence?, results: FilterResults) {
 
         //apply filter changes
-        adapterPdfAdmin.pdfArrayList = results.values as ArrayList<ModelBookPdf>
+        adapterPdfAdmin.pdfArrayList= results.values as ArrayList<ModelBookPdf>
 
        //notify changes
    adapterPdfAdmin.notifyDataSetChanged()

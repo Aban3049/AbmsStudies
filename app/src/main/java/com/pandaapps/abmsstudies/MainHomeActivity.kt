@@ -19,11 +19,15 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.messaging.FirebaseMessaging
+import com.pandaapps.abmsstudies.ChatRoom.activities.ChatRoomActivity
+import com.pandaapps.abmsstudies.NoticeBoard.activities.NoticeActivity
+import com.pandaapps.abmsstudies.NoticeBoard.activities.NoticeAdminActivity
 import com.pandaapps.abmsstudies.about.AboutUsActivity
 import com.pandaapps.abmsstudies.books.activities.BooksAdminDashboardActivity
 import com.pandaapps.abmsstudies.books.activities.BooksDashboardUserActivity
 import com.pandaapps.abmsstudies.databinding.ActivityMainHomeBinding
 import com.pandaapps.abmsstudies.fees.activity.FeesSlipActivity
+import com.pandaapps.abmsstudies.gallery.GalleryActivity
 import com.pandaapps.abmsstudies.mathLecture.MathLecturesActivity
 import com.pandaapps.abmsstudies.sell.activities.LogIn
 import com.pandaapps.abmsstudies.sell.activities.MainActivity
@@ -59,9 +63,9 @@ class MainHomeActivity : AppCompatActivity() {
         binding.books.setOnClickListener {
             checkUserMode()
         }
-        //    binding.chatRoomCv.setOnClickListener {
-        //       Utils.toast(this@MainHomeActivity,"You clicked on Chat Room")
-        //    }
+          binding.chatRoomCv.setOnClickListener {
+            startActivity(Intent(this@MainHomeActivity,ChatRoomActivity::class.java))
+           }
 
         binding.personHomeIv.setOnClickListener {
             startActivity(Intent(this@MainHomeActivity, AccountActivity::class.java))
@@ -74,16 +78,21 @@ class MainHomeActivity : AppCompatActivity() {
         binding.buyCv.setOnClickListener {
             startActivity(Intent(this@MainHomeActivity, MainActivity::class.java))
         }
-        //     binding.papersCv.setOnClickListener {
-        //        Utils.toast(this@MainHomeActivity,"You clicked on Papers")
-        //    }
+
         binding.mathLecturesCv.setOnClickListener {
             Utils.toast(this@MainHomeActivity, "You clicked on Math Lectures")
             startActivity(Intent(this@MainHomeActivity, MathLecturesActivity::class.java))
         }
-        //     binding.noticeBoardCv.setOnClickListener {
-        //        Utils.toast(this@MainHomeActivity,"You clicked on Notice Board")
-        //    }
+
+        binding.noticeCv.setOnClickListener {
+            if (userMode == "USER") {
+                startActivity(Intent(this, NoticeActivity::class.java))
+            } else {
+                startActivity(Intent(this@MainHomeActivity, NoticeAdminActivity::class.java))
+            }
+            }
+
+
         binding.accountCv.setOnClickListener {
             startActivity(Intent(this@MainHomeActivity, AccountActivity::class.java))
         }
@@ -96,6 +105,9 @@ class MainHomeActivity : AppCompatActivity() {
         binding.aboutUsCv.setOnClickListener {
             startActivity(Intent(this@MainHomeActivity, AboutUsActivity::class.java))
 
+        }
+        binding.galleryCv.setOnClickListener {
+            startActivity(Intent(this@MainHomeActivity,GalleryActivity::class.java))
         }
 
 
@@ -130,7 +142,7 @@ class MainHomeActivity : AppCompatActivity() {
         })
     }
 
-    fun showsplash() {
+   private fun showsplash() {
         val dialog =
             Dialog(this@MainHomeActivity, android.R.style.Theme_Light_NoTitleBar_Fullscreen)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)

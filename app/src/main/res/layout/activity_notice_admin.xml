@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoticeBoard.activities.NoticeAdminActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@drawable/shape_toolbar01">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:padding="7dp"
+            android:src="@drawable/ic_back_white" />
+
+        <ImageView
+            android:id="@+id/logoIv"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_below="@+id/backBtn"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logobooks" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logoIv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:fontFamily="sans-serif-condensed"
+            android:scrollbarSize="28sp"
+            android:text="Add Notice"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarRl"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:id="@+id/titleTv"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Enter Notice Title:" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/noticeTil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleTv"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/noticeEt"
+                style="@style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_edittext"
+                android:drawableStart="@drawable/ic_book"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/colorGray01"
+                android:hint="Notice Title"
+                android:inputType="textPersonName|textCapSentences"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/colorGray01" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/descriptionTil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noticeTil"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/descriptionEt"
+                style="@style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_edittext"
+                android:drawableStart="@drawable/ic_book"
+                android:drawablePadding="10dp"
+                android:hint="Notice Description"
+                android:inputType="textPersonName|textCapWords"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/colorGray01" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/addIvTv"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descriptionTil"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:text="Add Image:" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageIv"
+            style="@style/ImageStyle_CornerRounded"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/addIvTv"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_image_gray" />
+
+        <ImageButton
+            android:id="@+id/closeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addIvTv"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:src="@drawable/ic_close_red" />
+
+        <Button
+            android:id="@+id/ImagePickBtn"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_below="@+id/addIvTv"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="26dp"
+            android:layout_toStartOf="@+id/imageIv"
+            android:background="@drawable/shape_button01"
+            android:text="Select Book Image"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_add_photo_white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/publishNoticeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageIv"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/shape_button01"
+            android:text="Publish Notice"
+            app:icon="@drawable/ic_book" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -9,7 +9,7 @@ class ModelChat {
     var message:String = ""
     var fromUid:String = ""
     var toUid: String = ""
-    var timeStamp:Long=0
+    var timestamp:Long=0
 
     constructor()
     constructor(
@@ -18,14 +18,14 @@ class ModelChat {
         message: String,
         fromUid: String,
         toUid: String,
-        timeStamp: Long
+        timestamp: Long
     ) {
         this.messageId = messageId
         this.messageType = messageType
         this.message = message
         this.fromUid = fromUid
         this.toUid = toUid
-        this.timeStamp = timeStamp
+        this.timestamp = timestamp
     }
 
 

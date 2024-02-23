@@ -289,6 +289,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:paddingBottom="5dp"
         android:background="@color/design_default_color_primary"
         android:orientation="horizontal">
 
@@ -314,16 +315,7 @@
             android:textColor="@color/white"
             android:textSize="10sp" />
 
-        <Button
-            android:id="@+id/favouriteBtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/design_default_color_primary"
-            android:drawableTop="@drawable/ic_fav_no_white"
-            android:text="Add to Favourite"
-            android:textColor="@color/white"
-            android:textSize="10sp" />
+
 
 
     </LinearLayout>

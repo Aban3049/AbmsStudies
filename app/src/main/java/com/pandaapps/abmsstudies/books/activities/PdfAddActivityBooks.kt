@@ -142,7 +142,19 @@ class PdfAddActivityBooks : AppCompatActivity() {
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
             )
-        } else {
+        }
+        else if(imageUri ==null){
+            MotionToast.createColorToast(
+                this@PdfAddActivityBooks,
+                "Warning",
+                "Pick Image",
+                MotionToastStyle.WARNING,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
+            )
+        }
+        else {
             //data validate begin upload
             uploadBookImageToStorage()
             uploadPdfToStorage()

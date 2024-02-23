@@ -103,7 +103,7 @@ class AdapterChats : RecyclerView.Adapter<AdapterChats.HolderChats>,Filterable {
                         val message = "${ds.child("message").value}"
                         val messageId = "${ds.child("messageId").value}"
                         val messageType = "${ds.child("messageType").value}"
-                        val timestamp = ds.child("timestamp").value as Long ?:0
+                        val timestamp = ds.child("timestamp").value as Long
                         val toUid = "${ds.child("toUid").value}"
                         
                         val formattedDate = Utils.formatTimestampDate(timestamp)

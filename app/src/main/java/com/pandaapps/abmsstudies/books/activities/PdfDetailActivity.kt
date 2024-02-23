@@ -48,7 +48,7 @@ class PdfDetailActivity : AppCompatActivity() {
     private var bookTitle = ""
     private var bookUrl = ""
     private var bookImageUrl = ""
-    private var favourites = false
+//    private var favourites = false
 
     private lateinit var progressDialog: ProgressDialog
     private lateinit var firebaseAuth: FirebaseAuth
@@ -67,9 +67,9 @@ class PdfDetailActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        if (firebaseAuth.currentUser != null) {
-            checkIsFavorite()
-        }
+//        if (firebaseAuth.currentUser != null) {
+//            checkIsFavorite()
+//        }
 
         bookId = intent.getStringExtra("bookId")!!
 
@@ -111,30 +111,30 @@ class PdfDetailActivity : AppCompatActivity() {
             }
         }
 
-        binding.favouriteBtn.setOnClickListener {
-            if (firebaseAuth.currentUser == null) {
-                MotionToast.createColorToast(
-                    this,
-                    "Failed",
-                    "Log In Required",
-                    MotionToastStyle.WARNING,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.LONG_DURATION,
-                    ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helvetica_regular)
-                )
-            }
-            else {
-
-                if (favourites){
-                    //already in favourite remove on clicked
-                    removeFromFavourite(bookId)
-                }
-                else{
-                    addToFavourite(bookId)
-                }
-
-            }
-        }
+//        binding.favouriteBtn.setOnClickListener {
+//            if (firebaseAuth.currentUser == null) {
+//                MotionToast.createColorToast(
+//                    this,
+//                    "Failed",
+//                    "Log In Required",
+//                    MotionToastStyle.WARNING,
+//                    MotionToast.GRAVITY_BOTTOM,
+//                    MotionToast.LONG_DURATION,
+//                    ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helvetica_regular)
+//                )
+//            }
+//            else {
+//
+//                if (favourites){
+//                    //already in favourite remove on clicked
+//                    removeFromFavourite(bookId)
+//                }
+//                else{
+//                    addToFavourite(bookId)
+//                }
+//
+//            }
+//        }
 
         //handle click show comment dialog
         binding.addCommentBtn.setOnClickListener {
@@ -457,79 +457,82 @@ class PdfDetailActivity : AppCompatActivity() {
 
     }
 
-    private fun checkIsFavorite() {
-        Log.d(TAG, "checkIsFavorite")
-        //Db path to check if Ad is in Favourite of Current user
-        val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child("${firebaseAuth.uid}").child("FavouriteBooks").child(bookId)
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    favourites = snapshot.exists()
-                    Log.d(TAG, "onDataChange: favorite: $favourites")
+//    private fun checkIsFavorite() {
+//        Log.d(TAG, "checkIsFavorite")
+//        //Db path to check if Ad is in Favourite of Current user
+//        val ref = FirebaseDatabase.getInstance().getReference("Users")
+//        ref.child("${firebaseAuth.uid}").child("FavouriteBooks").child(bookId)
+//            .addValueEventListener(object : ValueEventListener {
+//                override fun onDataChange(snapshot: DataSnapshot) {
+//                    favourites = snapshot.exists()
+//                    Log.d(TAG, "onDataChange: favorite: $favourites")
+//
+//                    if (favourites) {
+//                        binding.favouriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(
+//                            0,
+//                            R.drawable.ic_fav_yes_white,
+//                            0,
+//                            0
+//                        )
+//                    }
+//                        else{
+//                            binding.favouriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(
+//                                0,
+//                                R.drawable.ic_fav_yes_white,
+//                                0,
+//                                0
+//                            )
+//
+//                        binding.favouriteBtn.text = "Add to Favourite"
+//                    }
+//                }
+//
+//                override fun onCancelled(error: DatabaseError) {
+//
+//                }
+//            })
+//    }
 
-                    if (favourites) {
-                        binding.favouriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                            0,
-                            R.drawable.ic_fav_yes_white,
-                            0,
-                            0
-                        )
-                    } else {
-                        binding.favouriteBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                            0,
-                            R.drawable.ic_fav_no_white,
-                            0,
-                            0
-                        )
-                    }
-                }
+//   private fun addToFavourite(bookId: String) {
+//        val firebaseAuth = FirebaseAuth.getInstance()
+//        if (firebaseAuth.currentUser == null) {
+//            Utils.toast(this, "Your are not logged in!")
+//        } else {
+//
+//            val timestamp = Utils.getTimestamp()
+//
+//            val hashMap = HashMap<String, Any>()
+//            hashMap["bookId"] = bookId
+//            hashMap["timestamp"] = timestamp
+//
+//            val ref = FirebaseDatabase.getInstance().getReference("Users")
+//            ref.child(firebaseAuth.uid!!).child("FavouriteBooks").child(bookId)
+//                .setValue(hashMap)
+//                .addOnSuccessListener {
+//                    Utils.toast(this, "Added to favourite...")
+//                }.addOnFailureListener { e ->
+//                    Utils.toast(this, "Failed to add to favourite due to ${e.message}")
+//                }
+//        }
+//    }
 
-                override fun onCancelled(error: DatabaseError) {
-
-                }
-            })
-    }
-
-   private fun addToFavourite(bookId: String) {
-        val firebaseAuth = FirebaseAuth.getInstance()
-        if (firebaseAuth.currentUser == null) {
-            Utils.toast(this, "Your are not logged in!")
-        } else {
-
-            val timestamp = Utils.getTimestamp()
-
-            val hashMap = HashMap<String, Any>()
-            hashMap["bookId"] = bookId
-            hashMap["timestamp"] = timestamp
-
-            val ref = FirebaseDatabase.getInstance().getReference("Users")
-            ref.child(firebaseAuth.uid!!).child("FavouriteBooks").child(bookId)
-                .setValue(hashMap)
-                .addOnSuccessListener {
-                    Utils.toast(this, "Added to favourite...")
-                }.addOnFailureListener { e ->
-                    Utils.toast(this, "Failed to add to favourite due to ${e.message}")
-                }
-        }
-    }
-
-   private fun removeFromFavourite(bookId: String) {
-
-        val firebaseAuth = FirebaseAuth.getInstance()
-        if (firebaseAuth.currentUser == null) {
-
-            Utils.toast(this, "You are not logged-in!")
-        } else {
-            val ref = FirebaseDatabase.getInstance().getReference("Users")
-            ref.child(firebaseAuth.uid!!).child("FavouriteBooks").child(bookId)
-                .removeValue()
-                .addOnSuccessListener {
-
-                    Utils.toast(this, "Removed from favourite!")
-                }.addOnFailureListener { e ->
-                    Utils.toast(this, "Failed to remove from Favourite due to ${e.message}")
-                }
-        }
-    }
+//   private fun removeFromFavourite(bookId: String) {
+//
+//        val firebaseAuth = FirebaseAuth.getInstance()
+//        if (firebaseAuth.currentUser == null) {
+//
+//            Utils.toast(this, "You are not logged-in!")
+//        } else {
+//            val ref = FirebaseDatabase.getInstance().getReference("Users")
+//            ref.child(firebaseAuth.uid!!).child("FavouriteBooks").child(bookId)
+//                .removeValue()
+//                .addOnSuccessListener {
+//
+//                    Utils.toast(this, "Removed from favourite!")
+//                }.addOnFailureListener { e ->
+//                    Utils.toast(this, "Failed to remove from Favourite due to ${e.message}")
+//                }
+//        }
+//    }
 
 }

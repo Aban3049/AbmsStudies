@@ -32,12 +32,6 @@ class FeesSlipActivity : AppCompatActivity(), Communicator {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        binding.downloadBtn.setOnClickListener {
-            Utils.toast(this@FeesSlipActivity, "Btn clicked :")
-
-
-
-        }
 
         showAdmissionNumberFragment()
 

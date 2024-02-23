@@ -24,7 +24,7 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
     private var context: Context
 
     //array list to hold pdfs
-    public var pdfArrayList: ArrayList<ModelBookPdf>
+  var pdfArrayList: ArrayList<ModelBookPdf>
 
     private val filterList: ArrayList<ModelBookPdf>
 

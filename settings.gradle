@@ -12,6 +12,8 @@ dependencyResolutionManagement {
         maven { url 'https://jcenter.bintray.com/' }
         google()
         mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        maven { url "https://oss.sonatype.org/content/repositories/releases" }
 
     }
 }

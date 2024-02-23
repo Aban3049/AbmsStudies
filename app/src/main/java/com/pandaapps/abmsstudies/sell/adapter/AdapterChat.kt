@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.bumptech.glide.Glide
@@ -16,10 +17,8 @@ import com.pandaapps.abmsstudies.Utils
 import com.pandaapps.abmsstudies.sell.model.ModelChat
 import java.util.ArrayList
 
-class AdapterChat : Adapter<AdapterChat.HolderChat> {
-
-    private val context: Context
-    private val charArrayList: ArrayList<ModelChat>
+class AdapterChat(private val context: Context, private val charArrayList: ArrayList<ModelChat>) :
+    Adapter<AdapterChat.HolderChat>() {
 
     private companion object {
         private const val TAG = "ADAPTER_CHAT_TAG"
@@ -33,10 +32,7 @@ class AdapterChat : Adapter<AdapterChat.HolderChat> {
 
     private val firebaseAuth: FirebaseAuth
 
-    constructor(context: Context, charArrayList: ArrayList<ModelChat>) {
-        this.context = context
-        this.charArrayList = charArrayList
-
+    init {
         firebaseAuth = FirebaseAuth.getInstance()
     }
 
@@ -61,11 +57,12 @@ class AdapterChat : Adapter<AdapterChat.HolderChat> {
 
         val message = modelChat.message
         val messageType = modelChat.messageType
-        val timestamp = modelChat.timeStamp
+        val timestamp = modelChat.timestamp
+
 
         val formattedDate = Utils.formatTimestampDateTime(timestamp)
 
-        holder.timeTv.text=formattedDate
+        holder.timeTv.text = formattedDate
 
         if (messageType == Utils.MESSAGE_TYPE_TEXT) {
 
