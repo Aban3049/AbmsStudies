@@ -56,7 +56,6 @@ class BookPdfAdminActivity : AppCompatActivity() {
 
 
         binding.backBtn.setOnClickListener {
-            Toast.makeText(this, "$category $categoryId", Toast.LENGTH_SHORT).show()
             onBackPressedDispatcher.onBackPressed()
         }
 

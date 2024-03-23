@@ -131,8 +131,10 @@ class ImageUploadPreviewActivity : AppCompatActivity() {
 
         message = binding.chatBox.text.toString()
 
-        if (!TextUtils.isEmpty(message)) {
-            message = "\uD83D\uDCF7"
+        message = if (!TextUtils.isEmpty(message)) {
+            binding.chatBox.text.toString()
+        } else{
+            "\uD83D\uDCF7"
         }
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
@@ -154,6 +156,8 @@ class ImageUploadPreviewActivity : AppCompatActivity() {
                     hashMap["messageId"] = messageId
                     hashMap["profileImageUrl"] = profileImageUrl
                     hashMap["chat_image"] = imageUri.toString()
+                    hashMap["chatTime"] =System.currentTimeMillis()
+                    hashMap["uid"] = "${firebaseAuth.currentUser!!.uid}"
 
                     val fireBaseCords = FirebaseCords()
                     fireBaseCords.MAIN_CHAT_DATABASE.document(messageId).set(hashMap)
@@ -193,4 +197,6 @@ class ImageUploadPreviewActivity : AppCompatActivity() {
 
             })
     }
+
+
 }

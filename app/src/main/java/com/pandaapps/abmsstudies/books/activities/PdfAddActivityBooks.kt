@@ -30,9 +30,6 @@ import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
 import com.pandaapps.abmsstudies.databinding.ActivityPdfAddBooksBinding
 import com.pandaapps.abmsstudies.books.model.ModelBooksCategoryAdmin
-import com.pandaapps.abmsstudies.sell.activities.AdCreateActivity
-import com.pandaapps.abmsstudies.sell.adapter.AdapterImagePicked
-import com.pandaapps.abmsstudies.sell.model.ModelImagePicked
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 import java.io.ByteArrayOutputStream
@@ -111,7 +108,7 @@ class PdfAddActivityBooks : AppCompatActivity() {
     }
 
     private var title = ""
-    private var description = ""
+   private var description = ""
     private var category = ""
     private var uploadImageUrl = ""
 

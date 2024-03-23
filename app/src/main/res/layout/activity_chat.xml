@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ChatActivity">
+    tools:context=".sell.activities.ChatActivity">
 
     <RelativeLayout
         android:id="@+id/toolbarRl"
@@ -54,8 +54,8 @@
         android:id="@+id/chatRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/row_chat_right"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_below="@+id/toolbarRl"
         android:layout_above="@+id/view1"/>
 

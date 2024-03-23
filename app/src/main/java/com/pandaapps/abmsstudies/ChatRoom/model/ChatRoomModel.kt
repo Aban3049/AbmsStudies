@@ -9,6 +9,8 @@ class ChatRoomModel {
     var messageId:String = ""
     var profileImageUrl:String = ""
     var chat_image:String = ""
+    var uid:String = ""
+    var chatTime:Long = 0
 
     constructor()
     constructor(
@@ -17,7 +19,9 @@ class ChatRoomModel {
         timestamp: Date,
         messageId: String,
         profileImageUrl: String,
-        chat_image:String
+        chat_image:String,
+        uid:String,
+        chatTime:Long
     ) {
         this.message = message
         this.userName = userName
@@ -25,6 +29,8 @@ class ChatRoomModel {
         this.messageId = messageId
         this.profileImageUrl = profileImageUrl
         this.chat_image = chat_image
+        this.chatTime=chatTime
+        this.uid = uid
     }
 
 

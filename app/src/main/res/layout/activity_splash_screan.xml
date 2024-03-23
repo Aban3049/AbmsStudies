@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activities.SplashScreenActivity">
+    android:orientation="vertical">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
@@ -23,9 +22,9 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/gemsbuckblack_axng"
         android:text="Abms Studies"
-        android:textColor="#000"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="@+id/animationView"
         app:layout_constraintStart_toStartOf="@+id/animationView"
@@ -37,7 +36,6 @@
         android:fontFamily="@font/gemsbuckblack_axng"
         android:text="A better way"
         android:textSize="18sp"
-        android:textColor="#000"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />

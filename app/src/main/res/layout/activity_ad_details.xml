@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.AdDetailsActivity">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/toolbarRl"
@@ -260,7 +259,6 @@
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/optionsLl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -277,6 +275,9 @@
             android:text="Chat"
             app:cornerRadius="8dp"
             app:icon="@drawable/ic_chat_white"
+            app:iconSize="17dp"
+            android:textColor="@color/white"
+            app:iconTint="@color/white"
             android:minHeight="@dimen/m_button_height"/>
 
         <com.google.android.material.button.MaterialButton
@@ -288,6 +289,9 @@
             android:textSize="8sp"
             android:text="CALL"
             app:cornerRadius="8dp"
+            android:textColor="@color/white"
+            app:iconTint="@color/white"
+            app:iconSize="17dp"
             app:icon="@drawable/ic_call_white"
             android:minHeight="@dimen/m_button_height"/>
 
@@ -300,6 +304,9 @@
             android:textSize="8sp"
             android:text="Sms"
             app:cornerRadius="8dp"
+            android:textColor="@color/white"
+            app:iconTint="@color/white"
+            app:iconSize="17dp"
             app:icon="@drawable/ic_sms_white"
             android:minHeight="@dimen/m_button_height"/>
 
@@ -312,6 +319,9 @@
             android:textSize="8sp"
             android:text="Map"
             app:cornerRadius="8dp"
+            android:textColor="@color/white"
+            app:iconTint="@color/white"
+            app:iconSize="17dp"
             app:icon="@drawable/ic_location_white"
             android:minHeight="@dimen/m_button_height"/>
 

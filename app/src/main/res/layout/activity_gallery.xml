@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gallery.GalleryActivity">
+    android:background="@color/white"
+    tools:context=".gallery.activities.GalleryActivity">
 
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="55dp"
+        android:background="@color/white">
 
         <ImageButton
             android:id="@+id/toolbarBackBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"
+            android:src="@drawable/ic_back_black"
             android:padding="10dp"
             android:layout_centerVertical="true"
             android:contentDescription="@string/back_btn"
@@ -29,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gallery"
+            android:textColor="@color/black"
             android:layout_centerInParent="true"
             style="@style/TextAppearance.MaterialComponents.Body1"/>
 
@@ -41,4 +41,53 @@
     </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/fragmentsFl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarRl"
+        android:layout_above="@+id/btnLl"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/btnLl"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="6dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/pictureBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:cornerRadius="4dp"
+            android:layout_marginEnd="5dp"
+            app:icon="@drawable/imagegallery"
+            android:text="Images"
+            android:backgroundTint="@color/dark_blue"
+            app:iconTint="@color/white"
+            android:textColor="@color/white"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/videoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            app:icon="@drawable/video"
+            app:iconTint="@color/white"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/dark_blue"
+            android:text="Videos"
+            app:cornerRadius="4dp"/>
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

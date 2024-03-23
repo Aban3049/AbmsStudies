@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".sell.fragments.HomeFragment">
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/locationCv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             android:drawableEnd="@drawable/ic_next_gray"
             android:text="Choose Location"/>
 
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
 
     <!-- Search Ads -->
     <com.google.android.material.card.MaterialCardView

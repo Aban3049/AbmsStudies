@@ -7,7 +7,10 @@
     <string name="bottom_menu_account">Account</string>
     <string name="sell_Fab_description">Sell btn</string>
     <string name="Scroll_view_LogIn">LogIN Scroll</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_phone">Continue with Phone</string>
+    <string name="continue_with_email">Continue with Email</string>
+    <string name="continue_with_guest">Continue with Guest</string>
     <string name="not_have_account">Not have Account? <b>Register</b></string>
     <string name="already_have_account">Already have Account <b>LogIn</b></string>
     <string name="register_btn">Register</string>
@@ -23,32 +26,6 @@
     <string name="mission_thisApp_text">The purpose of this App is to provide students of <b>CTTI</b> to have an easy access to <b>fees slip,Books , Past Papers ,Math Video Lectures</b>.Providing students a platform to <b>sell and purchase books</b>.Providing students of all departments a <b>collaborative chat System</b> platform to discuss their thoughts and Matters.<b>Notice Board</b> for Instant notices via notifications</string>
 
     <string name="about_thisApp_text">This App is developed by <b>Abms Group</b>.As final Year Project To facilitate the Students of <b>CTTI</b>.If you have any <b>suggestions</b>, questions or Issues regarding this App.You can Contact Us</string>
-    <string name="sign_up_already">Already have an Account? Log In</string>
 
-
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="name">Name</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="signup_line">Start turning your ideas into reality.</string>
-    <string name="sugnup_btn">Get started</string>
-    <string name="chkbox_txt">I agree with</string>
-    <string name="chkboxtxt2">Terms</string>
-    <string name="chkboxtxt3">and</string>
-    <string name="chkboxtxt4">Privacy</string>
-    <string name="sigup_alreadttxt">Already have an account?</string>
-    <string name="signup_logintxt">Log In</string>
-    <string name="or">or</string>
-    <string name="login">Log in</string>
-    <string name="login_chkbox">Remember me</string>
-    <string name="login_btn">Log in</string>
-    <string name="signup_txt">Sign up</string>
-    <string name="facebook">facebook logo</string>
-    <string name="apple">apple logo</string>
-    <string name="google">Google logo</string>
-    <string name="twitter">Twitter logo</string>
-    <string name="guest_user">Continue as Guest user</string>
-    <string name="hello">Welcome,</string>
-    <string name="username">UserName</string>
 
 </resources>

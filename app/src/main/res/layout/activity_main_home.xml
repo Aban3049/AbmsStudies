@@ -1,601 +1,526 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".sell.activities.MainActivity">
 
-    <View
-
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/bgdashboard">
-
-    </View>
-
-    <RelativeLayout
-        android:id="@+id/mainHomeToolbarRl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/homeToolbarCv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:elevation="10dp"
-            app:cardCornerRadius="2dp"
-            app:cardElevation="10dp">
-
-            <RelativeLayout
-                android:id="@+id/homeToolbarRl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/welcomeTv"
-                    style="@style/TextAppearance.MaterialComponents.Body2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="4dp"
-                    android:text="Welcome,"
-                    android:textSize="19sp" />
-
-                <TextView
-                    android:id="@+id/nameTv"
-                    style="@style/TextAppearance.MaterialComponents.Body2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="4dp"
-                    android:layout_toEndOf="@+id/welcomeTv"
-                    android:text="User"
-                    android:textSize="19sp" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/personHomeIv"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@color/colorGray02"
-                    android:scaleType="centerCrop"
-                    tools:src="@tools:sample/avatars"
-                    android:src="@drawable/ic_person_white"
-                    app:shapeAppearanceOverlay="@style/ImageStyle_circle" />
-
-
-            </RelativeLayout>
-
-
-        </androidx.cardview.widget.CardView>
+        android:layout_height="match_parent"
+        tools:context=".sell.activities.MainActivity">
 
         <View
 
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignBottom="@+id/homeToolbarCv"
-            android:background="@color/black">
+            android:layout_height="200dp"
+            android:background="@drawable/bgdashboard">
 
         </View>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/mainHomeToolbarRl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/bgDash"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/mainHomeToolbarRl" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/bgDash"
-        android:contentDescription="hello">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/homeToolbarCv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="10dp">
 
-        <GridLayout
-            android:id="@+id/topView"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/welcomeTv"
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="4dp"
+                        android:text="Welcome,"
+                        android:textSize="19sp" />
+
+                    <TextView
+                        android:id="@+id/nameTv"
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="4dp"
+                        android:layout_toEndOf="@+id/welcomeTv"
+                        android:text="User"
+                        android:textSize="19sp" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/personHomeIv"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/colorGray02"
+                        android:scaleType="centerCrop"
+                        tools:src="@tools:sample/avatars"
+                        android:src="@drawable/ic_person_white"
+                        app:shapeAppearanceOverlay="@style/ImageStyle_circle" />
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignBottom="@+id/homeToolbarCv"
+                android:background="@color/black">
+
+            </View>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/bgDash"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/mainHomeToolbarRl" />
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="25dp"
-            android:columnCount="2"
-            android:rowCount="7"
-            tools:ignore="ExtraText">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/feesCv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="1"
-                android:layout_rowWeight="1"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/receipt" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Fees"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="2"
-                android:layout_rowWeight="1"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/paper" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Papers"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/chatRoomCv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="1"
-                android:layout_rowWeight="1"
-                android:layout_column="0"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/chaat" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Chat Room"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/buyCv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="2"
-                android:layout_rowWeight="1"
-                android:layout_column="0"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/cart" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Buy"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="0"
-                android:layout_rowWeight="1"
-                android:layout_column="0"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/baseline_home_24" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Home"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-
-                android:id="@+id/books"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="0"
-                android:layout_rowWeight="1"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="81dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/openboo" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Books"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/noticeCv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="4"
-                android:layout_rowWeight="1"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="81dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/notice" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Notices"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/mathLecturesCv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="4"
-                android:layout_rowWeight="1"
-                android:layout_column="0"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="81dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/teaching" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Math Lectures"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/galleryCv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="5"
-                android:layout_rowWeight="1"
-                android:layout_column="0"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="81dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/imagegallery" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Gallery"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/accountCv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="5"
-                android:layout_rowWeight="1"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="81dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/account" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Account"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/logoutCv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="6"
-                android:layout_rowWeight="1"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="81dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_logout_black" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Log Out"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/aboutUsCv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="6"
-                android:layout_rowWeight="1"
-                android:layout_column="0"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="12dp"
-                android:padding="12dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="81dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/informationbutton" />
-
-                    <TextView
-                        style="@style/TextAppearance.MaterialComponents.Body2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="About Us"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
-        </GridLayout>
-    </ScrollView>
-
-
-
-</RelativeLayout>
+            android:layout_below="@id/bgDash"
+            android:contentDescription="hello">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="25dp"
+                android:columnCount="2"
+                android:rowCount="6"
+                tools:ignore="ExtraText">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/paperCv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/paper" />
+
+                        <TextView
+                            style="@style/TextAppearance.MaterialComponents.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Papers"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/chatRoomCv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/chaat" />
+
+                        <TextView
+                            style="@style/TextAppearance.MaterialComponents.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Chat Room"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/buyCv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/cart" />
+
+                        <TextView
+                            style="@style/TextAppearance.MaterialComponents.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Buy"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+
+                    android:id="@+id/books"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="81dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/openboo" />
+
+                        <TextView
+                            style="@style/TextAppearance.MaterialComponents.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Books"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/noticeCv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/notice" />
+
+                        <TextView
+                            style="@style/TextAppearance.MaterialComponents.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Notices"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/mathLecturesCv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/teaching" />
+
+                        <TextView
+                            style="@style/TextAppearance.MaterialComponents.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Math Lectures"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/galleryCv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="81dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/imagegallery" />
+
+                        <TextView
+                            style="@style/TextAppearance.MaterialComponents.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Gallery"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/accountCv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="81dp"
+                            android:layout_height="75dp"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/account" />
+
+                        <TextView
+                            style="@style/TextAppearance.MaterialComponents.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Account"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/logoutCv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="5"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="81dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/logout" />
+
+                        <TextView
+                            style="@style/TextAppearance.MaterialComponents.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Log Out"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/aboutUsCv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="5"
+                    android:layout_rowWeight="2"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:padding="12dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="81dp"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/informationbutton" />
+
+                        <TextView
+                            style="@style/TextAppearance.MaterialComponents.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="About Us"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </GridLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
 

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".papers.activities.PaperDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/shape_toolbar02">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back_white" />
+
+        <TextView
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Paper Detail"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_below="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/pdfRl"
+            android:layout_width="110dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="5dp">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/booksImageIv"
+                style="@style/ImageStyle_CornerRounded"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@color/colorGray02"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_image_gray" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/titleTv"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/pdfRl"
+            android:text="Book Title"
+            android:textColor="@color/black" />
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleTv"
+            android:layout_toEndOf="@+id/pdfRl">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/categoryLabelTv"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="Category"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/categoryTv"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:text="N/A"
+                    android:textColor="@color/black" />
+
+            </TableRow>
+
+
+            <TableRow android:layout_marginTop="5dp">
+
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="Date"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/dateTv"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:text="N/A"
+                    android:textColor="@color/black" />
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="5dp">
+
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="Size"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/sizeTv"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:text="N/A"
+                    android:textColor="@color/black" />
+
+            </TableRow>
+
+
+
+            <TableRow android:layout_marginTop="5dp">
+
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="Pages"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:text="N/A"
+                    android:textColor="@color/black" />
+
+            </TableRow>
+
+
+        </TableLayout>
+
+
+    </RelativeLayout>
+
+
+
+    <!-- View seprate -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray03"
+        android:layout_marginTop="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/booOptionsLl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="5dp"
+        android:background="@color/design_default_color_primary"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/readBookBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/design_default_color_primary"
+            android:drawableTop="@drawable/ic_book_white"
+            android:text="Read"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/downloadBookBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/design_default_color_primary"
+            android:drawableTop="@drawable/ic_download_white"
+            android:text="Download"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

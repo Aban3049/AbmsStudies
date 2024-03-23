@@ -4,186 +4,199 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoginPhone">
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="8dp">
 
-    <RelativeLayout
+    <!-- App Name/Logo -->
+    <ImageView
+        android:id="@+id/logoIv"
+        android:layout_width="200dp"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        app:tintMode="src_in" />
+
+    <ImageButton
+        android:id="@+id/ToolbarBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/back_btn"
+        android:padding="10dp"
+        android:src="@drawable/ic_back_black" />
+
+
+    <!-- Email Input -->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/m_toolbar_height"
-        android:id="@+id/toolbarRl">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ToolbarBackBtn"
-            android:contentDescription="@string/back_btn"
-            android:src="@drawable/ic_back"
-            android:background="@android:color/transparent"
-            android:padding="10dp"
-            android:layout_centerVertical="true"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Phone Login"
-            style="@style/TextAppearance.MaterialComponents.Body1"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorGray02"
-            android:layout_alignParentBottom="true"/>
-
-</RelativeLayout>
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbarRl"
-        android:padding="10dp">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:id="@+id/profileIv"
-            android:src="@drawable/ic_phone_white"
-            app:contentPadding="10dp"
-            android:layout_centerHorizontal="true"
-            app:shapeAppearanceOverlay="@style/ImageStyle_circle"
-            android:background="@color/colorGray01"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/LogInLabelTv"
-            android:text="Login To Your Account"
-            android:layout_below="@id/profileIv"
-            style="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"/>
-
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logoIv"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#FFFEFE"
+        android:elevation="16dp"
+        app:cardCornerRadius="12dp">
 
         <RelativeLayout
-            android:id="@+id/phoneInputRl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/LogInLabelTv"
-            android:layout_marginTop="10dp"
-            android:visibility="visible">
+            android:layout_height="match_parent"
+            android:padding="10dp">
 
-            <com.hbb20.CountryCodePicker
-                android:id="@+id/phoneCodeTil"
+            <TextView
+                android:id="@+id/LogInLabelTv"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="8dp"
-                android:gravity="center"
-                android:minWidth="60dp"
-                android:minHeight="56dp"
-                app:ccp_autoDetectCountry="true"
-                app:ccp_contentColor="@color/colorGray01"
-                app:ccp_rememberLastSelection="true"
-                app:ccp_showFlag="false"
-                app:ccp_showNameCode="false" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Login to Your Account"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phoneNumberTil"
+
+            <RelativeLayout
+                android:id="@+id/phoneInputRl"
                 android:layout_width="match_parent"
-                android:hint="Phone Number"
                 android:layout_height="wrap_content"
-                app:boxCornerRadiusBottomEnd="8dp"
-                app:boxCornerRadiusTopEnd="8dp"
-                app:boxCornerRadiusBottomStart="8dp"
-                app:boxCornerRadiusTopStart="8dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_toEndOf="@id/phoneCodeTil">
+                android:layout_below="@id/LogInLabelTv"
+                android:layout_marginTop="10dp"
+                android:visibility="visible">
 
-                <EditText
-                    android:id="@+id/phoneNumber"
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/phoneCodeTil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:minWidth="60dp"
+                    android:minHeight="56dp"
+                    app:ccp_autoDetectCountry="true"
+                    app:ccp_contentColor="@color/colorGray01"
+                    app:ccp_rememberLastSelection="true"
+                    app:ccp_showFlag="false"
+                    app:ccp_showNameCode="false" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phoneNumberTil"
+                    style="@style/CustomTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone"
-                    />
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="9dp"
+                    android:layout_toEndOf="@id/phoneCodeTil"
+                    android:hint="Phone Number"
+                    android:textColorHint="@color/black"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxStrokeColor="@color/black"
+                    app:startIconDrawable="@drawable/ic_phone_gray"
+                    app:startIconTint="@color/black">
+
+                    <EditText
+                        android:id="@+id/phoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:textColor="@color/black"/>
 
 
-            </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-<com.google.android.material.button.MaterialButton
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/m_button_height"
-    android:id="@+id/sendOtpBtn"
-    android:layout_below="@id/phoneNumberTil"
-    android:layout_marginTop="10dp"
-    app:cornerRadius="8dp"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sendOtpBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/phoneNumberTil"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="9dp"
+                    android:text="Send Otp"
+                    app:cornerRadius="8dp"
+                    android:textColor="@color/white"/>
 
-            android:text="Send Otp"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/otpInputRl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/LogInLabelTv"
+                android:layout_marginTop="15dp"
+                android:visibility="invisible">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/otpTil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter OTP"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="9dp"
+                    android:textColorHint="@color/black"
+                    style="@style/CustomTextInputLayout"
+                    app:startIconDrawable="@drawable/ic_verify_gray"
+                    app:startIconTint="@color/black"
+                    app:boxStrokeColor="@color/black"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp">
+
+                    <EditText
+                        android:id="@+id/otpEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:textColor="@color/black"/>
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/verifyOtpBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/otpTil"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="9dp"
+                    android:textColor="@color/white"
+                    android:text="Verify"
+                    app:cornerRadius="8dp" />
+
+
+                <TextView
+                    android:id="@+id/resendOtpTv"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/verifyOtpBtn"
+                    android:layout_centerHorizontal="true"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:text="@string/did_t_receive_otp_resend" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/otpInputRl"
-            android:visibility="invisible"
-            android:layout_marginTop="15dp"
-            android:layout_below="@id/LogInLabelTv"
-            >
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/otpTil"
-                android:layout_width="match_parent"
-                android:hint="Enter OTP"
-                android:layout_height="wrap_content"
-                app:boxCornerRadiusBottomEnd="8dp"
-                app:boxCornerRadiusTopEnd="8dp"
-                app:boxCornerRadiusBottomStart="8dp"
-                app:boxCornerRadiusTopStart="8dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
-
-                <EditText
-                    android:id="@+id/otpEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:maxLength="6"
-                    />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/m_button_height"
-                android:id="@+id/verifyOtpBtn"
-                app:cornerRadius="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/otpTil"
-                android:text="Verify"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/resendOtpTv"
-                android:text="@string/did_t_receive_otp_resend"
-                android:layout_below="@id/verifyOtpBtn"
-                android:padding="5dp"
-                android:layout_centerHorizontal="true"
-                style="@style/TextAppearance.MaterialComponents.Caption"
-                />
-
-    </RelativeLayout>
-
-
-
-    </RelativeLayout>
-
-
-
-
-
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
+
+
+
+
+

@@ -20,6 +20,7 @@ import java.util.ArrayList
 class AdapterChat(private val context: Context, private val charArrayList: ArrayList<ModelChat>) :
     Adapter<AdapterChat.HolderChat>() {
 
+
     private companion object {
         private const val TAG = "ADAPTER_CHAT_TAG"
 
@@ -30,11 +31,13 @@ class AdapterChat(private val context: Context, private val charArrayList: Array
 
     }
 
+
     private val firebaseAuth: FirebaseAuth
 
     init {
         firebaseAuth = FirebaseAuth.getInstance()
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderChat {
         if (viewType == MSG_TYPE_RIGHT) {

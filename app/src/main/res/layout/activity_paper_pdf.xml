@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".papers.activities.PaperPdfActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m_toolbar_height"
+        android:id="@+id/toolbarRl"
+        android:layout_marginBottom="10dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/backBtn"
+            android:src="@drawable/ic_back"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:contentDescription="@string/back_btn"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:id="@+id/toolbarTitleTv"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Papers" />
+
+        <TextView
+            android:id="@+id/subTitleTv"
+            android:text="Category"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/toolbarTitleTv"
+            android:layout_centerHorizontal="true"
+            style="@style/TextAppearance.MaterialComponents.Caption"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray02"
+            android:layout_alignParentBottom="true"/>
+
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchCv"
+        app:cardCornerRadius="5dp"
+        android:layout_below="@+id/toolbarRl"
+        app:cardUseCompatPadding="true">
+
+        <EditText
+            android:id="@+id/searchEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="10dp"
+            android:drawableStart="@drawable/ic_search_gray"
+            android:drawablePadding="10dp"
+            android:background="@android:color/transparent"
+            android:hint="Search"
+            android:padding="10dp"
+            android:textColorHint="@color/colorGray01" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--Pdf/Book List -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/booksRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/searchCv"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_pdf_paper"/>
+
+</RelativeLayout>

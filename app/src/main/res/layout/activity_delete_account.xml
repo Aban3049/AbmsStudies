@@ -1,86 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.DeleteAccountActivity">
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="8dp">
 
-    <RelativeLayout
-        android:id="@+id/toolbarRl"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/m_toolbar_height"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <!-- App Name/Logo -->
+    <ImageView
+        android:id="@+id/logoIv"
+        android:layout_width="200dp"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        app:tintMode="src_in" />
 
-        <ImageButton
-            android:id="@+id/toolbarBackBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/back_btn"
-            android:src="@drawable/ic_back"
-            android:background="@android:color/transparent"
-            android:padding="10dp"
-            android:layout_centerVertical="true"
-            />
-
-        <TextView
-            android:id="@+id/toolbarTitleTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            style="@style/TextAppearance.MaterialComponents.Body1"
-            android:text="Delete Account"/>
-
-<View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:layout_alignParentBottom="true"
-    android:background="@color/colorGray02"/>
+    <ImageButton
+        android:id="@+id/toolbarBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/back_btn"
+        android:padding="10dp"
+        android:src="@drawable/ic_back_black" />
 
 
-    </RelativeLayout>
+    <!-- Email Input -->
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarRl">
+        android:layout_below="@+id/logoIv"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#FFFEFE"
+        android:elevation="16dp"
+        app:cardCornerRadius="12dp">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/profileIv"
-            style="@style/ImageStyle_circle"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorGray01"
-            android:src="@drawable/ic_person_white" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
 
-        <TextView
-            android:id="@+id/labelTv"
-            style="@style/TextAppearance.MaterialComponents.Caption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/profileIv"
-            android:layout_marginTop="10dp"
-            android:text="Are you sure you want to delete your Account?You will lost all your data and Ads. "
-            android:textAlignment="center"
-            android:textStyle="bold" />
-<com.google.android.material.button.MaterialButton
-    android:id="@+id/deleteAccountBtn"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:minHeight="@dimen/m_button_height"
-    android:layout_below="@+id/labelTv"
-    android:text=" Confirm Delete Account"
-    app:icon="@drawable/ic_block_gray"
-    android:layout_marginTop="18dp"
-    app:cornerRadius="8dp"/>
+            <TextView
+                android:id="@+id/labelTv"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Are you sure you want to delete your Account?You will lost all your data"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/deleteAccountBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/labelTv"
+                android:layout_marginTop="18dp"
+                android:minHeight="55dp"
+                android:text=" Confirm Delete Account"
+                android:textColor="@color/white"
+                app:iconTint="@color/white"
+                app:cornerRadius="8dp"
+                app:icon="@drawable/ic_block_gray" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

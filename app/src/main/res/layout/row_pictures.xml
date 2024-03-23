@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="2dp"
+    app:contentPadding="10dp"
+    android:backgroundTint="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- User Info Section -->
+        <LinearLayout
+            android:id="@+id/infoLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- User Profile Section -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/personIv"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@color/colorGray01"
+                    android:src="@drawable/ic_person_black"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/ImageStyle_circle" />
+
+                <TextView
+                    android:id="@+id/userNameTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleTv"
+                    android:layout_marginStart="15dp"
+                    android:textColor="@color/black"
+                    android:layout_toEndOf="@id/personIv"
+                    android:text="Full Name" />
+
+                <!-- More Options Button -->
+                <ImageButton
+                    android:id="@+id/moreBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_more_blac"
+                app:tint="@color/black"/>
+
+                <TextView
+                    android:id="@+id/publishDateTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/moreBtn"
+                    android:textColor="@color/black"
+                    android:layout_alignParentEnd="true"
+                    android:text="dd/MM/yyyy" />
+
+                <TextView
+                    android:id="@+id/titleTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#college"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="10dp"
+                    style="@style/TextAppearance.Material3.ActionBar.Subtitle"
+                    android:layout_toEndOf="@+id/personIv"/>
+
+            </RelativeLayout>
+
+            <!-- Publish Date Section -->
+
+
+        </LinearLayout>
+
+        <!-- Picture Section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_below="@id/infoLl"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/pictureImageIv"
+                style="@style/ImageStyle_CornerRounded"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@color/white"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_image_gray" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+

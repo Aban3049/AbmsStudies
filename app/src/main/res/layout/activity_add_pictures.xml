@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".gallery.activities.AddPicturesActivity"
+    android:background="@drawable/back01">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/shape_toolbar01">
+
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:src="@drawable/ic_back_white" />
+
+        <ImageView
+            android:id="@+id/iconIv"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_below="@+id/backBtn"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/picture" />
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iconIv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Add Pictures"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+
+
+    </RelativeLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titleTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="228dp"
+        app:hintEnabled="false">
+
+        <EditText
+            android:id="@+id/titleEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_edittext01"
+            android:drawableStart="@drawable/ic_image_gray"
+            android:drawablePadding="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:hint="Add Picture HashTag or Title"
+            android:inputType="textPersonName|textCapWords"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/colorGray01" />
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:id="@+id/imageIv"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/titleTil"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_image_gray"
+        style="@style/ImageStyle_CornerRounded" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ImagePickBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+      android:layout_below="@+id/imageIv"
+        android:src="@drawable/ic_add_white"
+        app:backgroundTint="@color/teal_200"
+        app:tint="@color/white"
+        app:cornerRadius="8dp" />
+
+    <ImageButton
+        android:id="@+id/closeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"
+        android:padding="10dp"
+        android:layout_below="@+id/titleTil"
+        android:layout_marginEnd="60dp"
+        android:src="@drawable/ic_close_red" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Publish Image"
+        app:cornerRadius="8dp"
+        android:layout_below="@+id/imageIv"
+        android:layout_toEndOf="@+id/ImagePickBtn"
+        android:textColor="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginTop="8dp"
+        android:minHeight="55dp"/>
+
+
+</RelativeLayout>

@@ -75,14 +75,7 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
         //category Id
         MyApplication.loadCategory(categoryId, holder.categoryTv)
 
-        //we don't need page number here, pass as null
-//        MyApplication.loadPdfFromUrlSinglePage(
-//            pdfUrl,
-//            title,
-//            holder.pdfView,
-//            holder.progressBar,
-//            null
-//        )
+
 
         MyApplication.loadBookImage(imageUrl,holder.progressBar,context,holder.booksIv)
 
@@ -93,6 +86,18 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
         holder.moreBtn.setOnClickListener {
             moreOptionsDialog(model, holder)
         }
+
+
+        //we don't need page number here, pass as null
+//        MyApplication.loadPdfFromUrlSinglePage(
+//            pdfUrl,
+//            title,
+//            holder.pdfView,
+//            holder.progressBar,
+//            null
+//        )
+
+
 
         // handel item click show pdf Detail Activity
         holder.itemView.setOnClickListener {

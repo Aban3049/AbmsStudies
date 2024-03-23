@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.MathLecturesActivity">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/toolbarRl"
@@ -41,7 +40,6 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_below="@id/toolbarRl"
-        android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,7 +52,7 @@
         app:boxCornerRadiusTopStart="8dp">
 
         <Spinner
-            android:id="@+id/spinner_main"
+            android:id="@+id/spinnerMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp" />

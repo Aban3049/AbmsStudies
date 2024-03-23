@@ -78,6 +78,7 @@ class AccountFragment : Fragment() {
             startActivity(Intent(mContext, DeleteAccountActivity::class.java))
         }
 
+
     }
 
     private fun loadMyInfo() {

@@ -14,6 +14,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken
 import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks
 import com.google.firebase.database.FirebaseDatabase
+import com.pandaapps.abmsstudies.MainHomeActivity
 import com.pandaapps.abmsstudies.Utils
 import com.pandaapps.abmsstudies.databinding.ActivityLoginPhoneBinding
 import java.util.concurrent.TimeUnit
@@ -109,6 +110,7 @@ phoneCode=binding.phoneCodeTil.selectedCountryCodeWithPlus
     private fun startPhoneNumberVerification(){
         Log.d(TAG,"startPhoneNumberVerification: ")
         progressDialog.setTitle("Sending OTP to $phoneNumberWithCode")
+        progressDialog.setMessage("Please Wait...")
         progressDialog.show()
         // set phoneAuth options
         val option = PhoneAuthOptions.newBuilder(firebaseAuth) // fireBase Instance
@@ -217,7 +219,7 @@ phoneCode=binding.phoneCodeTil.selectedCountryCodeWithPlus
             else{
                 Log.d(TAG,"signInWithPhoneAuthCredential :Existing User, Logged In")
                 //Existing user Signed In. No need to save user info to firebase ,Start Activity
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, MainHomeActivity::class.java))
                 finishAffinity()
             }
         }
@@ -258,7 +260,7 @@ phoneCode=binding.phoneCodeTil.selectedCountryCodeWithPlus
             .addOnSuccessListener {
                 Log.d(TAG,"updateUserInfoDb: User Info Saved")
                 progressDialog.dismiss()
-                startActivity(Intent(this@LoginPhone, MainActivity::class.java))
+                startActivity(Intent(this@LoginPhone, MainHomeActivity::class.java))
                 finishAffinity()
             }.addOnFailureListener {e ->
             Log.e(TAG,"updateUserInfoDb")

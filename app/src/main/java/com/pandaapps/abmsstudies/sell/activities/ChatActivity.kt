@@ -12,9 +12,10 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.Menu
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.PopupMenu
+import androidx.core.os.HandlerCompat.postDelayed
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -49,7 +50,10 @@ class ChatActivity : AppCompatActivity() {
     private var myUid = ""
     private var myName = ""
 
+    private lateinit var adapterChat: AdapterChat
+
     private lateinit var binding: ActivityChatBinding
+
 
     private lateinit var progressDialog: ProgressDialog
 
@@ -99,24 +103,17 @@ class ChatActivity : AppCompatActivity() {
 
     }
 
+
     private fun loadMyInfo() {
-
         Log.d(TAG, "loadMyInfo: ")
-
         val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child("${firebaseAuth.uid}")
+        ref.child(firebaseAuth.uid!!).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                myName = "${snapshot.child("name").value}"
+            }
 
-            .addValueEventListener(object : ValueEventListener {
-
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    myName = "${snapshot.child("name").value}"
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-
-                }
-
-            })
+            override fun onCancelled(error: DatabaseError) {}
+        })
     }
 
 
@@ -253,8 +250,10 @@ class ChatActivity : AppCompatActivity() {
                             Log.e(TAG, "onDataChange: ", e)
                         }
 
-                        val adapterChat = AdapterChat(this@ChatActivity, messageArrayList)
+
+                        adapterChat = AdapterChat(this@ChatActivity, messageArrayList)
                         binding.chatRv.adapter = adapterChat
+
 
                     }
 
@@ -266,6 +265,7 @@ class ChatActivity : AppCompatActivity() {
             })
 
     }
+
 
     private fun pickImageCamera() {
         Log.d(TAG, "pickImageCamera: ")
@@ -414,9 +414,9 @@ class ChatActivity : AppCompatActivity() {
                 binding.messageEt.setText("")
 
                 // if message type is text show actual message as Notification/description. if message type is image pass "Sent an attachment"
-                if (messageType == Utils.MESSAGE_TYPE_TEXT){
+                if (messageType == Utils.MESSAGE_TYPE_TEXT) {
                     prepareNotification(message)
-                }else{
+                } else {
                     prepareNotification("Sent an attachment")
                 }
 
@@ -469,14 +469,14 @@ class ChatActivity : AppCompatActivity() {
             "https://fcm.googleapis.com/fcm/send",
             notificationJo,
             Response.Listener {
-                              // Notification sent
+                // Notification sent
                 Log.d(TAG, "sendFcmNotification: Notification Send $it")
 
             },
-            Response.ErrorListener {e ->
+            Response.ErrorListener { e ->
 
                 //Notification failed to sent
-                Log.e(TAG, "sendFcmNotification: ",e )
+                Log.e(TAG, "sendFcmNotification: ", e)
 
             }
 

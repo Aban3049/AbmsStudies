@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="2dp"
+    app:contentPadding="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/pdfRl"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="10dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/paperImageIv"
+                style="@style/ImageStyle_CornerRounded"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_image_gray" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="120dp"
+                android:layout_height="match_parent" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/titleTv"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/pdfRl"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Paper Title" />
+
+        <TextView
+            android:id="@+id/categoryTv"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleTv"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@id/pdfRl"
+            android:maxLines="1"
+            android:text="Category with long text" />
+
+        <TextView
+            android:id="@+id/sizeTv"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/categoryTv"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@id/pdfRl"
+            android:maxLines="1"
+            android:text="14 MB" />
+
+        <TextView
+            android:id="@+id/dateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sizeTv"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@id/pdfRl"
+            android:text="dd/MM/yyyy"
+            android:textAlignment="center" />
+
+        <ImageButton
+            android:id="@+id/moreBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:src="@drawable/ic_more_blac"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+

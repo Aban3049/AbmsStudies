@@ -22,4 +22,14 @@
 
     </style>
 
+    <!-- For customTextInputLayout  Define other properties if needed -->
+    <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Custom background color that does not change with theme -->
+        <item name="android:background">@color/white</item>
+        <!-- Define other properties if needed -->
+    </style>
+
+
+
+
 </resources>

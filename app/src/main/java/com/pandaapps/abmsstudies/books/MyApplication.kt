@@ -173,6 +173,33 @@ class MyApplication : Application() {
 
         }
 
+
+        fun loadCategoryPapers(categoryId: String, categoryTv: TextView) {
+
+            //load category using category id from firebase
+
+            val ref = FirebaseDatabase.getInstance().getReference("CategoriesPapers")
+            ref.child(categoryId)
+                .addValueEventListener(object : ValueEventListener {
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        //get category
+
+                        val category: String = "${snapshot.child("category").value}"
+
+                        //set Category
+                        categoryTv.text = category
+
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+
+                    }
+
+                })
+
+        }
+
         fun deleteBook(
             context: Context,
             bookId: String,
@@ -216,6 +243,110 @@ class MyApplication : Application() {
 
                     val ref = FirebaseDatabase.getInstance().getReference("Books")
                     ref.child(bookId)
+                        .removeValue()
+
+                        .addOnSuccessListener {
+                            progressDialog.dismiss()
+                            MotionToast.createColorToast(
+                                context as Activity,
+                                "Success",
+                                "Successfully deleted.... ",
+                                MotionToastStyle.ERROR,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.SHORT_DURATION,
+                                ResourcesCompat.getFont(
+                                    context as Activity,
+                                    www.sanju.motiontoast.R.font.helveticabold
+                                )
+                            )
+                            Log.d(TAG, "deleteBook: Deleted from db")
+                        }
+
+
+                        .addOnFailureListener { e ->
+                            Log.d(
+                                TAG,
+                                "deleteBook: Failed to delete due from db due to ${e.message} "
+                            )
+                            progressDialog.dismiss()
+                            MotionToast.createColorToast(
+                                context as Activity,
+                                "Failed",
+                                "Failed to delete rom db due to ${e.message}",
+                                MotionToastStyle.ERROR,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.SHORT_DURATION,
+                                ResourcesCompat.getFont(
+                                    context as Activity,
+                                    www.sanju.motiontoast.R.font.helveticabold
+                                )
+                            )
+                        }
+                }
+                .addOnFailureListener { e ->
+                    Log.d(TAG, "deleteBook: Failed to delete due from storage due to ${e.message} ")
+                    progressDialog.dismiss()
+                    MotionToast.createColorToast(
+                        context as Activity,
+                        "Failed",
+                        "Failed to delete from Storage due to ${e.message}",
+                        MotionToastStyle.ERROR,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.SHORT_DURATION,
+                        ResourcesCompat.getFont(
+                            context as Activity,
+                            www.sanju.motiontoast.R.font.helveticabold
+                        )
+                    )
+                }
+
+
+        }
+
+        fun deletePaper(
+            context: Context,
+            paperId: String,
+            paperUrl: String,
+            paperTitle: String,
+            paperImageUrl: String
+        ) {
+
+
+            val TAG = "DELETE_BOOK_TAG"
+
+            Log.d(TAG, "deleteBook: deleting...")
+
+            //progress dialog
+            val progressDialog = ProgressDialog(context)
+            progressDialog.setTitle("Please Wait...")
+            progressDialog.setMessage("Deleting $paperTitle")
+            progressDialog.setCanceledOnTouchOutside(false)
+            progressDialog.show()
+
+            Log.d(TAG, "deleteBook: Deleting from storage...")
+
+            val refForBookImg = FirebaseStorage.getInstance().getReferenceFromUrl(paperImageUrl)
+            refForBookImg.delete()
+                .addOnSuccessListener {
+                    Log.d(TAG, "deleteBookImage: Deleted from Storage")
+
+                }
+                .addOnFailureListener { e ->
+                    Log.d(
+                        TAG,
+                        "deleteBookImage: Failed to delete due from db due to ${e.message} "
+                    )
+                }
+
+            val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(paperUrl)
+            storageReference.delete()
+
+                .addOnSuccessListener {
+                    Log.d(TAG, "deleteBook: Deleted from Storage")
+                    Log.d(TAG, "deleteBook: Deleting from db now")
+
+                    val ref = FirebaseDatabase.getInstance().getReference("Papers")
+                    ref.child(paperId)
                         .removeValue()
 
                         .addOnSuccessListener {
@@ -344,7 +475,6 @@ class MyApplication : Application() {
             }
 
         }
-
 
 
     }

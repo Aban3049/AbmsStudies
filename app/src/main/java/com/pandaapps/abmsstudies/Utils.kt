@@ -83,6 +83,14 @@ object Utils {
 
     }
 
+    fun formatTimestampDateTimeChat(timestamp: Long): String {
+        val calendar = Calendar.getInstance(Locale.ENGLISH)
+        calendar.timeInMillis = timestamp
+
+        return DateFormat.format("hh:mm:a", calendar).toString()
+
+    }
+
 
 
 

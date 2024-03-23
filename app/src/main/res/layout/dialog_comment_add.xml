@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/backBtn"
         android:layout_marginTop="20dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:hint="Comment"
         app:boxCornerRadiusBottomEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
@@ -50,14 +50,15 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/submitBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="55dp"
         android:layout_below="@+id/commentTil"
         android:layout_marginTop="20dp"
         android:text="Submit"
-        android:background="@drawable/shape_button01"
+       app:cornerRadius="8dp"
         android:textColor="@color/white"/>
 
 

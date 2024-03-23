@@ -27,16 +27,52 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".gallery.AdapterGalleyActivity"
+            android:name=".about.AboutDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".gallery.GalleryActivity"
+            android:name=".gallery.activities.DownloadPictureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".gallery.activities.DownloadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".gallery.activities.AddVideoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".gallery.activities.AddPicturesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".papers.activities.PaperPdfViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".papers.activities.PaperDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".papers.activities.EditPaperActivity"
+            android:exported="false" />
+        <activity
+            android:name=".papers.activities.AdminPaperPdfActivity"
+            android:exported="false" />
+        <activity
+            android:name=".papers.activities.AdminPaperActivity"
+            android:exported="false" />
+        <activity
+            android:name=".papers.activities.PaperPdfActivity"
+            android:exported="false" />
+        <activity
+            android:name=".papers.activities.AddPapersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".papers.activities.AddCategoryPapersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".papers.activities.PaperUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".gallery.activities.GalleryActivity"
             android:exported="false" />
         <activity
             android:name=".ChatRoom.activities.ImageUploadPreviewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".chatRoomActivity"
             android:exported="false" />
         <activity
             android:name=".NoticeBoard.NoticeDetailActivity"
@@ -46,9 +82,6 @@
             android:exported="false" />
         <activity
             android:name=".NoticeBoard.activities.NoticeAdminActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LogInActivity"
             android:exported="false" />
         <activity
             android:name=".books.activities.BooksDashboardUserActivity"
@@ -85,9 +118,6 @@
             android:exported="true" />
         <activity
             android:name=".about.AboutUsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".fees.activity.FeesSlipActivity"
             android:exported="false" />
         <activity
             android:name=".mathLecture.MathLecturesActivity"
@@ -153,8 +183,14 @@
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </service>
-
+        </service> <!-- Chat Room -->
+        <service
+            android:name=".ChatRoom.fcm.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service> <!-- Image Cropper -->
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />

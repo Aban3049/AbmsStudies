@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.pandaapps.abmsstudies.LogInActivity
 import com.pandaapps.abmsstudies.Utils
 import com.pandaapps.abmsstudies.books.adapter.AdapterBooksCategoryAdmin
 import com.pandaapps.abmsstudies.databinding.ActivityBooksAdminDashboardBinding
@@ -23,12 +23,16 @@ class BooksAdminDashboardActivity : AppCompatActivity() {
 
     private lateinit var adapterBooksCategoryAdmin: AdapterBooksCategoryAdmin
 
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         binding = ActivityBooksAdminDashboardBinding.inflate(layoutInflater)
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        firebaseAuth = FirebaseAuth.getInstance()
 
         loadCategories()
 
@@ -79,7 +83,7 @@ class BooksAdminDashboardActivity : AppCompatActivity() {
         }
 
         binding.logOutBtn.setOnClickListener {
-            startActivity(Intent(this,LogInActivity::class.java))
+            firebaseAuth.signOut()
         }
         binding.backBtn.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()

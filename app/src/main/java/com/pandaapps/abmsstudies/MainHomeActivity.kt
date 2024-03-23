@@ -1,6 +1,7 @@
 package com.pandaapps.abmsstudies
 
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -26,9 +27,10 @@ import com.pandaapps.abmsstudies.about.AboutUsActivity
 import com.pandaapps.abmsstudies.books.activities.BooksAdminDashboardActivity
 import com.pandaapps.abmsstudies.books.activities.BooksDashboardUserActivity
 import com.pandaapps.abmsstudies.databinding.ActivityMainHomeBinding
-import com.pandaapps.abmsstudies.fees.activity.FeesSlipActivity
-import com.pandaapps.abmsstudies.gallery.GalleryActivity
+import com.pandaapps.abmsstudies.gallery.activities.GalleryActivity
 import com.pandaapps.abmsstudies.mathLecture.MathLecturesActivity
+import com.pandaapps.abmsstudies.papers.activities.AdminPaperActivity
+import com.pandaapps.abmsstudies.papers.activities.PaperUserActivity
 import com.pandaapps.abmsstudies.sell.activities.LogIn
 import com.pandaapps.abmsstudies.sell.activities.MainActivity
 
@@ -42,6 +44,8 @@ class MainHomeActivity : AppCompatActivity() {
 
     private var userMode = ""
 
+  private  var isGuestMode: Boolean? =null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainHomeBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -49,7 +53,12 @@ class MainHomeActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        // showsplash()
+         showsplash()
+
+        val sharedPref = getSharedPreferences("MySharedPrefs", Context.MODE_PRIVATE)
+        isGuestMode = sharedPref.getBoolean("GuestMode", false)
+        Log.d(TAG, "onCreate: checkingGuestUser:$isGuestMode")
+
 
         getUserName()
 
@@ -63,18 +72,14 @@ class MainHomeActivity : AppCompatActivity() {
         binding.books.setOnClickListener {
             checkUserMode()
         }
-          binding.chatRoomCv.setOnClickListener {
-            startActivity(Intent(this@MainHomeActivity,ChatRoomActivity::class.java))
-           }
+        binding.chatRoomCv.setOnClickListener {
+            startActivity(Intent(this@MainHomeActivity, ChatRoomActivity::class.java))
+        }
 
         binding.personHomeIv.setOnClickListener {
             startActivity(Intent(this@MainHomeActivity, AccountActivity::class.java))
         }
 
-        binding.feesCv.setOnClickListener {
-            startActivity(Intent(this@MainHomeActivity, FeesSlipActivity::class.java))
-
-        }
         binding.buyCv.setOnClickListener {
             startActivity(Intent(this@MainHomeActivity, MainActivity::class.java))
         }
@@ -90,7 +95,7 @@ class MainHomeActivity : AppCompatActivity() {
             } else {
                 startActivity(Intent(this@MainHomeActivity, NoticeAdminActivity::class.java))
             }
-            }
+        }
 
 
         binding.accountCv.setOnClickListener {
@@ -107,7 +112,15 @@ class MainHomeActivity : AppCompatActivity() {
 
         }
         binding.galleryCv.setOnClickListener {
-            startActivity(Intent(this@MainHomeActivity,GalleryActivity::class.java))
+            startActivity(Intent(this@MainHomeActivity, GalleryActivity::class.java))
+        }
+        binding.paperCv.setOnClickListener {
+            if (userMode == "USER") {
+                startActivity(Intent(this@MainHomeActivity, PaperUserActivity::class.java))
+            } else {
+                startActivity(Intent(this@MainHomeActivity, AdminPaperActivity::class.java))
+            }
+
         }
 
 
@@ -142,7 +155,9 @@ class MainHomeActivity : AppCompatActivity() {
         })
     }
 
-   private fun showsplash() {
+
+
+    private fun showsplash() {
         val dialog =
             Dialog(this@MainHomeActivity, android.R.style.Theme_Light_NoTitleBar_Fullscreen)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -151,10 +166,11 @@ class MainHomeActivity : AppCompatActivity() {
         dialog.show()
         val handler = Handler()
         val runnable = Runnable {
-            if (firebaseAuth.currentUser != null) {
+            if (firebaseAuth.currentUser != null ||isGuestMode== true) {
                 dialog.dismiss()
             } else if (firebaseAuth.currentUser == null) {
                 startActivity(Intent(this@MainHomeActivity, LogIn::class.java))
+                finish()
 
             }
 
@@ -164,7 +180,6 @@ class MainHomeActivity : AppCompatActivity() {
 
     private fun checkUserMode() {
         if (userMode == "USER") {
-            Toast.makeText(this, "User Page", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, BooksDashboardUserActivity::class.java))
         } else {
             startActivity(Intent(this@MainHomeActivity, BooksAdminDashboardActivity::class.java))

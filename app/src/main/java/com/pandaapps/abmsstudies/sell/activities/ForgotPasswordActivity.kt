@@ -26,8 +26,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
         progressDialog.setTitle("Please wait...")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        binding.toolbarBackBtn.setOnClickListener {
-            onBackPressed()
+        binding.ToolbarBackbtn.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
         binding.submitBtn.setOnClickListener {
             validateData()

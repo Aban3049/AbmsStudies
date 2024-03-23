@@ -21,12 +21,17 @@ import com.pandaapps.abmsstudies.books.model.ModelBooksCategoryAdmin
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 
-class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin.HolderCategory>,Filterable {
+class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin.HolderCategory>,
+    Filterable {
 
     private val context: Context
-    public var categoryArrayList: ArrayList<ModelBooksCategoryAdmin>
 
-    private var filterList:ArrayList<ModelBooksCategoryAdmin>
+
+    var categoryArrayList: ArrayList<ModelBooksCategoryAdmin>
+
+
+    private var filterList: ArrayList<ModelBooksCategoryAdmin>
+
 
     private var filter: FilterBooksCategoryAdmin? = null
 
@@ -36,7 +41,7 @@ class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin
     constructor(context: Context, categoryArrayList: ArrayList<ModelBooksCategoryAdmin>) {
         this.context = context
         this.categoryArrayList = categoryArrayList
-        this.filterList=categoryArrayList
+        this.filterList = categoryArrayList
     }
 
     inner class HolderCategory(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -90,12 +95,12 @@ class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin
                     ResourcesCompat.getFont(context, www.sanju.motiontoast.R.font.montserrat_bold)
                 )
 
-                deleteCategory(model,holder)
+                deleteCategory(model, holder)
 
 
             }
 
-            builder.setNegativeButton("Cancel"){a,d->
+            builder.setNegativeButton("Cancel") { a, d ->
                 a.dismiss()
             }.show()
 
@@ -106,8 +111,8 @@ class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin
         holder.itemView.setOnClickListener {
 
             val intent = Intent(context, BookPdfAdminActivity::class.java)
-            intent.putExtra("categoryId",id)
-            intent.putExtra("category",category)
+            intent.putExtra("categoryId", id)
+            intent.putExtra("category", category)
             context.startActivity(intent)
 
 
@@ -159,8 +164,8 @@ class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin
     }
 
     override fun getFilter(): Filter {
-        if (filter == null){
-            filter= FilterBooksCategoryAdmin(filterList,this)
+        if (filter == null) {
+            filter = FilterBooksCategoryAdmin(filterList, this)
         }
 
         return filter as FilterBooksCategoryAdmin

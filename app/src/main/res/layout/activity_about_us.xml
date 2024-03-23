@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,442 +6,449 @@
     android:background="#F8F5F5"
     tools:context=".about.AboutUsActivity">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <RelativeLayout
-        android:id="@+id/bgPerson"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bgabout">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/personIv"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:background="@color/colorGray01"
-            android:scaleType="centerCrop"
-            app:shapeAppearance="@style/ImageStyle_circle"
-            app:srcCompat="@drawable/ic_person_white" />
-
-        <TextView
-            android:id="@+id/personName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/personIv"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/vollkornsemibold_zram"
-            android:text="@string/myName"
-            android:textColor="#fff"
-            android:textSize="18sp" />
-
-
-        <ImageButton
-            android:id="@+id/androidIconIv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/personName"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="3dp"
-            android:layout_toStartOf="@+id/androidTv"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_android_white" />
-
-        <TextView
-            android:id="@+id/androidTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/personName"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/baloo_bhai"
-            android:text="Android Developer"
-            android:textColor="#fff" />
-
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/skillsLl1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bgPerson"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal">
-
-
-        <androidx.cardview.widget.CardView
-
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:backgroundTint="#fff"
-            android:padding="15dp"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="12dp">
+            android:layout_height="match_parent">
 
             <RelativeLayout
+                android:id="@+id/bgPerson"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp">
+                android:layout_height="wrap_content"
+                android:background="@drawable/bgabout">
 
-                <ImageView
-                    android:id="@+id/gitHubIcon"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/github" />
-
-                <TextView
-                    android:id="@+id/gitHubTv"
+                <ImageButton
+                    android:id="@+id/backBtn"
+                    android:src="@drawable/ic_back_white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_toEndOf="@+id/gitHubIcon"
+                    android:background="@android:color/transparent"
+                    android:padding="10dp"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/personIv"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/colorGray01"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearance="@style/ImageStyle_circle"
+                    app:srcCompat="@drawable/ic_person_white" />
+
+                <TextView
+                    android:id="@+id/personName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/personIv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/vollkornsemibold_zram"
-                    android:text="Github"
-                    android:textColor="#000"
+                    android:text="@string/myName"
+                    android:textColor="#fff"
                     android:textSize="18sp" />
 
-                <TextView
+
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/gitHubTv"
+                    android:layout_below="@+id/personName"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_toStartOf="@+id/androidTv"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_android_white" />
 
-                    android:layout_marginStart="0dp"
-                    android:layout_toEndOf="@+id/gitHubIcon"
-                    android:fontFamily="@font/salmapro_medium"
-                    android:text="Github repository"
-                    android:textColor="#6C6969"
-                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/androidTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/personName"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:text="Android Developer"
+                    android:textColor="#fff" />
 
 
             </RelativeLayout>
 
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:backgroundTint="#fff"
-            android:padding="15dp"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="12dp">
-
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/skillsLl1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bgPerson"
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/linkedinIv"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="4dp"
-                    android:src="@drawable/linkedin" />
-
-                <TextView
-                    android:id="@+id/linkedinTv"
-                    android:layout_width="wrap_content"
+                <!-- First CardView -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_toEndOf="@+id/linkedinIv"
-                    android:fontFamily="@font/vollkornsemibold_zram"
-                    android:textSize="18sp"
-                    android:text="Linkedin"
-                    android:textColor="#000" />
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="12dp"
+                   android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/white">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/linkedinTv"
-                    android:layout_centerInParent="true"
-                    android:layout_centerVertical="true"
-                    android:layout_toEndOf="@+id/linkedinIv"
-                    android:fontFamily="@font/salmapro_medium"
-                    android:text="View my profile"
-                    android:textColor="#6C6969"
-                    android:textStyle="bold" />
+                    <RelativeLayout
+                        android:id="@+id/githubRl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp">
 
+                        <ImageView
+                            android:id="@+id/gitHubIcon"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/github"
+                            android:layout_centerVertical="true"/>
 
-            </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/gitHubIcon"
+                            android:orientation="vertical"
+                            android:layout_marginStart="8dp">
 
-        </androidx.cardview.widget.CardView>
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Github"
+                                android:textColor="#000"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
 
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Github Repo"
+                                android:textColor="#6C6969"
+                                android:textSize="14sp" />
 
-    </LinearLayout>
+                        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/skillsLl2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/skillsLl1"
-        android:orientation="horizontal">
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
 
+                <!-- Second CardView -->
 
-        <androidx.cardview.widget.CardView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:backgroundTint="#fff"
-            android:padding="15dp"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="12dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp">
-
-                <ImageView
-                    android:id="@+id/resumeIcon"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="4dp"
-                    android:src="@drawable/cv" />
-
-                <TextView
-                    android:id="@+id/resumeTv"
-                    style="@style/TextAppearance.MaterialComponents.Headline6"
-                    android:layout_width="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_toEndOf="@+id/resumeIcon"
-                    android:text="Resume"
-                    android:textColor="#000" />
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="12dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/white">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/resumeTv"
-                    android:layout_centerInParent="true"
-                    android:layout_toEndOf="@+id/resumeIcon"
-                    android:fontFamily="@font/salmapro_medium"
-                    android:text="View my resume"
-                    android:textColor="#6C6969"
-                    android:layout_centerVertical="true"
-                    android:textStyle="bold" />
+                    <RelativeLayout
+                        android:id="@+id/resumeRl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp">
 
+                        <ImageView
+                            android:id="@+id/LinkdenIcon"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/cv"
+                            android:layout_centerVertical="true"/>
 
-            </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/LinkdenIcon"
+                            android:orientation="vertical"
+                            android:layout_marginStart="8dp">
 
-        </androidx.cardview.widget.CardView>
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Resume"
+                                android:textColor="#000"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
 
-        <androidx.cardview.widget.CardView
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="My Resume"
+                                android:textColor="#6C6969"
+                                android:textSize="14sp" />
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:backgroundTint="#fff"
-            android:padding="15dp"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="12dp">
+                        </LinearLayout>
 
-            <RelativeLayout
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Similarly adjust the layout of the second CardView to prevent text overflow -->
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/skillsLl2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/skillsLl1"
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/websitelinkIv"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="4dp"
-                    android:src="@drawable/globe" />
-
-                <TextView
-                    android:id="@+id/websiteTv"
-                    style="@style/TextAppearance.MaterialComponents.Headline6"
-                    android:layout_width="wrap_content"
+                <!-- First CardView -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="12dp"
                     android:layout_marginTop="8dp"
-                    android:layout_toEndOf="@+id/websitelinkIv"
-                    android:text="Web"
-                    android:textColor="#000" />
+                    android:backgroundTint="@color/white">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/linkedinRl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/resumeIcon"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                              android:src="@drawable/linkedin"
+                            android:layout_centerVertical="true"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/resumeIcon"
+                            android:orientation="vertical"
+                            android:layout_marginStart="8dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Linkedin"
+                                android:textColor="#000"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Linkedin Profile"
+                                android:textColor="#6C6969"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/websiteTv"
-                   android:layout_centerInParent="true"
-                    android:layout_toEndOf="@+id/websitelinkIv"
-                    android:fontFamily="@font/salmapro_medium"
-                    android:text="Visit my website"
-                    android:textColor="#6C6969"
-                    android:layout_centerVertical="true"
-                    android:textStyle="bold" />
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="12dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/white">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/webIcon"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/globe"
+                            android:layout_centerVertical="true"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/webIcon"
+                            android:orientation="vertical"
+                            android:layout_marginStart="8dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Portfollio"
+                                android:textColor="#000"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="My Portfollio"
+                                android:textColor="#6C6969"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
 
 
-            </RelativeLayout>
 
-        </androidx.cardview.widget.CardView>
+                <!-- Similarly adjust the layout of the second CardView to prevent text overflow -->
+            </LinearLayout>
 
 
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/aboutThisProjectRl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/skillsLl2">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:backgroundTint="#fff"
-            android:elevation="12dp"
-            android:foregroundGravity="fill"
-            android:padding="15dp"
-            app:cardCornerRadius="4dp">
 
             <RelativeLayout
+                android:id="@+id/aboutThisProjectRl"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/skillsLl2">
 
-                <ImageView
-                    android:id="@+id/missionIv"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/report" />
-
-                <TextView
-                    android:id="@+id/missionTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_toEndOf="@id/missionIv"
-                    android:fontFamily="@font/vollkornsemibold_zram"
-                    android:text="Our Mission"
-                    android:textColor="#000"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/missionSeparatorView"
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@+id/missionIv"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@color/colorGray02" />
-
-                <TextView
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/missionSeparatorView"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="0dp"
-                    android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/vollkornsemibold_zram"
-                    android:text="@string/mission_thisApp_text"
-                    android:textColor="#100307"
-                    android:textStyle="bold" />
+                    android:layout_margin="8dp"
+                    android:backgroundTint="#fff"
+                    android:elevation="12dp"
+                    android:foregroundGravity="fill"
+                    android:padding="15dp"
+                    app:cardCornerRadius="4dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:id="@+id/missionIv"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/report" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_toEndOf="@id/missionIv"
+                            android:fontFamily="@font/vollkornsemibold_zram"
+                            android:text="Our Mission"
+                            android:textColor="#000"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/missionSeparatorView"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/missionIv"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@color/colorGray02" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/missionSeparatorView"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="0dp"
+                            android:layout_marginBottom="4dp"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/vollkornsemibold_zram"
+                            android:text="@string/mission_thisApp_text"
+                            android:textColor="#100307"
+                            android:textStyle="bold" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
 
 
             </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/aboutUsRl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/aboutThisProjectRl">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:backgroundTint="#fff"
-            android:elevation="12dp"
-            android:foregroundGravity="fill"
-            android:padding="15dp"
-            app:cardCornerRadius="4dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/aboutThisProjectRl">
 
-                <ImageView
-                    android:id="@+id/aboutThisIv"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/android" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_toEndOf="@id/aboutThisIv"
-                    android:fontFamily="@font/vollkornsemibold_zram"
-                    android:text="About This App"
-                    android:textColor="#000"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/separatorAboutThisApp"
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@+id/aboutThisIv"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@color/colorGray02" />
-
-                <TextView
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/separatorAboutThisApp"
-                    android:fontFamily="@font/vollkornsemibold_zram"
-                    android:text="@string/about_thisApp_text"
-                    android:textColor="#100307"
-                    android:textStyle="bold" />
+                    android:layout_margin="8dp"
+                    android:backgroundTint="#fff"
+                    android:elevation="12dp"
+                    android:foregroundGravity="fill"
+                    android:padding="15dp"
+                    app:cardCornerRadius="4dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:id="@+id/aboutThisIv"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/android" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_toEndOf="@id/aboutThisIv"
+                            android:fontFamily="@font/vollkornsemibold_zram"
+                            android:text="About This App"
+                            android:textColor="#000"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/separatorAboutThisApp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/aboutThisIv"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@color/colorGray02" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/separatorAboutThisApp"
+                            android:fontFamily="@font/vollkornsemibold_zram"
+                            android:textAlignment="center"
+                            android:text="@string/about_thisApp_text"
+                            android:textColor="#100307"
+                            android:textStyle="bold" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
 
 
             </RelativeLayout>
 
-        </androidx.cardview.widget.CardView>
-
-
-    </RelativeLayout>
-
-    </RelativeLayout>
-
+        </RelativeLayout>
 
     </ScrollView>
-
 </RelativeLayout>
+
+

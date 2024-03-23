@@ -17,12 +17,9 @@
             android:layout_width="100dp"
             android:layout_height="140dp"
             android:layout_margin="5dp"
-            android:background="#615F5F">
+            android:background="#fff">
 
-<!--            <com.github.barteksc.pdfviewer.PDFView-->
-<!--                android:id="@+id/pdfView"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"/>-->
+
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/booksIv"
@@ -34,7 +31,6 @@
                 />
 
 
-            <!--ProgressBar -->
 
             <ProgressBar
                 android:id="@+id/progressBar"

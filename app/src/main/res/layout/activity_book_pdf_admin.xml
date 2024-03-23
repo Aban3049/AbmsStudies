@@ -11,7 +11,7 @@
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="55dp"
         android:background="@drawable/shape_toolbar02">
 
 
@@ -21,8 +21,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
+            android:layout_centerVertical="true"
             android:background="@android:color/transparent"
-            android:padding="5dp"
+            android:padding="10dp"
             android:src="@drawable/ic_back_white" />
 
         <TextView
@@ -53,6 +54,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/searchCv"
         app:cardCornerRadius="5dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/toolbarRl"
         app:cardUseCompatPadding="true">
 
@@ -60,16 +62,11 @@
         android:id="@+id/searchEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:drawableStart="@drawable/ic_search_gray"
-        android:drawablePadding="10dp"
-        android:background="@android:color/transparent"
         android:hint="Search"
+        android:background="@android:color/transparent"
         android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/colorGray01" />
+        android:drawableStart="@drawable/ic_search_gray"
+        android:drawablePadding="10dp" />
 
     </com.google.android.material.card.MaterialCardView>
 

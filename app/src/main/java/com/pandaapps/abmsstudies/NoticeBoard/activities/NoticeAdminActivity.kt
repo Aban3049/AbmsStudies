@@ -1,9 +1,6 @@
 package com.pandaapps.abmsstudies.NoticeBoard.activities
 
 import android.app.Activity
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
 import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Intent
@@ -17,28 +14,25 @@ import android.util.Log
 import android.view.Menu
 import android.widget.PopupMenu
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.NotificationCompat
 import androidx.core.content.res.ResourcesCompat
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.messaging.FirebaseMessagingService
-import com.google.firebase.messaging.RemoteMessage
 import com.google.firebase.storage.FirebaseStorage
-import com.pandaapps.abmsstudies.NoticeBoard.NoticeDetailActivity
+import com.google.gson.Gson
 import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
-import com.pandaapps.abmsstudies.books.activities.PdfAddActivityBooks
 import com.pandaapps.abmsstudies.databinding.ActivityNoticeAdminBinding
-import org.json.JSONObject
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 import java.io.ByteArrayOutputStream
-import java.util.Random
+import retrofit2.Callback
+import retrofit2.Response
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import retrofit2.Call
+
 
 class NoticeAdminActivity : AppCompatActivity() {
 
@@ -66,6 +60,8 @@ class NoticeAdminActivity : AppCompatActivity() {
         progressDialog = ProgressDialog(this)
         progressDialog.setCanceledOnTouchOutside(false)
         progressDialog.setMessage("Please wait...")
+
+
 
         binding.backBtn.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
@@ -108,13 +104,10 @@ class NoticeAdminActivity : AppCompatActivity() {
         if (noticeTitle.isEmpty()) {
             binding.noticeEt.requestFocus()
             binding.noticeEt.error = "Field Cannot be empty"
-        }
-        else if (noticeDescription.isEmpty()){
+        } else if (noticeDescription.isEmpty()) {
             binding.descriptionEt.requestFocus()
             binding.descriptionEt.error = "Field cannot be empty"
-        }
-
-        else if(imageUri ==null){
+        } else if (imageUri == null) {
             MotionToast.createColorToast(
                 this@NoticeAdminActivity,
                 "Warning",
@@ -124,8 +117,7 @@ class NoticeAdminActivity : AppCompatActivity() {
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
             )
-        }
-        else {
+        } else {
             //data validate begin upload
             uploadBookImageToStorage()
         }
@@ -229,7 +221,6 @@ class NoticeAdminActivity : AppCompatActivity() {
                     ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
                 )
 
-                prepareNotification(noticeTitle)
 
                 imageUri = null
 
@@ -404,152 +395,6 @@ class NoticeAdminActivity : AppCompatActivity() {
         } else {
             Utils.toast(this, "Cancelled...!")
         }
-    }
-
-    private fun prepareNotification(message: String) {
-
-        Log.d(TAG, "prepareNotification: ")
-
-        val notificationJo = JSONObject()
-        val notificationDataJo = JSONObject()
-        val notificationNotificationJo = JSONObject()
-
-        try {
-
-            notificationDataJo.put("notificationType", "${Utils.NOTIFICATION_TYPE_NEW_MESSAGE}")
-
-            notificationNotificationJo.put("title", "$noticeTitle")
-            notificationNotificationJo.put("body", "$message")
-            notificationNotificationJo.put("sound", "default")
-
-
-            notificationJo.put("notification", notificationNotificationJo)
-            notificationJo.put("data", notificationDataJo)
-
-        } catch (e: java.lang.Exception) {
-            Log.e(TAG, "prepareNotification: ", e)
-        }
-
-        sendFcmNotification(notificationJo)
-
-
-    }
-
-    private fun sendFcmNotification(notificationJo: JSONObject) {
-
-        val jsonObjectRequest: JsonObjectRequest = object : JsonObjectRequest(
-            Method.POST,
-            "https://fcm.googleapis.com/fcm/send",
-            notificationJo,
-            Response.Listener {
-                // Notification sent
-                Log.d(TAG, "sendFcmNotification: Notification Send $it")
-
-            },
-            Response.ErrorListener { e ->
-
-                //Notification failed to sent
-                Log.e(TAG, "sendFcmNotification: ",e )
-
-            }
-
-        ) {
-
-            override fun getHeaders(): MutableMap<String, String> {
-
-                val headers = HashMap<String, String>()
-                headers["Content-Type"] = "application/Json"
-                headers["Authorization"] = "key=${Utils.FCM_SERVER_KEY}"
-
-                return headers
-
-            }
-
-        }
-
-        Volley.newRequestQueue(this).add(jsonObjectRequest)
-
-    }
-
-    class MyFcmService2: FirebaseMessagingService() {
-
-        private companion object{
-            private const val TAG ="MY_FCM_TAG"
-
-            //Notification Channel ID
-
-            private const val NOTIFICATION_CHANNEL_ID = "ABMS_CHANNEL_TO"
-
-        }
-
-        override fun onMessageReceived(remoteMessage: RemoteMessage) {
-            super.onMessageReceived(remoteMessage)
-
-            val title = "${remoteMessage.notification?.title}"
-            val body = "${remoteMessage.notification?.body}"
-
-            val notificationType = "${remoteMessage.data["notificationType"]}"
-
-            Log.d(TAG, "onMessageReceived: title: $title")
-            Log.d(TAG, "onMessageReceived: body: $body")
-            Log.d(TAG, "onMessageReceived: notificationType: $notificationType")
-
-            //function cal to show notification
-            showChatNotification(title,body)
-
-        }
-
-        private fun showChatNotification(notificationTitle:String,notificationDescription:String){
-            // generate random number for notification id
-            val notificationId = Random().nextInt(3000)
-
-
-            //init notification Manger
-            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-
-            // function call to setup notification channel in android 0 and above
-
-            setupNotificationChannel(notificationManager)
-
-            val intent = Intent(this,NoticeActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-
-            // pending intent to add in Notification
-            val pendingIntent = PendingIntent.getActivity(this,0,intent, PendingIntent.FLAG_IMMUTABLE)
-
-            val notificationBuilder = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
-                .setSmallIcon(R.drawable.logo)
-                .setContentTitle(notificationTitle)
-                .setContentText(notificationDescription)
-                .setAutoCancel(true)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setContentIntent(pendingIntent)
-
-            notificationManager.notify(notificationId,notificationBuilder.build())
-        }
-
-        private fun setupNotificationChannel(notificationManager: NotificationManager){
-
-
-            // Android 8.0 all notification Must be Assigned to a Channel
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-
-                val notificationChannel = NotificationChannel(
-
-                    NOTIFICATION_CHANNEL_ID,
-                    "Chat Chanel",
-                    NotificationManager.IMPORTANCE_HIGH
-                )
-
-                notificationChannel.description = "Show Chats Notifications"
-                notificationChannel.enableVibration(true)
-
-                notificationManager.createNotificationChannel(notificationChannel)
-
-            }
-
-        }
-
     }
 
 

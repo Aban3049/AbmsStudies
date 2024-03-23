@@ -107,7 +107,7 @@ class AccountActivity : AppCompatActivity() {
                     try {
                         Glide.with(this@AccountActivity)
                             .load(profileImageUrl)
-                            .placeholder(R.drawable.ic_person_white)
+                            .placeholder(R.drawable.ic_person_black)
                             .into(binding.profileIvAccount)
                     } catch (e: Exception) {
                         Log.e(TAG, "onDataChanged", e)
