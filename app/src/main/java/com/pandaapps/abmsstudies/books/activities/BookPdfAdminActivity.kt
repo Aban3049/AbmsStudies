@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -23,7 +22,7 @@ class BookPdfAdminActivity : AppCompatActivity() {
 
     //category id, title
 
-    private var categoryId:String = ""
+    private var categoryId: String = ""
     private var category = ""
 
     //arrayList to hold Books
@@ -121,17 +120,6 @@ class BookPdfAdminActivity : AppCompatActivity() {
                     //setup adapter
                     adapterPdfAdmin = AdapterPdfAdmin(this@BookPdfAdminActivity, pdfArrayList)
                     binding.booksRv.adapter = adapterPdfAdmin
-
-
-
-
-                    if (adapterPdfAdmin == null) {
-                        Log.d(TAG, "onDataChange: null adapter")
-                    } else if (binding.booksRv.adapter == null) {
-                        Log.e(TAG, "onDataChange: null layout")
-                    } else {
-                        Log.d(TAG, "onDataChange: Both are okay")
-                    }
 
 
                 }

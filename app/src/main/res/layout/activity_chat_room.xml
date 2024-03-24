@@ -127,6 +127,7 @@
             android:src="@drawable/ic_image_gray"
             app:backgroundTint="@color/teal_200"
             app:elevation="0dp"
+            android:contentDescription="@string/add_Fab_Btn"
             app:fabSize="mini"
             app:tint="@color/white" />
 
@@ -139,6 +140,7 @@
             android:src="@drawable/ic_send_white"
             app:backgroundTint="@color/teal_200"
             app:elevation="0dp"
+            android:contentDescription="@string/add_Fab_Btn"
             app:fabSize="mini"
             app:tint="@color/white" />
 

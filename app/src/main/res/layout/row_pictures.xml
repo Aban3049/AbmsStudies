@@ -52,6 +52,7 @@
                     android:layout_alignParentEnd="true"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_more_blac"
+                    android:contentDescription="@string/more_Btn"
                 app:tint="@color/black"/>
 
                 <TextView

@@ -20,7 +20,6 @@ import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
 import com.pandaapps.abmsstudies.books.MyApplication
 import com.pandaapps.abmsstudies.databinding.RowPicturesBinding
-import com.pandaapps.abmsstudies.gallery.activities.DownloadActivity
 import com.pandaapps.abmsstudies.gallery.activities.DownloadPictureActivity
 import com.pandaapps.abmsstudies.gallery.model.modelPictures
 
@@ -40,7 +39,7 @@ class adapterPictures : RecyclerView.Adapter<adapterPictures.viewHolderGalleryPi
 
     var galleryPictureArrayList: ArrayList<modelPictures>
 
-    private lateinit var firebaseAuth: FirebaseAuth
+    private  var firebaseAuth: FirebaseAuth
 
     init {
         firebaseAuth = FirebaseAuth.getInstance()
@@ -67,7 +66,7 @@ class adapterPictures : RecyclerView.Adapter<adapterPictures.viewHolderGalleryPi
         val model = galleryPictureArrayList[position]
 
         //get data
-        val id = model.id
+        model.id
         val imageUrl = model.imageUrl
         val timestamp = model.timestamp
         val title = model.title
@@ -83,7 +82,7 @@ class adapterPictures : RecyclerView.Adapter<adapterPictures.viewHolderGalleryPi
         holder.userNameTv.text = name
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child("$uid")
+        ref.child(uid)
             .addValueEventListener(object : ValueEventListener {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -120,7 +119,7 @@ class adapterPictures : RecyclerView.Adapter<adapterPictures.viewHolderGalleryPi
         imageView: ShapeableImageView
     ) {
 
-        val TAG = "BOOK_IMAGE_TAG"
+        val tag = "BOOK_IMAGE_TAG"
 
         //using url we can get image
         try {
@@ -131,7 +130,7 @@ class adapterPictures : RecyclerView.Adapter<adapterPictures.viewHolderGalleryPi
                 .into(imageView)
 
         } catch (e: Exception) {
-            Log.e(TAG, "onDataChanged", e)
+            Log.e(tag, "loadPersonImage:$e " )
         }
 
     }
@@ -152,7 +151,7 @@ class adapterPictures : RecyclerView.Adapter<adapterPictures.viewHolderGalleryPi
             // alert dialog
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Choose Option")
-                .setItems(options) { dialog, position ->
+                .setItems(options) { _, position ->
 
                     if (position == 0) {
 
@@ -175,7 +174,7 @@ class adapterPictures : RecyclerView.Adapter<adapterPictures.viewHolderGalleryPi
             // alert dialog
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Choose Option")
-                .setItems(options) { dialog, position ->
+                .setItems(options) { _, position ->
 
                     if (position == 0) {
                         val intent = Intent(context, DownloadPictureActivity::class.java)
@@ -191,7 +190,7 @@ class adapterPictures : RecyclerView.Adapter<adapterPictures.viewHolderGalleryPi
     }
 
     private fun deleteVideoFromStorage(pictureUrl: String) {
-        val storageRef = FirebaseStorage.getInstance().getReferenceFromUrl("$pictureUrl")
+        val storageRef = FirebaseStorage.getInstance().getReferenceFromUrl(pictureUrl)
 
         // Delete the video file
         storageRef.delete()
@@ -224,7 +223,6 @@ class adapterPictures : RecyclerView.Adapter<adapterPictures.viewHolderGalleryPi
     inner class viewHolderGalleryPictures(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val profileIv = binding.personIv
-        val pictureImageIv = binding.pictureImageIv
         val titleTv = binding.titleTv
         val userNameTv = binding.userNameTv
         val date = binding.publishDateTv

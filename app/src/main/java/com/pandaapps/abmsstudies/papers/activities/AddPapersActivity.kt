@@ -14,8 +14,6 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.Menu
 import android.widget.PopupMenu
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.res.ResourcesCompat
 import com.bumptech.glide.Glide
@@ -37,7 +35,7 @@ import java.util.ArrayList
 
 class AddPapersActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivityAddPapersBinding
+    private lateinit var binding: ActivityAddPapersBinding
 
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -57,7 +55,7 @@ class AddPapersActivity : AppCompatActivity() {
     private lateinit var categoryArrayList: ArrayList<ModelPaperCategory>
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        binding=ActivityAddPapersBinding.inflate(layoutInflater)
+        binding = ActivityAddPapersBinding.inflate(layoutInflater)
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -122,8 +120,7 @@ class AddPapersActivity : AppCompatActivity() {
         if (title.isEmpty()) {
             binding.titleEt.requestFocus()
             binding.titleEt.error = "Field Cannot be empty"
-        }
-         else if (category.isEmpty()) {
+        } else if (category.isEmpty()) {
             binding.titleEt.requestFocus()
             binding.categoryTv.error = "Pick Category"
         } else if (pdfUri == null) {
@@ -136,8 +133,7 @@ class AddPapersActivity : AppCompatActivity() {
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
             )
-        }
-        else if(imageUri ==null){
+        } else if (imageUri == null) {
             MotionToast.createColorToast(
                 this@AddPapersActivity,
                 "Warning",
@@ -147,8 +143,7 @@ class AddPapersActivity : AppCompatActivity() {
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
             )
-        }
-        else {
+        } else {
             //data validate begin upload
             uploadBookImageToStorage()
             uploadPdfToStorage()
@@ -167,31 +162,30 @@ class AddPapersActivity : AppCompatActivity() {
 
     }
 
-    val pdfActivityResultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult(),
-        ActivityResultCallback<ActivityResult> { result ->
+    private val pdfActivityResultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
 
-            if (result.resultCode == RESULT_OK) {
-                Log.d(TAG, "PDF Picked: ")
 
-                pdfUri = result.data!!.data
-            } else {
-                Log.d(TAG, "PDF picked Cancelled: ")
-                MotionToast.createColorToast(
-                    this@AddPapersActivity,
-                    "Failed",
-                    "Failed to Get Pdf",
-                    MotionToastStyle.ERROR,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.LONG_DURATION,
-                    ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
-                )
-            }
+    ) { result ->
 
+        if (result.resultCode == RESULT_OK) {
+            Log.d(TAG, "PDF Picked: ")
+
+            pdfUri = result.data!!.data
+        } else {
+            Log.d(TAG, "PDF picked Cancelled: ")
+            MotionToast.createColorToast(
+                this@AddPapersActivity,
+                "Failed",
+                "Failed to Get Pdf",
+                MotionToastStyle.ERROR,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
+            )
         }
 
-
-    )
+    }
 
     private fun uploadPdfToStorage() {
 
@@ -239,7 +233,7 @@ class AddPapersActivity : AppCompatActivity() {
 
 
             }
-            .addOnProgressListener { it ->
+            .addOnProgressListener {
 
                 val dataTransferred = (100 * it.bytesTransferred / it.totalByteCount)
                 progressDialog.setMessage("Uploading $dataTransferred%")
@@ -298,7 +292,7 @@ class AddPapersActivity : AppCompatActivity() {
                 Log.i("xxx", "Failed uploading image to server")
 
             }
-            .addOnProgressListener { it ->
+            .addOnProgressListener {
 
                 val dataTransferred = (100 * it.bytesTransferred / it.totalByteCount)
                 progressDialog.setMessage("Uploading $dataTransferred%")
@@ -417,7 +411,7 @@ class AddPapersActivity : AppCompatActivity() {
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Pick Category")
-            .setItems(categoriesArray) { dialog, which ->
+            .setItems(categoriesArray) { _, which ->
 
                 //handle item click get item click
 
@@ -563,7 +557,6 @@ class AddPapersActivity : AppCompatActivity() {
             Log.d(TAG, "galleryActivityResultLauncher: imageUri: $imageUri")
 
             //timestamp will be used as id of image picked
-            val timestamp = "${Utils.getTimestamp()}"
 
             //setup model for image,Param 1 is id,Param 2 is imageUri, Param 3 is imageUrl , from internet
             loadImages()
@@ -581,8 +574,6 @@ class AddPapersActivity : AppCompatActivity() {
         //Check if image is picked or not
         if (result.resultCode == Activity.RESULT_OK) {
             Log.d(TAG, "cameraActivityResultLauncher: imageUri $imageUri")
-
-            val timestamp = "${Utils.getTimestamp()}"
 
 
             loadImages()

@@ -1,12 +1,10 @@
 package com.pandaapps.abmsstudies.papers.activities
 
-import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -27,9 +25,7 @@ class PaperUserActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
 
-    private companion object {
-        private const val TAG = "PAPER_ACTIVITY_TAG"
-    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         binding = ActivityPaperAdminBinding.inflate(layoutInflater)
@@ -43,7 +39,7 @@ class PaperUserActivity : AppCompatActivity() {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        binding.searchEt.addTextChangedListener(object:TextWatcher{
+        binding.searchEt.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
@@ -53,8 +49,8 @@ class PaperUserActivity : AppCompatActivity() {
 
                 try {
                     adapterBooksCategoryAdmin.filter.filter(s)
-                }catch (e:Exception){
-                    Utils.toast(this@PaperUserActivity,"Failed to search due to ${e.message}")
+                } catch (e: Exception) {
+                    Utils.toast(this@PaperUserActivity, "Failed to search due to ${e.message}")
                 }
 
             }
@@ -67,7 +63,6 @@ class PaperUserActivity : AppCompatActivity() {
 
 
         loadCategories()
-
 
 
     }

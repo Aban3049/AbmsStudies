@@ -14,10 +14,8 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
-import com.pandaapps.abmsstudies.books.filter.FilterBooksCategoryAdmin
 import com.pandaapps.abmsstudies.databinding.RowCategoryPaperAdminBinding
 import com.pandaapps.abmsstudies.papers.activities.AdminPaperPdfActivity
-import com.pandaapps.abmsstudies.papers.activities.PaperPdfActivity
 import com.pandaapps.abmsstudies.papers.filter.filterPaperAdminCategory
 import com.pandaapps.abmsstudies.papers.model.ModelPaperCategory
 import www.sanju.motiontoast.MotionToast
@@ -59,8 +57,8 @@ class AdapterPaperCategoryAdmin :
 
         val id = model.id
         val category = model.category
-        val uid = model.uid
-        val timestamp = model.timestamp
+        model.uid
+        model.timestamp
 
         //set data
         holder.categoryTv.text = category
@@ -77,7 +75,7 @@ class AdapterPaperCategoryAdmin :
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Delete")
             builder.setMessage("Are you sure you want to delete this category")
-            builder.setPositiveButton("Confirm") { a, d ->
+            builder.setPositiveButton("Confirm") { _, _ ->
                 MotionToast.createColorToast(
                     context as Activity,
                     "Delete",
@@ -88,12 +86,12 @@ class AdapterPaperCategoryAdmin :
                     ResourcesCompat.getFont(context, www.sanju.motiontoast.R.font.montserrat_bold)
                 )
 
-                deleteCategory(model, holder)
+                deleteCategory(model)
 
 
             }
 
-            builder.setNegativeButton("Cancel") { a, d ->
+            builder.setNegativeButton("Cancel") { a, _ ->
                 a.dismiss()
             }.show()
 
@@ -118,7 +116,7 @@ class AdapterPaperCategoryAdmin :
     }
 
     private fun deleteCategory(
-        model: ModelPaperCategory, holder: AdapterPaperCategoryAdmin.HolderCategoryAdmin
+        model: ModelPaperCategory
     ) {
         //get id of category to delete
 

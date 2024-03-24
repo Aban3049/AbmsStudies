@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NoticeBoard.NoticeDetailActivity">
+    tools:context=".NoticeBoard.activities.NoticeDetailActivity">
 
 
     <RelativeLayout
@@ -37,7 +37,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/back_btn"
+            android:contentDescription="@string/download_Btn"
             android:padding="10dp"
             android:src="@drawable/ic_download" />
 

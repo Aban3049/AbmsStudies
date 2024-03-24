@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
-import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.books.activities.PdfDetailActivity
 import com.pandaapps.abmsstudies.books.filter.FilterPdfAdmin
 import com.pandaapps.abmsstudies.books.activities.PdfEditActivity
@@ -82,7 +81,7 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
         //load pdf size
         MyApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
 
-        // handle clicks show options Edit Book, Delte Books
+        // handle clicks show options Edit Book, Delete Books
         holder.moreBtn.setOnClickListener {
             moreOptionsDialog(model, holder)
         }
@@ -125,7 +124,7 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
         // alert dialog
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Choose Option")
-            .setItems(options) { dialog, position ->
+            .setItems(options) { _, position ->
 
                 if (position ==0){
 

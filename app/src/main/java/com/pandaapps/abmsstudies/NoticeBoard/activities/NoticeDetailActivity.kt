@@ -1,14 +1,9 @@
-package com.pandaapps.abmsstudies.NoticeBoard
+package com.pandaapps.abmsstudies.NoticeBoard.activities
 
 import android.Manifest
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
 import android.app.ProgressDialog
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
@@ -17,33 +12,20 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
-import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.messaging.FirebaseMessagingService
-import com.google.firebase.messaging.RemoteMessage
 import com.google.firebase.storage.FirebaseStorage
-import com.pandaapps.abmsstudies.NoticeBoard.activities.NoticeActivity
 import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
-import com.pandaapps.abmsstudies.books.MyApplication
-import com.pandaapps.abmsstudies.books.activities.PdfDetailActivity
 import com.pandaapps.abmsstudies.databinding.ActivityNoticeDetailBinding
-import com.pandaapps.abmsstudies.sell.activities.ChatActivity
-import org.json.JSONObject
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 import java.io.FileOutputStream
-import java.util.Random
 
 class NoticeDetailActivity : AppCompatActivity() {
 

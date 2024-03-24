@@ -30,7 +30,7 @@ class ImageUploadPreviewActivity : AppCompatActivity() {
 
     private lateinit var progressDialog: ProgressDialog
 
-    private var imageUri: Uri? = null
+    private var imageUri: Uri? =null
 
     private var message = ""
 
@@ -55,9 +55,13 @@ class ImageUploadPreviewActivity : AppCompatActivity() {
 
         upload_Image_Container = binding.uploadImageContainer
 
-        imageUri = Uri.parse(intent.getStringExtra("imageUri"))!!
+        try {
+            imageUri = Uri.parse(intent.getStringExtra("imageUri"))!!
+            upload_Image_Container.setImageURI(imageUri)
+        }catch (e:Exception){
+            Log.e(TAG, "onCreate: ${e.message}" )
+        }
 
-        upload_Image_Container.setImageURI(imageUri)
 
         binding.floatingActionBackButton.setOnClickListener {
             finish()
@@ -78,7 +82,7 @@ class ImageUploadPreviewActivity : AppCompatActivity() {
         val date = Date()
         val simpleDataFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         val messageId = simpleDataFormat.format(date)
-        val timestamp = FieldValue.serverTimestamp()
+
 
         val imgPath = "chat_Room_Image/$messageId"
 
@@ -91,9 +95,8 @@ class ImageUploadPreviewActivity : AppCompatActivity() {
         storageReference.putBytes(reducedImage)
 
 
-       storageReference.putBytes(reducedImage)
-            .addOnSuccessListener {
-                    taskSnapshot ->
+        storageReference.putBytes(reducedImage)
+            .addOnSuccessListener { taskSnapshot ->
 
                 val uriTask: Task<Uri> = taskSnapshot.storage.downloadUrl
                 while (!uriTask.isSuccessful);
@@ -133,7 +136,7 @@ class ImageUploadPreviewActivity : AppCompatActivity() {
 
         message = if (!TextUtils.isEmpty(message)) {
             binding.chatBox.text.toString()
-        } else{
+        } else {
             "\uD83D\uDCF7"
         }
 
@@ -155,8 +158,8 @@ class ImageUploadPreviewActivity : AppCompatActivity() {
                     hashMap["timestamp"] = FieldValue.serverTimestamp()
                     hashMap["messageId"] = messageId
                     hashMap["profileImageUrl"] = profileImageUrl
-                    hashMap["chat_image"] = imageUri.toString()
-                    hashMap["chatTime"] =System.currentTimeMillis()
+                    hashMap["chat_image"] = imageUri
+                    hashMap["chatTime"] = System.currentTimeMillis()
                     hashMap["uid"] = "${firebaseAuth.currentUser!!.uid}"
 
                     val fireBaseCords = FirebaseCords()
@@ -197,6 +200,4 @@ class ImageUploadPreviewActivity : AppCompatActivity() {
 
             })
     }
-
-
 }

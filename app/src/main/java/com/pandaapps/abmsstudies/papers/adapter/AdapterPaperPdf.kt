@@ -10,7 +10,6 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.pandaapps.abmsstudies.books.MyApplication
-import com.pandaapps.abmsstudies.books.activities.PdfDetailActivity
 
 
 import com.pandaapps.abmsstudies.databinding.RowPdfPaperBinding
@@ -18,7 +17,7 @@ import com.pandaapps.abmsstudies.papers.activities.PaperDetailActivity
 import com.pandaapps.abmsstudies.papers.filter.FilterPaperPdfUser
 import com.pandaapps.abmsstudies.papers.model.ModelPaperPdf
 
-class AdapterPaperPdf : RecyclerView.Adapter<AdapterPaperPdf.HolderPdf>,Filterable {
+class AdapterPaperPdf : RecyclerView.Adapter<AdapterPaperPdf.HolderPdf>, Filterable {
 
     private lateinit var binding: RowPdfPaperBinding
 
@@ -27,9 +26,9 @@ class AdapterPaperPdf : RecyclerView.Adapter<AdapterPaperPdf.HolderPdf>,Filterab
     //array list to hold pdfs
     var pdfArrayList: ArrayList<ModelPaperPdf>
 
-    private var filter:FilterPaperPdfUser?=null
+    private var filter: FilterPaperPdfUser? = null
 
-    private var filterList:ArrayList<ModelPaperPdf>
+    private var filterList: ArrayList<ModelPaperPdf>
 
     // private val filterList: ArrayList<ModelBookPdf>
 
@@ -39,7 +38,7 @@ class AdapterPaperPdf : RecyclerView.Adapter<AdapterPaperPdf.HolderPdf>,Filterab
     constructor(context: Context, pdfArrayList: ArrayList<ModelPaperPdf>) {
         this.context = context
         this.pdfArrayList = pdfArrayList
-        this.filterList =pdfArrayList
+        this.filterList = pdfArrayList
     }
 
 
@@ -91,7 +90,7 @@ class AdapterPaperPdf : RecyclerView.Adapter<AdapterPaperPdf.HolderPdf>,Filterab
         holder.itemView.setOnClickListener {
             //intent with book id
             val intent = Intent(context, PaperDetailActivity::class.java)
-            intent.putExtra("paperId",pdfId)
+            intent.putExtra("paperId", pdfId)
             context.startActivity(intent)
         }
 
@@ -112,8 +111,6 @@ class AdapterPaperPdf : RecyclerView.Adapter<AdapterPaperPdf.HolderPdf>,Filterab
         val imageUrl = model.imageUrl
 
 
-
-
         // options to show in Dialog
 
         val options = arrayOf("Edit", "Delete")
@@ -121,14 +118,9 @@ class AdapterPaperPdf : RecyclerView.Adapter<AdapterPaperPdf.HolderPdf>,Filterab
         // alert dialog
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Choose Option")
-            .setItems(options) { dialog, position ->
+            .setItems(options) { _, position ->
 
                 if (position == 0) {
-
-                    //Edit is Clicked
-//                  val intent = Intent(context, PdfEditActivity::class.java)
-//                    intent.putExtra("bookId",bookId) // passed bookId used to edit book
-//                    context.startActivity(intent)
 
                 } else if (position == 1) {
                     //delete is  is clicked
@@ -158,8 +150,8 @@ class AdapterPaperPdf : RecyclerView.Adapter<AdapterPaperPdf.HolderPdf>,Filterab
     }
 
     override fun getFilter(): Filter {
-        if (filter==null){
-            filter = FilterPaperPdfUser(filterList,this)
+        if (filter == null) {
+            filter = FilterPaperPdfUser(filterList, this)
         }
 
         return filter as FilterPaperPdfUser

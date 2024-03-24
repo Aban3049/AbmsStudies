@@ -5,21 +5,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.pandaapps.abmsstudies.ChatRoom.FirebaseCords.FirebaseCords
-import com.pandaapps.abmsstudies.ChatRoom.activities.ChatRoomActivity
 import com.pandaapps.abmsstudies.ChatRoom.model.ChatRoomModel
 import com.pandaapps.abmsstudies.Utils
-import com.pandaapps.abmsstudies.books.adapter.AdapterComment
-import com.pandaapps.abmsstudies.books.model.ModelComments
 import com.pandaapps.abmsstudies.databinding.RowChatroomBinding
 
 
@@ -95,7 +89,7 @@ class AdapterChatRoom(
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Delete Chat")
             .setMessage("Are you sure you want to delete this chat")
-            .setPositiveButton("DELETE") { d, e ->
+            .setPositiveButton("DELETE") { _, _ ->
 
                 //delete chat
 
@@ -127,11 +121,11 @@ class AdapterChatRoom(
 
 
 
-                    }.addOnFailureListener { e ->
-                        Utils.toast(context, "Failed to delete chat due to ${e.message}")
+                    }.addOnFailureListener {
+                        Utils.toast(context, "Failed to delete chat due to ${it.message}")
                     }
 
-            }.setNegativeButton("CANCEL") { d, e ->
+            }.setNegativeButton("CANCEL") { d, _ ->
                 d.dismiss()
             }
             .show()

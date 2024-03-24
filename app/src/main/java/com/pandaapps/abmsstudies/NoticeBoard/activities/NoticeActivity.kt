@@ -9,10 +9,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.pandaapps.abmsstudies.NoticeBoard.AdapterNotice
+import com.pandaapps.abmsstudies.NoticeBoard.adapter.AdapterNotice
 import com.pandaapps.abmsstudies.NoticeBoard.models.modelNotice
 import com.pandaapps.abmsstudies.Utils
-import com.pandaapps.abmsstudies.databinding.ActivityNoticeAdminBinding
 import com.pandaapps.abmsstudies.databinding.ActivityNoticeBinding
 
 class NoticeActivity : AppCompatActivity() {

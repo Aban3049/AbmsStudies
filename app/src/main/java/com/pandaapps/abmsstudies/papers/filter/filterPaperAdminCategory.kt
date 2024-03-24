@@ -1,6 +1,5 @@
 package com.pandaapps.abmsstudies.papers.filter
 
-import android.widget.Adapter
 import android.widget.Filter
 import com.pandaapps.abmsstudies.papers.adapter.AdapterPaperCategoryAdmin
 import com.pandaapps.abmsstudies.papers.model.ModelPaperCategory

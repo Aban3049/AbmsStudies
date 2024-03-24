@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
+            android:contentDescription="@string/back_btn"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_back_white" />
 
@@ -262,6 +263,7 @@
                     android:background="@android:color/transparent"
                     android:layout_alignParentEnd="true"
                     android:padding="10dp"
+                    android:contentDescription="@string/addCommentBtn"
                     android:layout_width="wrap_content"/>
 
                 <androidx.recyclerview.widget.RecyclerView

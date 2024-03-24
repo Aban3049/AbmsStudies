@@ -124,9 +124,7 @@ class AdminPaperPdfActivity : AppCompatActivity() {
 
 
 
-                    if (adapterPdfAdmin == null) {
-                        Log.d(TAG, "onDataChange: null adapter")
-                    } else if (binding.booksRv.adapter == null) {
+                    if (binding.booksRv.adapter == null) {
                         Log.e(TAG, "onDataChange: null layout")
                     } else {
                         Log.d(TAG, "onDataChange: Both are okay")

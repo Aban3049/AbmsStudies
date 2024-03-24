@@ -33,10 +33,10 @@ class RegisterEmailActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         binding.ToolbarBackbtn.setOnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
         binding.haveAccountBtn.setOnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
         binding.RegisterBtn.setOnClickListener {
             validData()

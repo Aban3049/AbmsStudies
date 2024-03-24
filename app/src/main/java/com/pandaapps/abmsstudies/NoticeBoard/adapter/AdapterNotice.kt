@@ -1,4 +1,4 @@
-package com.pandaapps.abmsstudies.NoticeBoard
+package com.pandaapps.abmsstudies.NoticeBoard.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.pandaapps.abmsstudies.NoticeBoard.FilterNoticeBoard
+import com.pandaapps.abmsstudies.NoticeBoard.activities.NoticeDetailActivity
 import com.pandaapps.abmsstudies.NoticeBoard.models.modelNotice
 import com.pandaapps.abmsstudies.books.MyApplication
-import com.pandaapps.abmsstudies.books.filter.FilterBooksCategoryAdmin
 import com.pandaapps.abmsstudies.databinding.RowNoticeBinding
 
 class AdapterNotice : RecyclerView.Adapter<AdapterNotice.HolderNotice>, Filterable {
@@ -51,8 +52,8 @@ class AdapterNotice : RecyclerView.Adapter<AdapterNotice.HolderNotice>, Filterab
         val noticeId = model.id
         val title = model.title
         val description = model.description
-        val uid = model.uid
-        val url = model.url
+        model.uid
+        model.url
         val timestamp = model.timestamp
         val imageUrl = model.imageUrl
 
@@ -96,7 +97,6 @@ class AdapterNotice : RecyclerView.Adapter<AdapterNotice.HolderNotice>, Filterab
 
     inner class HolderNotice(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var noticeImageIv = binding.noticeImageIv
         var progressBar = binding.progressBar
         var titleTv = binding.titleTv
         var descriptionTv = binding.descriptionTv

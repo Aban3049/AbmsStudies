@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_back"
         android:background="@android:color/transparent"
-        android:padding="5dp"/>
+        android:padding="5dp"
+        android:contentDescription="@string/back_btn"/>
 
     <TextView
         android:id="@+id/titleTv"

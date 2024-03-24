@@ -13,7 +13,6 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.Menu
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -295,9 +294,9 @@ class ProfileEditActivity : AppCompatActivity() {
             if (isGranted) {
                 pickImageGallery()
             } else {
-
+                Utils.toast(this@ProfileEditActivity, "Storage permission denied...")
             }
-            Utils.toast(this@ProfileEditActivity, "Storage permission denied...")
+
 
         }
 

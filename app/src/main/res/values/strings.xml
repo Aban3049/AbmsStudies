@@ -24,8 +24,32 @@
     <string name="ad_favourite_btn">Ad favourite Button</string>
     <string name="myName">Muhammad Aban<b>(Leader)</b></string>
     <string name="mission_thisApp_text">The purpose of this App is to provide students of <b>CTTI</b> to have an easy access to <b>fees slip,Books , Past Papers ,Math Video Lectures</b>.Providing students a platform to <b>sell and purchase books</b>.Providing students of all departments a <b>collaborative chat System</b> platform to discuss their thoughts and Matters.<b>Notice Board</b> for Instant notices via notifications</string>
-
     <string name="about_thisApp_text">This App is developed by <b>Abms Group</b>.As final Year Project To facilitate the Students of <b>CTTI</b>.If you have any <b>suggestions</b>, questions or Issues regarding this App.You can Contact Us</string>
-
+    <string name="linkedin">Linkedin</string>
+    <string name="resume">Resume</string>
+    <string name="git_hub">Git Hub</string>
+    <string name="verified">Verified</string>
+    <string name="not_verified">Not Verified</string>
+    <string name="update_ad">Update Ad</string>
+    <string name="create_ad">Create Ad</string>
+    <string name="post_ad">Post Ad</string>
+    <string name="please_type_the_verification_code_sent_to">Please type the verification code sent to %1$s</string>
+    <string name="home">Home</string>
+    <string name="chat">Chat</string>
+    <string name="my_ads">My Ads</string>
+    <string name="account">Account</string>
+    <string name="categoryAct">categoryAct</string>
+    <string name="deleteBtn">Delete</string>
+    <string name="favBtn">Favourite Btn</string>
+    <string name="add_paper_btn">Add Paper Btn</string>
+    <string name="close_btn">Close Btn</string>
+    <string name="logout_btn">Logout Btn</string>
+    <string name="add_Fab_Btn">Add Fab</string>
+    <string name="viewPager">View Pager</string>
+    <string name="tab_Layout">Tab Layout</string>
+    <string name="download_Btn">Download Btn</string>
+    <string name="pdf_upload_Btn">Pdf Upload Btn</string>
+    <string name="addCommentBtn">Add Comment Btn</string>
+    <string name="more_Btn">More Btn</string>
 
 </resources>

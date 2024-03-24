@@ -85,11 +85,11 @@ class AdCreateActivity : AppCompatActivity() {
 
             loadAdDetails()
 
-            binding.toolbarTitleTv.text = "Update Ad"
-            binding.postAd.text = "Update Ad"
+            binding.toolbarTitleTv.text = getString(R.string.update_ad)
+            binding.postAd.text = getString(R.string.update_ad)
         } else {
-            binding.toolbarTitleTv.text = "Create Ad"
-            binding.postAd.text = "Post Ad"
+            binding.toolbarTitleTv.text = getString(R.string.create_ad)
+            binding.postAd.text = getString(R.string.post_ad)
         }
 
         //init imagePickedArrayList
@@ -97,7 +97,7 @@ class AdCreateActivity : AppCompatActivity() {
         loadImages()
 
         binding.toolbarBackBtn.setOnClickListener {
-            onBackPressed()
+           onBackPressedDispatcher.onBackPressed()
         }
 
         binding.toolbarAdImageBtn.setOnClickListener {
@@ -442,7 +442,7 @@ class AdCreateActivity : AppCompatActivity() {
 
                         if (uriTask.isSuccessful) {
                             val hashMap = HashMap<String, Any>()
-                            hashMap["id"] = "${modelImagePicked.id}"
+                            hashMap["id"] = modelImagePicked.id
                             hashMap["imageUrl"] = "$uploadImageUrl"
 
                             val ref = FirebaseDatabase.getInstance().getReference("Ads")

@@ -12,7 +12,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.storage.FirebaseStorage
 import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
-import com.pandaapps.abmsstudies.books.activities.PdfViewActivity
 import com.pandaapps.abmsstudies.databinding.ActivityAboutDetailBinding
 
 class AboutDetailActivity : AppCompatActivity() {
@@ -44,12 +43,20 @@ class AboutDetailActivity : AppCompatActivity() {
         binding.webView.webViewClient = WebViewClient()
         binding.webView.visibility = View.GONE
 
-        if (aboutType == "resume") {
-            loadResume()
-        }else if (aboutType == "github"){
-            loadGitHub()
-        }else if (aboutType == "linkedin"){
-            loadLinkedin()
+        when (aboutType) {
+            "resume" -> {
+                loadResume()
+            }
+            "github" -> {
+                loadGitHub()
+            }
+            "linkedin" -> {
+                loadLinkedin()
+            }
+        }
+
+        binding.backBtn.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
 
     }
@@ -58,6 +65,7 @@ class AboutDetailActivity : AppCompatActivity() {
 
         binding.progressBar.visibility = View.VISIBLE
         binding.pdfView.visibility = View.VISIBLE
+        binding.titleTv.text = getString(R.string.resume)
 
         val pdfUrl =
             "https://firebasestorage.googleapis.com/v0/b/abmsstudies.appspot.com/o/Developers%2Fmyresume.pdf?alt=media&token=b83bd8da-20fd-4464-83eb-c6729258e277"
@@ -86,7 +94,7 @@ class AboutDetailActivity : AppCompatActivity() {
 
                     .onError { error ->
                         error.message?.let {
-                            Utils.toast(this, "$it")
+                            Utils.toast(this, it)
                         }
 
                     }
@@ -107,15 +115,44 @@ class AboutDetailActivity : AppCompatActivity() {
     }
 
     private fun loadGitHub(){
-        val urlToLoad="https://github.com/Aban3049/AbmsStudies"
-        binding.webView.loadUrl(urlToLoad)
-        binding.webView.visibility=View.VISIBLE
+        binding.progressBar.visibility = View.VISIBLE
+        binding.titleTv.text = getString(R.string.git_hub)
+        try {
+
+            val urlToLoad = "https://github.com/Aban3049/AbmsStudies"
+            binding.webView.loadUrl(urlToLoad)
+            binding.webView.visibility = View.GONE
+
+            android.os.Handler().postDelayed({
+                binding.progressBar.visibility = View.GONE
+                binding.webView.visibility = View.VISIBLE
+            }, 2000)
+        }catch (e:Exception){
+            Log.e(TAG, "loadGitHub: ${e.message}" )
+        }
+
+
+
     }
 
     private fun loadLinkedin(){
-        val urlToLoad="https://www.linkedin.com/in/muhammad-aban-b8b6272bb/?profileId=ACoAAEzND9sBidakR9P8Fd9hNfTuHhIiyWKvA_0"
-        binding.webView.loadUrl(urlToLoad)
-        binding.webView.visibility=View.VISIBLE
+        binding.progressBar.visibility = View.VISIBLE
+        binding.titleTv.text = getString(R.string.linkedin)
+
+        try {
+
+            val urlToLoad = "https://www.linkedin.com/muhammadaban/"
+            binding.webView.loadUrl(urlToLoad)
+            binding.webView.visibility = View.GONE
+
+            android.os.Handler().postDelayed({
+                binding.progressBar.visibility = View.GONE
+                binding.webView.visibility = View.VISIBLE
+            }, 2000)
+        }catch (e:Exception){
+            Log.e(TAG, "loadLinkedin: ${e.message}" )
+        }
+
     }
 
 }

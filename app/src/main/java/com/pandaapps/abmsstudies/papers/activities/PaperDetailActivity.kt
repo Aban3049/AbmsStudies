@@ -23,8 +23,6 @@ import com.google.firebase.storage.FirebaseStorage
 import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
 import com.pandaapps.abmsstudies.books.MyApplication
-import com.pandaapps.abmsstudies.books.activities.PdfDetailActivity
-import com.pandaapps.abmsstudies.books.activities.PdfViewActivity
 import com.pandaapps.abmsstudies.databinding.ActivityPaperDetailBinding
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
@@ -227,7 +225,7 @@ class PaperDetailActivity : AppCompatActivity() {
                     )
 
                     //load pdf size
-                    MyApplication.loadPdfSize("$paperUrl", "$title", binding.sizeTv)
+                    MyApplication.loadPdfSize(paperUrl, "$title", binding.sizeTv)
 
                     //set data
                     binding.titleTv.text = paperTitle

@@ -117,14 +117,14 @@ class AccountActivity : AppCompatActivity() {
                     if (userType == "Email") {
                         val isVerified = firebaseAuth.currentUser!!.isEmailVerified
                         if (isVerified) {
-                            binding.verificationTv.text = "Verified"
+                            binding.verificationTv.text = getString(R.string.verified)
                             binding.verifyAccountCv.visibility = View.GONE
                         } else {
-                            binding.verificationTv.text = "Not Verified"
+                            binding.verificationTv.text = getString(R.string.not_verified)
                             binding.verifyAccountCv.visibility = View.VISIBLE
                         }
                     } else {
-                        binding.verificationTv.text = "Verified"
+                        binding.verificationTv.text = getString(R.string.verified)
                         binding.verifyAccountCv.visibility = View.GONE
                     }
 

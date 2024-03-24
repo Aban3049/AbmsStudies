@@ -3,8 +3,6 @@ package com.pandaapps.abmsstudies.books.activities
 import android.Manifest
 import android.app.AlertDialog
 import android.app.ProgressDialog
-import android.content.Context
-import android.content.EntityIterator
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -12,11 +10,9 @@ import android.os.Bundle
 import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
-import androidx.datastore.preferences.protobuf.Value
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -30,11 +26,9 @@ import com.pandaapps.abmsstudies.books.adapter.AdapterComment
 import com.pandaapps.abmsstudies.books.model.ModelComments
 import com.pandaapps.abmsstudies.databinding.ActivityPdfDetailBinding
 import com.pandaapps.abmsstudies.databinding.DialogCommentAddBinding
-import com.pandaapps.abmsstudies.sell.activities.AdDetailsActivity
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 import java.io.FileOutputStream
-import java.math.RoundingMode
 
 class PdfDetailActivity : AppCompatActivity() {
 
@@ -362,7 +356,7 @@ class PdfDetailActivity : AppCompatActivity() {
                     )
 
                     //load pdf size
-                    MyApplication.loadPdfSize("$bookUrl", "$title", binding.sizeTv)
+                    MyApplication.loadPdfSize(bookUrl, "$title", binding.sizeTv)
 
                     //set data
                     binding.titleTv.text = bookTitle

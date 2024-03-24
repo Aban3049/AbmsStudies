@@ -203,7 +203,7 @@ class PdfEditActivity : AppCompatActivity() {
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Choose Category")
-            .setItems(categoryArray) { dialog, position ->
+            .setItems(categoryArray) { _, position ->
 
                 //handle clicks and saved clicked category id and title
                 selectedCategoryId = categoryIdArrayList[position]

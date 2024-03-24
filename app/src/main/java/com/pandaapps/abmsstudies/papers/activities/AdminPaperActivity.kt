@@ -16,7 +16,6 @@ import com.google.firebase.database.ValueEventListener
 import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
 import com.pandaapps.abmsstudies.databinding.ActivityAdminPaperBinding
-import com.pandaapps.abmsstudies.papers.adapter.AdapterPaperCategory
 import com.pandaapps.abmsstudies.papers.adapter.AdapterPaperCategoryAdmin
 import com.pandaapps.abmsstudies.papers.model.ModelPaperCategory
 

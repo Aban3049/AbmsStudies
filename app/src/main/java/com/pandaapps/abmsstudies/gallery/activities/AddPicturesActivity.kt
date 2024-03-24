@@ -100,13 +100,12 @@ class AddPicturesActivity : AppCompatActivity() {
 
     private fun validateData() {
 
-        titlePic= binding.titleEt.text.toString()
+        titlePic = binding.titleEt.text.toString()
 
-        if (titlePic.isEmpty()){
+        if (titlePic.isEmpty()) {
             binding.titleEt.requestFocus()
             binding.titleEt.error = "Field Required"
-        }
-        else if (imageUri==null){
+        } else if (imageUri == null) {
             MotionToast.createColorToast(
                 this@AddPicturesActivity,
                 "Pick Again",
@@ -116,7 +115,7 @@ class AddPicturesActivity : AppCompatActivity() {
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
             )
-        }else{
+        } else {
             uploadImageToStorage()
         }
 
@@ -176,7 +175,7 @@ class AddPicturesActivity : AppCompatActivity() {
                 Log.i("xxx", "Failed uploading image to server")
 
             }
-            .addOnProgressListener { it ->
+            .addOnProgressListener {
 
                 val dataTransferred = (100 * it.bytesTransferred / it.totalByteCount)
                 progressDialog.setMessage("Uploading $dataTransferred%")
@@ -367,7 +366,7 @@ class AddPicturesActivity : AppCompatActivity() {
             Log.d(TAG, "galleryActivityResultLauncher: imageUri: $imageUri")
 
             //timestamp will be used as id of image picked
-            val timestamp = "${Utils.getTimestamp()}"
+
 
             //setup model for image,Param 1 is id,Param 2 is imageUri, Param 3 is imageUrl , from internet
             loadImages()
@@ -385,8 +384,6 @@ class AddPicturesActivity : AppCompatActivity() {
         //Check if image is picked or not
         if (result.resultCode == Activity.RESULT_OK) {
             Log.d(TAG, "cameraActivityResultLauncher: imageUri $imageUri")
-
-            val timestamp = "${Utils.getTimestamp()}"
 
 
             loadImages()

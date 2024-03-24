@@ -91,6 +91,7 @@
             android:src="@drawable/ic_image_gray"
             app:fabSize="mini"
             app:elevation="0dp"
+            android:contentDescription="@string/add_Fab_Btn"
             android:layout_toStartOf="@+id/sendFab"
             app:tint="@color/white"
             app:backgroundTint="@color/teal_200"/>
@@ -104,6 +105,7 @@
             app:fabSize="mini"
             app:elevation="0dp"
             app:tint="@color/white"
+            android:contentDescription="@string/add_Fab_Btn"
             app:backgroundTint="@color/teal_200"
             android:src="@drawable/ic_send_white"/>
 

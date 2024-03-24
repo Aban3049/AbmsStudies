@@ -21,6 +21,7 @@
             android:layout_margin="10dp"
             android:background="@android:color/transparent"
             android:padding="5dp"
+            android:contentDescription="@string/back_btn"
             android:src="@drawable/ic_back_white" />
 
         <ImageView
@@ -154,6 +155,7 @@
             android:layout_alignParentEnd="true"
             android:background="@android:color/transparent"
             android:padding="10dp"
+            android:contentDescription="@string/close_btn"
             android:src="@drawable/ic_close_red" />
 
 
@@ -181,6 +183,7 @@
         android:layout_marginBottom="5dp"
         android:src="@drawable/ic_pdf_add_white"
         app:tint="@color/white"
+        android:contentDescription="@string/pdf_upload_Btn"
         app:backgroundTint="@color/original_purple_500"
         app:fabSize="normal" />
 

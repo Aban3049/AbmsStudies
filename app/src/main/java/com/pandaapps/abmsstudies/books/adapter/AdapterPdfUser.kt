@@ -21,7 +21,7 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filte
     var pdfArrayList: ArrayList<ModelBookPdf>
 
     //array list to hold filtered data
-    public var filteredList: ArrayList<ModelBookPdf>
+    private var filteredList: ArrayList<ModelBookPdf>
 
     private lateinit var binding: RowPdfUserBinding
 
@@ -100,8 +100,6 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filte
 
     inner class HolderPdfUser(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        //init component of row_pdf_user
-        var booksIv = binding.booksImageIv
         var progressBar = binding.progressBar
         var titleTv = binding.titleTv
         var descriptionTv = binding.descriptionTv

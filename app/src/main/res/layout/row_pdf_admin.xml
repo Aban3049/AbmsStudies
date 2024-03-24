@@ -111,6 +111,7 @@
             android:src="@drawable/ic_more_blac"
             android:padding="5dp"
             android:layout_alignParentEnd="true"
+            android:contentDescription="@string/more_Btn"
             android:background="@android:color/transparent"/>
 
 

@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun showHomeFragment() {
-        binding.toolbarTitleTv.text = "Home"
+        binding.toolbarTitleTv.text = getString(R.string.home)
         val fragment = HomeFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentsFl.id, fragment, "HomeFragment")
@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showChatFragment() {
-        binding.toolbarTitleTv.text = "Chat"
+        binding.toolbarTitleTv.text = getString(R.string.chat)
         val fragment = ChatsFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentsFl.id, fragment, "ChatFragment")
@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showMyAdsFragment() {
-        binding.toolbarTitleTv.text = "My Ads"
+        binding.toolbarTitleTv.text = getString(R.string.my_ads)
         val fragment = MyAdsFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentsFl.id, fragment, "MyAdsFragment")
@@ -128,7 +128,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showAccountFragment() {
-        binding.toolbarTitleTv.text = "Account"
+        binding.toolbarTitleTv.text = getString(R.string.account)
         val fragment = AccountFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.fragmentsFl.id, fragment, "AccountFragment")

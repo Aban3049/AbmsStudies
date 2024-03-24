@@ -46,13 +46,15 @@
         app:tabIndicatorFullWidth="false"
         android:layout_below="@+id/toolbarRl"
         app:tabIndicatorHeight="0dp"
-        app:tabMode="scrollable"/>
+        app:tabMode="scrollable"
+        android:contentDescription="@string/tab_Layout"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tabLayout"/>
+        android:layout_below="@+id/tabLayout"
+        android:contentDescription="@string/viewPager"/>
 
 
 

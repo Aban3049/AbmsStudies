@@ -10,6 +10,5 @@
     android:drawablePadding="10dp"
     android:drawableEnd="@drawable/ic_next_gray"
     android:drawableStart="@drawable/ic_category_gray"
-    android:drawableTint="@color/colorGray01"
-    />
+    android:drawableTint="@color/colorGray01" />
 

@@ -4,33 +4,26 @@ import android.app.Activity
 import android.app.Application
 import android.app.ProgressDialog
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
-import androidx.datastore.preferences.core.booleanPreferencesKey
 import com.bumptech.glide.Glide
 import com.github.barteksc.pdfviewer.PDFView
 import com.google.android.material.imageview.ShapeableImageView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import com.pandaapps.abmsstudies.AccountActivity
 import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
-import com.pandaapps.abmsstudies.books.activities.PdfViewActivity
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 import java.util.Calendar
 import java.util.Locale
-import java.util.logging.Handler
 
 class MyApplication : Application() {
 
@@ -255,7 +248,7 @@ class MyApplication : Application() {
                                 MotionToast.GRAVITY_BOTTOM,
                                 MotionToast.SHORT_DURATION,
                                 ResourcesCompat.getFont(
-                                    context as Activity,
+                                    context,
                                     www.sanju.motiontoast.R.font.helveticabold
                                 )
                             )

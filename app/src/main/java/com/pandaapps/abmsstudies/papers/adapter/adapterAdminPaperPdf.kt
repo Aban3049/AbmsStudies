@@ -10,12 +10,10 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.pandaapps.abmsstudies.books.MyApplication
-import com.pandaapps.abmsstudies.books.activities.PdfDetailActivity
 import com.pandaapps.abmsstudies.databinding.RowPdfPaperBinding
 import com.pandaapps.abmsstudies.papers.activities.EditPaperActivity
 import com.pandaapps.abmsstudies.papers.activities.PaperDetailActivity
 import com.pandaapps.abmsstudies.papers.filter.FilterAdminPaperPdf
-import com.pandaapps.abmsstudies.papers.filter.filterPaperAdminCategory
 import com.pandaapps.abmsstudies.papers.model.ModelPaperPdf
 
 class adapterAdminPaperPdf:RecyclerView.Adapter<adapterAdminPaperPdf.HolderAdminPdf>,Filterable {
@@ -112,12 +110,13 @@ class adapterAdminPaperPdf:RecyclerView.Adapter<adapterAdminPaperPdf.HolderAdmin
         // alert dialog
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Choose Option")
-            .setItems(options) { dialog, position ->
+            .setItems(options) { _, position ->
 
                 if (position == 0) {
 
                     //Edit is Clicked
                   val intent = Intent(context, EditPaperActivity::class.java)
+
                     intent.putExtra("paperId",paperId) // passed bookId used to edit book
                     context.startActivity(intent)
 

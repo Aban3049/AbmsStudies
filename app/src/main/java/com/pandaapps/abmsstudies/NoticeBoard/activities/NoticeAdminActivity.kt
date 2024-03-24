@@ -20,19 +20,12 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.gson.Gson
 import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
 import com.pandaapps.abmsstudies.databinding.ActivityNoticeAdminBinding
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 import java.io.ByteArrayOutputStream
-import retrofit2.Callback
-import retrofit2.Response
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody.Companion.toRequestBody
-import retrofit2.Call
-
 
 class NoticeAdminActivity : AppCompatActivity() {
 
@@ -176,7 +169,7 @@ class NoticeAdminActivity : AppCompatActivity() {
                 Log.i(TAG, "Failed uploading image to server")
 
             }
-            .addOnProgressListener { it ->
+            .addOnProgressListener {
 
                 val dataTransferred = (100 * it.bytesTransferred / it.totalByteCount)
                 progressDialog.setMessage("Uploading $dataTransferred%")
@@ -369,7 +362,6 @@ class NoticeAdminActivity : AppCompatActivity() {
             Log.d(TAG, "galleryActivityResultLauncher: imageUri: $imageUri")
 
             //timestamp will be used as id of image picked
-            val timestamp = "${Utils.getTimestamp()}"
 
             //setup model for image,Param 1 is id,Param 2 is imageUri, Param 3 is imageUrl , from internet
             loadImages()
@@ -387,8 +379,6 @@ class NoticeAdminActivity : AppCompatActivity() {
         //Check if image is picked or not
         if (result.resultCode == Activity.RESULT_OK) {
             Log.d(TAG, "cameraActivityResultLauncher: imageUri $imageUri")
-
-            val timestamp = "${Utils.getTimestamp()}"
 
 
             loadImages()

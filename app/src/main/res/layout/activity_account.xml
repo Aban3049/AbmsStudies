@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:padding="10dp"
+            android:contentDescription="@string/back_btn"
             android:src="@drawable/ic_back_white" />
 
 

@@ -22,6 +22,7 @@
             android:layout_margin="10dp"
             android:background="@android:color/transparent"
             android:padding="5dp"
+            android:contentDescription="@string/back_btn"
             android:src="@drawable/ic_back_white" />
 
         <ImageView
@@ -109,6 +110,7 @@
         android:background="@android:color/transparent"
         android:padding="10dp"
         android:layout_below="@+id/titleTil"
+        android:contentDescription="@string/close_btn"
         android:layout_marginEnd="60dp"
         android:src="@drawable/ic_close_red" />
 

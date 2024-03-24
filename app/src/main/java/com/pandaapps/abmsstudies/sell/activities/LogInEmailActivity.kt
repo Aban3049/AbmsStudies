@@ -80,7 +80,7 @@ class LogInEmailActivity : AppCompatActivity() {
         progressDialog.show()
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
-            .addOnSuccessListener { e ->
+            .addOnSuccessListener {
 
                 Log.e(TAG, "loginUser: Logged In...")
                 progressDialog.dismiss()

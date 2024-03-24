@@ -20,9 +20,6 @@ class AdapterCategory(
 
     private lateinit var binding: RowCategoryBinding
 
-    private companion object {
-        private const val TAG = "ADAPTER_CATEGORY_TAG"
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderCategory {
         //inflate/bind the row category XML

@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.Window
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
@@ -196,7 +195,7 @@ class MainHomeActivity : AppCompatActivity() {
 
                 Log.d(TAG, "updateFcmToken: fcmToken $fcmToken")
                 val hashMap = HashMap<String, Any>()
-                hashMap["fcmToken"] = "$fcmToken"
+                hashMap["fcmToken"] = fcmToken
 
                 val ref = FirebaseDatabase.getInstance().getReference("Users")
                 ref.child(myUid)

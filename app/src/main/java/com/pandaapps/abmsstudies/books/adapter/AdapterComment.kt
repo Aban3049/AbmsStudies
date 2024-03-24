@@ -24,11 +24,11 @@ class AdapterComment : RecyclerView.Adapter<AdapterComment.HolderComments> {
 
     //array list to hold comments
 
-    val commentArrayList: ArrayList<ModelComments>
+    private val commentArrayList: ArrayList<ModelComments>
 
     private lateinit var binding: RowCommentsBinding
 
-    private lateinit var firebaseAuth: FirebaseAuth
+    private  var firebaseAuth: FirebaseAuth
 
     constructor(context: Context, commentArrayList: ArrayList<ModelComments>) {
         this.context = context
@@ -56,8 +56,8 @@ class AdapterComment : RecyclerView.Adapter<AdapterComment.HolderComments> {
         //get dat set data handle clicks
         val model = commentArrayList[position]
 
-        val id = model.id
-        val bookId = model.bookId
+        model.id
+        model.bookId
         val comment = model.comment
         val uid = model.uid
         val timestamp = model.timestamp
@@ -91,7 +91,7 @@ class AdapterComment : RecyclerView.Adapter<AdapterComment.HolderComments> {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Delete Comment")
             .setMessage("Are you sure you want to delete this comment")
-            .setPositiveButton("DELETE") { d, e ->
+            .setPositiveButton("DELETE") { _, _ ->
 
                 //delete comment
 
@@ -103,11 +103,11 @@ class AdapterComment : RecyclerView.Adapter<AdapterComment.HolderComments> {
                     .removeValue()
                     .addOnSuccessListener {
                         Utils.toast(context, "Comment Deleted Successfully")
-                    }.addOnFailureListener { e ->
-                        Utils.toast(context, "Failed to delete comment due to ${e.message}")
+                    }.addOnFailureListener {
+                        Utils.toast(context, "Failed to delete comment due to ${it.message}")
                     }
 
-            }.setNegativeButton("CANCEL") { d, e ->
+            }.setNegativeButton("CANCEL") { d, _ ->
                 d.dismiss()
             }
             .show()

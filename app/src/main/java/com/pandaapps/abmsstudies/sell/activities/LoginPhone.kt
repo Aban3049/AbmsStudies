@@ -15,6 +15,7 @@ import com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken
 import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks
 import com.google.firebase.database.FirebaseDatabase
 import com.pandaapps.abmsstudies.MainHomeActivity
+import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
 import com.pandaapps.abmsstudies.databinding.ActivityLoginPhoneBinding
 import java.util.concurrent.TimeUnit
@@ -53,7 +54,7 @@ progressDialog=ProgressDialog(this)
 
         // handle toolBack btn
         binding.ToolbarBackBtn.setOnClickListener {
-            onBackPressed()
+           onBackPressedDispatcher.onBackPressed()
         }
 
         binding.sendOtpBtn.setOnClickListener {
@@ -163,7 +164,10 @@ phoneCode=binding.phoneCodeTil.selectedCountryCodeWithPlus
 
                 Utils.toast(this@LoginPhone, "OTP is sent to $phoneNumberWithCode ")
 
-                binding.LogInLabelTv.text = "Please type the verification code sent to $phoneNumberWithCode"
+                binding.LogInLabelTv.text = getString(
+                    R.string.please_type_the_verification_code_sent_to,
+                    phoneNumberWithCode
+                )
             }
 
 

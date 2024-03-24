@@ -1,6 +1,7 @@
 package com.pandaapps.abmsstudies.NoticeBoard
 
 import android.widget.Filter
+import com.pandaapps.abmsstudies.NoticeBoard.adapter.AdapterNotice
 import com.pandaapps.abmsstudies.NoticeBoard.models.modelNotice
 
 class FilterNoticeBoard: Filter {
@@ -8,7 +9,7 @@ class FilterNoticeBoard: Filter {
     //Array list in Which we want to Search
     val filterList:ArrayList<modelNotice>
 
-    val adapterNoticeBoard:AdapterNotice
+    val adapterNoticeBoard: AdapterNotice
 
     constructor(filterList: ArrayList<modelNotice>, adapterNoticeBoard: AdapterNotice) {
         this.filterList = filterList

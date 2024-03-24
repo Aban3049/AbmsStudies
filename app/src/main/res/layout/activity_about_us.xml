@@ -58,6 +58,7 @@
                     android:layout_below="@+id/personName"
                     android:layout_marginEnd="5dp"
                     android:layout_marginTop="3dp"
+                    android:contentDescription="@string/back_btn"
                     android:layout_toStartOf="@+id/androidTv"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_android_white" />

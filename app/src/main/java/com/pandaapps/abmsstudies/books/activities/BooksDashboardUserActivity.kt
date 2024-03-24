@@ -12,11 +12,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.books.fragments.BookUserFragment
 import com.pandaapps.abmsstudies.books.model.ModelBooksCategoryAdmin
 import com.pandaapps.abmsstudies.databinding.ActivityBooksDashboardUserBinding
-import com.pandaapps.abmsstudies.sell.model.ModelCategory
 
 class BooksDashboardUserActivity : AppCompatActivity() {
 
@@ -72,23 +70,23 @@ class BooksDashboardUserActivity : AppCompatActivity() {
 
                 //add to viewPage Adapter
                 viewpagerAdapter.addFragment(BookUserFragment.newInstance(
-                    "${modelAll.id}",
-                    "${modelAll.category}",
-                    "${modelAll.uid}"
+                    modelAll.id,
+                    modelAll.category,
+                    modelAll.uid
                 ),modelAll.category
                 )
 
                 viewpagerAdapter.addFragment(BookUserFragment.newInstance(
-                    "${modelMostViewed.id}",
-                    "${modelMostViewed.category}",
-                    "${modelMostViewed.uid}"
+                    modelMostViewed.id,
+                    modelMostViewed.category,
+                    modelMostViewed.uid
                 ),modelMostViewed.category
                 )
 
                 viewpagerAdapter.addFragment(BookUserFragment.newInstance(
-                    "${modelMostDownloaded.id}",
-                    "${modelMostDownloaded.category}",
-                    "${modelMostDownloaded.uid}"
+                    modelMostDownloaded.id,
+                    modelMostDownloaded.category,
+                    modelMostDownloaded.uid
                 ),modelMostDownloaded.category
                 )
 
@@ -105,9 +103,9 @@ class BooksDashboardUserActivity : AppCompatActivity() {
                     categoryArrayList.add(model!!)
                     //add to viewpager adapter
                     viewpagerAdapter.addFragment(BookUserFragment.newInstance(
-                        "${model.id}",
-                        "${model.category}",
-                        "${model.uid}"
+                        model.id,
+                        model.category,
+                        model.uid
                     ),model.category
                     )
 
@@ -152,7 +150,7 @@ class BooksDashboardUserActivity : AppCompatActivity() {
             return fragmentTitleList[position]
         }
 
-        public fun addFragment(fragment:BookUserFragment, title:String){
+         fun addFragment(fragment:BookUserFragment, title:String){
             //add fragment
             fragmentList.add(fragment)
 

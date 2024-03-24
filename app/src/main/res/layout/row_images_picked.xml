@@ -25,6 +25,7 @@
             android:layout_alignParentEnd="true"
             android:background="@android:color/transparent"
             android:padding="10dp"
+            android:contentDescription="@string/close_btn"
             android:src="@drawable/ic_close_red" />
 
 

@@ -35,17 +35,13 @@ class adapterVideos : RecyclerView.Adapter<adapterVideos.viewHolderVideo> {
 
     private var name: String = ""
 
-    private var VideoUrl: String = ""
-
     private var profileImageURl: String = ""
 
-    var galleryVideoArrayList: ArrayList<modelVideo>
+    private var galleryVideoArrayList: ArrayList<modelVideo>
 
     private lateinit var firebaseAuth: FirebaseAuth
 
-    private companion object {
-        private const val TAG = "ADAPTER_VIDEO"
-    }
+
 
     constructor(context: Context, galleryVideoArrayList: ArrayList<modelVideo>) : super() {
         this.context = context
@@ -87,7 +83,7 @@ class adapterVideos : RecyclerView.Adapter<adapterVideos.viewHolderVideo> {
         loadVideo(videoUrl)
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child("$uid")
+        ref.child(uid)
             .addValueEventListener(object : ValueEventListener {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -122,7 +118,7 @@ class adapterVideos : RecyclerView.Adapter<adapterVideos.viewHolderVideo> {
         imageView: ShapeableImageView
     ) {
 
-        val TAG = "BOOK_IMAGE_TAG"
+        val tag = "BOOK_IMAGE_TAG"
 
         //using url we can get image
         try {
@@ -133,7 +129,7 @@ class adapterVideos : RecyclerView.Adapter<adapterVideos.viewHolderVideo> {
                 .into(imageView)
 
         } catch (e: Exception) {
-            Log.e(TAG, "onDataChanged", e)
+            Log.e(tag, "onDataChanged", e)
         }
 
     }
@@ -154,7 +150,7 @@ class adapterVideos : RecyclerView.Adapter<adapterVideos.viewHolderVideo> {
             // alert dialog
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Choose Option")
-                .setItems(options) { dialog, position ->
+                .setItems(options) { _, position ->
 
                     if (position == 0) {
                         val intent = Intent(context, DownloadActivity::class.java)
@@ -176,7 +172,7 @@ class adapterVideos : RecyclerView.Adapter<adapterVideos.viewHolderVideo> {
             // alert dialog
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Choose Option")
-                .setItems(options) { dialog, position ->
+                .setItems(options) { _, _ ->
 
                     val intent = Intent(context, DownloadActivity::class.java)
                     intent.putExtra("videoUrl", model.videoUrl)
@@ -237,12 +233,10 @@ class adapterVideos : RecyclerView.Adapter<adapterVideos.viewHolderVideo> {
 
     inner class viewHolderVideo(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val personIv = binding.personIv
         val titleTv = binding.titleTv
         val userNameTv = binding.userNameTv
         val date = binding.publishDateTv
         val moreBtn = binding.moreBtn
-        val videoPlayer = binding.playerView
 
     }
 

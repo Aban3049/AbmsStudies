@@ -14,9 +14,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.Utils
-import com.pandaapps.abmsstudies.books.activities.PdfViewActivity
 import com.pandaapps.abmsstudies.databinding.ActivityPaperPdfViewBinding
-import com.pandaapps.abmsstudies.databinding.ActivityPdfViewBinding
 
 class PaperPdfViewActivity : AppCompatActivity() {
 
@@ -106,7 +104,7 @@ class PaperPdfViewActivity : AppCompatActivity() {
 
                     .onError { error ->
                         error.message?.let {
-                            Utils.toast(this, "$it")
+                            Utils.toast(this, it)
                         }
 
                     }

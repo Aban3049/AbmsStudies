@@ -24,11 +24,10 @@ import www.sanju.motiontoast.MotionToastStyle
 class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin.HolderCategory>,
     Filterable {
 
-    private val context: Context
-
 
     var categoryArrayList: ArrayList<ModelBooksCategoryAdmin>
 
+    private val context: Context
 
     private var filterList: ArrayList<ModelBooksCategoryAdmin>
 
@@ -37,12 +36,12 @@ class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin
 
     private lateinit var binding: RowCategoryBooksAdminBinding
 
-
-    constructor(context: Context, categoryArrayList: ArrayList<ModelBooksCategoryAdmin>) {
+    constructor(context: Context, categoryArrayList: ArrayList<ModelBooksCategoryAdmin>) : super() {
         this.context = context
         this.categoryArrayList = categoryArrayList
         this.filterList = categoryArrayList
     }
+
 
     inner class HolderCategory(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -71,7 +70,7 @@ class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin
         val id = model.id
         val category = model.category
         val uid = model.uid
-        val timestamp = model.timestamp
+        model.timestamp
 
         //set data
         holder.categoryTv.text = category
@@ -84,7 +83,7 @@ class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Delete")
             builder.setMessage("Are you sure you want to delete this category")
-            builder.setPositiveButton("Confirm") { a, d ->
+            builder.setPositiveButton("Confirm") { _, _ ->
                 MotionToast.createColorToast(
                     context as Activity,
                     "Delete",
@@ -100,7 +99,7 @@ class AdapterBooksCategoryAdmin : RecyclerView.Adapter<AdapterBooksCategoryAdmin
 
             }
 
-            builder.setNegativeButton("Cancel") { a, d ->
+            builder.setNegativeButton("Cancel") { a, _ ->
                 a.dismiss()
             }.show()
 

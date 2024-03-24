@@ -21,7 +21,8 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_back_white" />
+            android:src="@drawable/ic_back_white"
+            android:contentDescription="@string/back_btn"/>
 
         <TextView
             style="@style/TextAppearance.MaterialComponents.Body1"

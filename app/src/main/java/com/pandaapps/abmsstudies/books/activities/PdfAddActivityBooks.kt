@@ -14,8 +14,6 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.Menu
 import android.widget.PopupMenu
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.res.ResourcesCompat
 import com.bumptech.glide.Glide
@@ -108,7 +106,7 @@ class PdfAddActivityBooks : AppCompatActivity() {
     }
 
     private var title = ""
-   private var description = ""
+    private var description = ""
     private var category = ""
     private var uploadImageUrl = ""
 
@@ -139,8 +137,7 @@ class PdfAddActivityBooks : AppCompatActivity() {
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
             )
-        }
-        else if(imageUri ==null){
+        } else if (imageUri == null) {
             MotionToast.createColorToast(
                 this@PdfAddActivityBooks,
                 "Warning",
@@ -150,8 +147,7 @@ class PdfAddActivityBooks : AppCompatActivity() {
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
             )
-        }
-        else {
+        } else {
             //data validate begin upload
             uploadBookImageToStorage()
             uploadPdfToStorage()
@@ -170,31 +166,30 @@ class PdfAddActivityBooks : AppCompatActivity() {
 
     }
 
-    val pdfActivityResultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult(),
-        ActivityResultCallback<ActivityResult> { result ->
+    private val pdfActivityResultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
 
-            if (result.resultCode == RESULT_OK) {
-                Log.d(TAG, "PDF Picked: ")
 
-                pdfUri = result.data!!.data
-            } else {
-                Log.d(TAG, "PDF picked Cancelled: ")
-                MotionToast.createColorToast(
-                    this@PdfAddActivityBooks,
-                    "Failed",
-                    "Failed to Get Pdf",
-                    MotionToastStyle.ERROR,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.LONG_DURATION,
-                    ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
-                )
-            }
+    ) { result ->
 
+        if (result.resultCode == RESULT_OK) {
+            Log.d(TAG, "PDF Picked: ")
+
+            pdfUri = result.data!!.data
+        } else {
+            Log.d(TAG, "PDF picked Cancelled: ")
+            MotionToast.createColorToast(
+                this@PdfAddActivityBooks,
+                "Failed",
+                "Failed to Get Pdf",
+                MotionToastStyle.ERROR,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helveticabold)
+            )
         }
 
-
-    )
+    }
 
     private fun uploadPdfToStorage() {
 
@@ -242,7 +237,7 @@ class PdfAddActivityBooks : AppCompatActivity() {
 
 
             }
-            .addOnProgressListener { it ->
+            .addOnProgressListener {
 
                 val dataTransferred = (100 * it.bytesTransferred / it.totalByteCount)
                 progressDialog.setMessage("Uploading $dataTransferred%")
@@ -301,7 +296,7 @@ class PdfAddActivityBooks : AppCompatActivity() {
                 Log.i("xxx", "Failed uploading image to server")
 
             }
-            .addOnProgressListener { it ->
+            .addOnProgressListener {
 
                 val dataTransferred = (100 * it.bytesTransferred / it.totalByteCount)
                 progressDialog.setMessage("Uploading $dataTransferred%")
@@ -423,7 +418,7 @@ class PdfAddActivityBooks : AppCompatActivity() {
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Pick Category")
-            .setItems(categoriesArray) { dialog, which ->
+            .setItems(categoriesArray) { _, which ->
 
                 //handle item click get item click
 
@@ -569,7 +564,6 @@ class PdfAddActivityBooks : AppCompatActivity() {
             Log.d(TAG, "galleryActivityResultLauncher: imageUri: $imageUri")
 
             //timestamp will be used as id of image picked
-            val timestamp = "${Utils.getTimestamp()}"
 
             //setup model for image,Param 1 is id,Param 2 is imageUri, Param 3 is imageUrl , from internet
             loadImages()
@@ -587,8 +581,6 @@ class PdfAddActivityBooks : AppCompatActivity() {
         //Check if image is picked or not
         if (result.resultCode == Activity.RESULT_OK) {
             Log.d(TAG, "cameraActivityResultLauncher: imageUri $imageUri")
-
-            val timestamp = "${Utils.getTimestamp()}"
 
 
             loadImages()

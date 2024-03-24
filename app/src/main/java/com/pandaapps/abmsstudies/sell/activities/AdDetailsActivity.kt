@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.View
-import android.widget.ImageView
 import android.widget.PopupMenu
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -84,11 +83,11 @@ class AdDetailsActivity : AppCompatActivity() {
             val materialAlertDialogBuilder = MaterialAlertDialogBuilder(this@AdDetailsActivity)
             materialAlertDialogBuilder.setTitle("Delete Ad")
                 .setMessage("Are you sure you want to delete this Ad")
-                .setPositiveButton("Delete") { dialog, which ->
+                .setPositiveButton("Delete") { _, _ ->
                     Log.d(TAG, "onCreate: DELETE clicked...")
                     deleteAd()
                 }
-                .setNegativeButton("CANCEL") { dialog, which ->
+                .setNegativeButton("CANCEL") { dialog, _ ->
                     Log.d(TAG, "onCreate: CANCEL...")
                     dialog.dismiss()
                 }
@@ -165,7 +164,7 @@ class AdDetailsActivity : AppCompatActivity() {
         val alertDialogBuilder = MaterialAlertDialogBuilder(this)
         alertDialogBuilder.setTitle("Mark as sold?")
             .setMessage("Are you sure you want to mark this Ad as sold?")
-            .setPositiveButton("SOLD") { dialog, which ->
+            .setPositiveButton("SOLD") { _, _ ->
                 Log.d(TAG, "showMarkAsSoldDialog: SOLD clicked")
 
                 val hashMap = HashMap<String, Any>()
@@ -185,7 +184,7 @@ class AdDetailsActivity : AppCompatActivity() {
                         )
                     }
             }
-            .setNegativeButton("Cancel") { dialog, which ->
+            .setNegativeButton("Cancel") { dialog, _ ->
                 Log.d(TAG, "showMarkAsSoldDialog: CANCEL clicked")
                 dialog.dismiss()
             }
@@ -208,7 +207,7 @@ class AdDetailsActivity : AppCompatActivity() {
 
                 override fun onCancelled(error: DatabaseError) {
 
-                    Log.e(TAG, "onCancelled: UserMode: $error", )
+                    Log.e(TAG, "onCancelled: UserMode: $error" )
                 }
 
             })

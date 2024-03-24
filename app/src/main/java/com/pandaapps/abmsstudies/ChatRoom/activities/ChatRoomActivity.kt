@@ -3,22 +3,16 @@ package com.pandaapps.abmsstudies.ChatRoom.activities
 import android.Manifest
 import android.app.Dialog
 import android.app.ProgressDialog
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.text.Editable
 import android.text.TextUtils
-import android.text.TextWatcher
 import android.util.Log
 import android.view.Window
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -34,11 +28,12 @@ import com.pandaapps.abmsstudies.ChatRoom.model.ChatRoomModel
 import com.pandaapps.abmsstudies.MainHomeActivity
 import com.pandaapps.abmsstudies.R
 import com.pandaapps.abmsstudies.databinding.ActivityChatRoomBinding
-import com.theartofdev.edmodo.cropper.CropImage
-import com.theartofdev.edmodo.cropper.CropImageView
+import com.canhub.cropper.CropImageContract
+import com.canhub.cropper.CropImageView
+import com.canhub.cropper.CropImageContractOptions
+import com.canhub.cropper.CropImageOptions
 import java.text.SimpleDateFormat
 import java.util.Date
-import kotlin.Exception
 
 
 class ChatRoomActivity : AppCompatActivity() {
@@ -53,7 +48,7 @@ class ChatRoomActivity : AppCompatActivity() {
 
     private var message = ""
 
-    private var imageUri: Uri? = null
+
 
     private companion object {
         private const val TAG = "CHAT_ROOM_TAG"
@@ -83,7 +78,7 @@ class ChatRoomActivity : AppCompatActivity() {
         }
 
         binding.attachFab.setOnClickListener {
-            OpenExplorer()
+            openExplorer()
         }
 
         binding.imageBackButton.setOnClickListener {
@@ -100,15 +95,9 @@ class ChatRoomActivity : AppCompatActivity() {
         binding.chatRoomRv.setHasFixedSize(true)
 
 
-//        binding.chatRoomRv.layoutManager =
-//            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
-////        binding.chatRoomRv.layoutManager = LinearLayout(this,LinearLayout.VERTICAL,true)
-
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
         layoutManager.stackFromEnd = false
         binding.chatRoomRv.layoutManager = layoutManager
-
-//        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
 
         val query: Query =
@@ -120,14 +109,13 @@ class ChatRoomActivity : AppCompatActivity() {
 
 
 
-        chatRoomAdapter = AdapterChatRoom(options, this){
+        chatRoomAdapter = AdapterChatRoom(options, this) {
             scrollToLastItem()
         }
         binding.chatRoomRv.adapter = chatRoomAdapter
         chatRoomAdapter.startListening()
 
     }
-
 
 
     private fun addMessage() {
@@ -162,14 +150,25 @@ class ChatRoomActivity : AppCompatActivity() {
                         fireBaseCords.MAIN_CHAT_DATABASE.document(messageId).set(hashMap)
                             .addOnSuccessListener {
                                 Log.d(TAG, "addMessage:Success: $it")
-                                Log.d(TAG, "onDataChange: timestamp: ${FieldValue.serverTimestamp()}")
+                                Log.d(
+                                    TAG,
+                                    "onDataChange: timestamp: ${FieldValue.serverTimestamp()}"
+                                )
                                 Log.d(TAG, "onDataChange: messageId: $messageId")
-                                Toast.makeText(this@ChatRoomActivity, "Message Sent", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this@ChatRoomActivity,
+                                    "Message Sent",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                                 chatRoomAdapter.notifyDataSetChanged()
                                 binding.chatBox.setText("")
                                 scrollToLastItem()
                             }.addOnFailureListener { e ->
-                                Toast.makeText(this@ChatRoomActivity, "Failed To Send", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this@ChatRoomActivity,
+                                    "Failed To Send",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                                 Log.e(TAG, "addMessage: Failed due to ${e.message}")
                             }
                     }
@@ -182,13 +181,13 @@ class ChatRoomActivity : AppCompatActivity() {
     }
 
 
-    private fun OpenExplorer() {
+    private fun openExplorer() {
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.READ_EXTERNAL_STORAGE
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            ChoseImage()
+            chooseImage()
         } else {
             if (ActivityCompat.shouldShowRequestPermissionRationale(
                     this,
@@ -216,6 +215,7 @@ class ChatRoomActivity : AppCompatActivity() {
 
     }
 
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -226,7 +226,7 @@ class ChatRoomActivity : AppCompatActivity() {
             if (grantResults.size == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this@ChatRoomActivity, "Permission Granted", Toast.LENGTH_SHORT)
                     .show()
-                ChoseImage()
+                chooseImage()
             } else {
                 Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
             }
@@ -236,41 +236,33 @@ class ChatRoomActivity : AppCompatActivity() {
     }
 
 
-    private fun ChoseImage() {
-        CropImage.activity()
-            .setGuidelines(CropImageView.Guidelines.ON)
-            .start(this@ChatRoomActivity)
-    }
+    private val cropImage = registerForActivityResult(CropImageContract()) { result ->
+        if (result.isSuccessful) {
+            // Use the returned uri.
+            val uriContent = result.uriContent
+            // optional usage
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        try {
-            if (requestCode!! == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            // Proceed with your logic using the uriContent or uriFilePath
+            val intent = Intent(this, ImageUploadPreviewActivity::class.java)
+            intent.putExtra("imageUri", uriContent.toString())
+            startActivity(intent)
 
-
-                val result: CropImage.ActivityResult = CropImage.getActivityResult(data)
-                if (resultCode == RESULT_OK) {
-                    imageUri = result.uri
-
-                    val intent =
-                        Intent(this@ChatRoomActivity, ImageUploadPreviewActivity::class.java)
-                    intent.putExtra("imageUri", imageUri.toString())
-                    startActivity(intent)
-                } else if (requestCode!! == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                    Toast.makeText(
-                        this@ChatRoomActivity,
-                        "${result.error.message}",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                }
-
-            }
-        } catch (e: Exception) {
-            Log.e(TAG, "onActivityResult: ${e.message}")
+        } else {
+            // Handle the error condition
+            val exception = result.error
+            Toast.makeText(this, exception?.message, Toast.LENGTH_SHORT).show()
         }
-
     }
+
+    private fun chooseImage() {
+        // Launch the CropImage activity with the specified options
+        cropImage.launch(
+            CropImageContractOptions(null, CropImageOptions().apply {
+                guidelines = CropImageView.Guidelines.ON
+            })
+        )
+    }
+
 
     private fun showsplash() {
         val dialog =
@@ -301,7 +293,6 @@ class ChatRoomActivity : AppCompatActivity() {
             }
         }, 100)
     }
-
 
 
 }
