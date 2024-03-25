@@ -17,8 +17,7 @@ A repository of past examination papers to help students prepare for their upcom
 
 ### Chat Room
 A collaborative platform for students to discuss and share knowledge.
-![Screenshot_20240324-230129](https://github.com/Aban3049/AbmsStudies/assets/157634467/35a6e856-b4dc-493f-9d2c-4be31f825ba4)
-
+![git chat-room png-](https://github.com/Aban3049/AbmsStudies/assets/157634467/69ba8dc1-e332-422d-a899-1880b87abf2f)
 
 
 ### Notice System
