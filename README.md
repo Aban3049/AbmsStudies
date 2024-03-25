@@ -72,4 +72,4 @@ Contributions are what make the open-source community such an amazing place to l
 
 Contact
 Your Name - @your_twitter - allabouttechnolgy@gmail.com
-Project Link: https://github.com/Aban3049/Abms-Studies
+Project Link: https://github.com/Aban3049/AbmsStudies
