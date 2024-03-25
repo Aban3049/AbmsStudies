@@ -23,7 +23,7 @@ A repository of past examination papers to help students prepare for their upcom
 ### Chat Room
 A collaborative platform for students to discuss and share knowledge.
 
-![git chat-room png-](https://github.com/Aban3049/AbmsStudies/assets/157634467/69ba8dc1-e332-422d-a899-1880b87abf2f)![gitchat1](https://github.com/Aban3049/AbmsStudies/assets/157634467/48e9d792-0f03-4a2a-8410-fc3240f82868)
+![gitchat1](https://github.com/Aban3049/AbmsStudies/assets/157634467/48e9d792-0f03-4a2a-8410-fc3240f82868)![git chat-room png-](https://github.com/Aban3049/AbmsStudies/assets/157634467/69ba8dc1-e332-422d-a899-1880b87abf2f)
 
 ### Notice System
 Keeps students informed with the latest updates related to campus activities, such as changes in timings.
