@@ -157,7 +157,7 @@
             android:layout_marginTop="26dp"
             android:layout_toStartOf="@+id/imageIv"
             android:background="@drawable/shape_button01"
-            android:text="Select Book Image"
+            android:text="Select Notice Image"
             android:textColor="@color/white"
             app:icon="@drawable/ic_add_photo_white"
             app:iconTint="@color/white"/>

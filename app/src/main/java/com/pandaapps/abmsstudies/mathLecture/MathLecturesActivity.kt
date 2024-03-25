@@ -41,13 +41,14 @@ class MathLecturesActivity : AppCompatActivity() {
             "--- Select your Category ---",
             "ICT 1st year",
             "ICT 2nd year",
-            "ICT 3rd year",
             "Qs 1st year",
             "Qs 2nd year",
-            "Qs 3rd year",
-            "civil 1st year",
-            "civil 2nd year",
-            "civil 3rd year"
+            "Civil 1st year",
+            "Civil 2nd year",
+            "Mech 1st year",
+            "Mech 2nd year",
+            "A&D 1st year",
+            "A&D 2nd year"
 
 
         )
@@ -55,7 +56,7 @@ class MathLecturesActivity : AppCompatActivity() {
         val arrayAdapter = ArrayAdapter(
             this,
             android.R.layout.simple_spinner_dropdown_item,
-           // com.google.android.material.R.layout.support_simple_spinner_dropdown_item,
+            // com.google.android.material.R.layout.support_simple_spinner_dropdown_item,
             listItem
         )
 //        arrayAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
@@ -74,21 +75,94 @@ class MathLecturesActivity : AppCompatActivity() {
                 ) {
                     val selectedItem = parent.getItemAtPosition(position).toString()
                     when (parent.selectedItemPosition) {
-                        0 -> {
-
-                        }
-
                         1 -> {
-                            Utils.toast(this@MathLecturesActivity, "ICT 1st Year is Selected")
-                            val urlToLoad="https://youtu.be/B3hbStPx_Q4?si=eQKe5eTI7uQE5eOh"
+                            Utils.toast(this@MathLecturesActivity, "ICT 1st Year is Selected:PlayLists are Not Combined!")
+                            val urlToLoad = "https://www.youtube.com/watch?v=vF1vjt5SPsA&list=PLeXzC6ljzQQ2m4wFkNhtzbGD5ExS1X2h3&pp=iAQB"
                             binding.webView.loadUrl(urlToLoad)
-                            binding.webView.visibility=View.VISIBLE
-                            binding.spinnerMain.visibility=View.GONE
+                            binding.webView.visibility = View.VISIBLE
+                            binding.spinnerMain.visibility = View.GONE
                         }
 
-                        6 -> {
-                            Utils.toast(this@MathLecturesActivity, "Position 6 is clicked")
+                        2 -> {
+                            Utils.toast(this@MathLecturesActivity, "ICT 2nd Year is Selected")
+                            val urlToLoad = "https://www.youtube.com/watch?v=mu16aZtW7lc&list=PLeXzC6ljzQQ1Qeemp9vb66O2EElDj4B89&pp=iAQB"
+                            binding.webView.loadUrl(urlToLoad)
+                            binding.webView.visibility = View.VISIBLE
+                            binding.spinnerMain.visibility = View.GONE
                         }
+
+                        3->{
+                            Utils.toast(this@MathLecturesActivity, "Qs 1st Year is Selected")
+                            val urlToLoad =
+                                "https://www.youtube.com/watch?v=B3hbStPx_Q4&list=PLeXzC6ljzQQ0i4QWYdvf0PIemi2j9dEIK"
+                            binding.webView.loadUrl(urlToLoad)
+                            binding.webView.visibility = View.VISIBLE
+                            binding.spinnerMain.visibility = View.GONE
+                        }
+
+                        4->{
+                            Utils.toast(this@MathLecturesActivity, "Qs 2nd Year is Selected")
+                            val urlToLoad =
+                                "https://www.youtube.com/watch?v=nQQ_1HUy0Ac&list=PLeXzC6ljzQQ1nI4H1oMlE162Fa4pwxKdR&pp=iAQB"
+                            binding.webView.loadUrl(urlToLoad)
+                            binding.webView.visibility = View.VISIBLE
+                            binding.spinnerMain.visibility = View.GONE
+                        }
+
+                        5->{
+                            Utils.toast(this@MathLecturesActivity, "Civil 1st Year is Selected")
+                            val urlToLoad =
+                                "https://www.youtube.com/watch?v=B3hbStPx_Q4&list=PLeXzC6ljzQQ0i4QWYdvf0PIemi2j9dEIK"
+                            binding.webView.loadUrl(urlToLoad)
+                            binding.webView.visibility = View.VISIBLE
+                            binding.spinnerMain.visibility = View.GONE
+                        }
+                        6->{
+                            Utils.toast(this@MathLecturesActivity, "Civil 2nd Year is Selected")
+                            val urlToLoad =
+                                "https://www.youtube.com/watch?v=nQQ_1HUy0Ac&list=PLeXzC6ljzQQ1nI4H1oMlE162Fa4pwxKdR&pp=iAQB"
+                            binding.webView.loadUrl(urlToLoad)
+                            binding.webView.visibility = View.VISIBLE
+                            binding.spinnerMain.visibility = View.GONE
+                        }
+
+                        7 -> {
+                            Utils.toast(this@MathLecturesActivity, "Mechanical 1st Year is Selected")
+                            val urlToLoad =
+                                "https://www.youtube.com/watch?v=B3hbStPx_Q4&list=PLeXzC6ljzQQ0i4QWYdvf0PIemi2j9dEIK"
+                            binding.webView.loadUrl(urlToLoad)
+                            binding.webView.visibility = View.VISIBLE
+                            binding.spinnerMain.visibility = View.GONE
+                        }
+
+                        8->{
+                            Utils.toast(this@MathLecturesActivity, "Mechanical 2nd Year is Selected")
+                            val urlToLoad =
+                                "https://www.youtube.com/watch?v=nQQ_1HUy0Ac&list=PLeXzC6ljzQQ1nI4H1oMlE162Fa4pwxKdR&pp=iAQB"
+                            binding.webView.loadUrl(urlToLoad)
+                            binding.webView.visibility = View.VISIBLE
+                            binding.spinnerMain.visibility = View.GONE
+                        }
+
+                        9 -> {
+                            Utils.toast(this@MathLecturesActivity, "A&D 1st Year is Selected")
+                            val urlToLoad =
+                                "https://www.youtube.com/watch?v=B3hbStPx_Q4&list=PLeXzC6ljzQQ0i4QWYdvf0PIemi2j9dEIK"
+                            binding.webView.loadUrl(urlToLoad)
+                            binding.webView.visibility = View.VISIBLE
+                            binding.spinnerMain.visibility = View.GONE
+                        }
+
+                        10 ->{
+                            Utils.toast(this@MathLecturesActivity, "A&D 2nd Year is Selected")
+                            val urlToLoad =
+                                "https://www.youtube.com/watch?v=nQQ_1HUy0Ac&list=PLeXzC6ljzQQ1nI4H1oMlE162Fa4pwxKdR&pp=iAQB"
+                            binding.webView.loadUrl(urlToLoad)
+                            binding.webView.visibility = View.VISIBLE
+                            binding.spinnerMain.visibility = View.GONE
+                        }
+
+
                     }
 
                 }

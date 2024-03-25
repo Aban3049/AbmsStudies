@@ -116,7 +116,6 @@ class adapterAdminPaperPdf:RecyclerView.Adapter<adapterAdminPaperPdf.HolderAdmin
 
                     //Edit is Clicked
                   val intent = Intent(context, EditPaperActivity::class.java)
-
                     intent.putExtra("paperId",paperId) // passed bookId used to edit book
                     context.startActivity(intent)
 

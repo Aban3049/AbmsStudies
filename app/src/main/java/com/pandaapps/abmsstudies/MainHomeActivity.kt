@@ -84,7 +84,6 @@ class MainHomeActivity : AppCompatActivity() {
         }
 
         binding.mathLecturesCv.setOnClickListener {
-            Utils.toast(this@MainHomeActivity, "You clicked on Math Lectures")
             startActivity(Intent(this@MainHomeActivity, MathLecturesActivity::class.java))
         }
 

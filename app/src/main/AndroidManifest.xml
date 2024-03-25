@@ -113,9 +113,7 @@
         <activity
             android:name=".sell.activities.AdSellerProfileActivity"
             android:exported="false" />
-        <activity
-            android:name=".sell.activities.SplashScreenActivity"
-            android:exported="true" />
+
         <activity
             android:name=".about.AboutUsActivity"
             android:exported="false" />
@@ -189,7 +187,8 @@
             android:name="com.canhub.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
 
-
     </application>
 
-</manifest>
+
+
+    </manifest>

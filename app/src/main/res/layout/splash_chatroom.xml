@@ -24,9 +24,7 @@
         <com.github.captain_miao.optroundcardview.OptRoundCardView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_below="@+id/animationView"
             android:layout_alignParentBottom="true"
-            app:layout_constraintTop_toBottomOf="@+id/animationView"
             app:optRoundCardCornerRadius="50dp"
             app:optRoundCardLeftBottomCorner="false"
             app:optRoundCardRightBottomCorner="false">

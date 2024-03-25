@@ -65,6 +65,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/LogInLabelTv"
+            android:id="@+id/nameTil"
+            style="@style/CustomTextInputLayout"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:startIconTint="@color/black"
+            android:hint="Enter Name"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            android:layout_marginTop="10dp"
+            app:startIconDrawable="@drawable/ic_person_black">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPersonName"
+                android:id="@+id/nameEt"
+                android:textColor="@color/black"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameTil"
             android:id="@+id/emailTil"
             style="@style/CustomTextInputLayout"
             android:textColorHint="@color/black"

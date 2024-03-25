@@ -47,11 +47,13 @@ class RegisterEmailActivity : AppCompatActivity() {
 
     //input data
 
+    private var name = ""
     private var email = ""
     private var password = ""
     private var cPassword = ""
 
     private fun validData() {
+        name = binding.nameEt.text.toString().trim()
         email = binding.emailEt.text.toString().trim()
         password = binding.passwordEt.text.toString().trim()
         cPassword = binding.ConfirmpasswordEt.text.toString().trim()
@@ -72,7 +74,12 @@ class RegisterEmailActivity : AppCompatActivity() {
         } else if (password != cPassword) {
             binding.ConfirmpasswordEt.error = "Password Doesn't Match"
             binding.ConfirmpasswordEt.requestFocus()
-        } else {
+        }
+        else if (name.isEmpty()){
+            binding.nameEt.error = "Field Required"
+            binding.nameEt.requestFocus()
+        }
+        else {
             registerUser()
         }
 
@@ -116,7 +123,7 @@ class RegisterEmailActivity : AppCompatActivity() {
         val registeredUserUid = firebaseAuth.uid
 
         val hashMap = HashMap<String, Any>()
-        hashMap["name"] = ""
+        hashMap["name"] = "$name"
         hashMap["phoneCode"] = ""
         hashMap["phoneNumber"] = ""
         hashMap["profileImageURl"] = ""

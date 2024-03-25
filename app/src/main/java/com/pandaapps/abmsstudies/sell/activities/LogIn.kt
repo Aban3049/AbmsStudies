@@ -71,6 +71,7 @@ class LogIn : AppCompatActivity() {
                 commit() // Changed from apply() to commit()
             }
           startMainHomeActivity(guestMode = true)
+            Utils.toast(this@LogIn,"Guest Mode Capacity is At Limit! Try Using Another Method")
 
         }
 
