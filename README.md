@@ -17,7 +17,7 @@ A repository of past examination papers to help students prepare for their upcom
 
 ### Chat Room
 A collaborative platform for students to discuss and share knowledge.
-![Uploading Screenshot_20240324-230129.jpg…]()
+https://imgur.com/a/Vj88JhS
 
 
 ### Notice System
