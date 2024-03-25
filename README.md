@@ -22,6 +22,7 @@ A collaborative platform for students to discuss and share knowledge.
 
 ### Notice System
 Keeps students informed with the latest updates related to campus activities, such as changes in timings.
+
 ![gitnotice](https://github.com/Aban3049/AbmsStudies/assets/157634467/8a54c67e-b106-467b-beb3-452881ffdbf6)
 
 ### Gallery
