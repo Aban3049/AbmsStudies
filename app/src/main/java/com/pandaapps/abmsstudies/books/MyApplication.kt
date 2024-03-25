@@ -45,16 +45,16 @@ class MyApplication : Application() {
         //Function to get PDF size
 
         fun loadPdfSize(pdfUrl: String, pdfTitle: String, sizeTv: TextView) {
-            val tag = "PDF_SIZE_TAG"
+            val TAG = "PDF_SIZE_TAG"
 
             //using url we can get file and its
             val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
             ref.metadata
                 .addOnSuccessListener { storageMetaData ->
 
-                    Log.d(tag, "loadPdfSize: got metaData")
+                    Log.d(TAG, "loadPdfSize: got metaData")
                     val bytes = storageMetaData.sizeBytes.toDouble()
-                    Log.d(tag, "loadPdfSize: Size Bytes $bytes")
+                    Log.d(TAG, "loadPdfSize: Size Bytes $bytes")
 
                     //convert bytes to KB/MB
                     val kb = bytes / 1024
@@ -71,7 +71,7 @@ class MyApplication : Application() {
                 }
                 .addOnFailureListener { e ->
                     //failed to get metaData
-                    Log.e(tag, "loadPdfSize: Failed to get meta data due to ${e.message} ")
+                    Log.e(TAG, "loadPdfSize: Failed to get meta data due to ${e.message} ")
                 }
 
         }
