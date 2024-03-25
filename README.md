@@ -7,13 +7,10 @@ Abms Studies is a comprehensive Android application designed to enhance the acad
 
 ### Buy and Sell Section
 A marketplace within the campus for students to buy and sell items conveniently.
-![sellgit](https://github.com/Aban3049/AbmsStudies/assets/157634467/18cf6210-2817-4864-ba51-22aef913ce80)![sellgit3](https://github.com/Aban3049/AbmsStudies/assets/157634467/fd6f40a7-2b1a-4a76-a328-36431576c0e9)
 
+![sellgit](https://github.com/Aban3049/AbmsStudies/assets/157634467/18cf6210-2817-4864-ba51-22aef913ce80
+[sellgit3(https://github.com/Aban3049/AbmsStudies/assets/157634467/fd6f40a7-2b1a-4a76-a328-36431576c0e9)
 ![sellgit2](https://github.com/Aban3049/AbmsStudies/assets/157634467/0d6a7bc4-5a4b-4332-9009-ba83959daa79)
-
-
-
-
 
 
 ### Books Section
