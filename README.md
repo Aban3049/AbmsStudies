@@ -57,7 +57,7 @@ To get a local copy up and running, follow these simple steps.
 ### Installation
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Abms-Studies.git
+  https://github.com/Aban3049/AbmsStudies.git
 
 2. Open the project in Android Studio.
 3. Build the project and run on an Android device or emulator.
@@ -72,4 +72,4 @@ Contributions are what make the open-source community such an amazing place to l
 
 Contact
 Your Name - @your_twitter - allabouttechnolgy@gmail.com
-Project Link: https://github.com/your_username_/Abms-Studies
+Project Link: https://github.com/Aban3049/Abms-Studies
