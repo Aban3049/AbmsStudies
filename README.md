@@ -41,6 +41,9 @@ A space to share and cherish memories through photos and videos of campus events
 ### Math Lecture System
 Provides a series of math lectures to aid students in their academic pursuits.
 
+![gitlecture](https://github.com/Aban3049/AbmsStudies/assets/157634467/acaf958b-b615-453b-8a0b-e9bbc0021e77)
+
+
 ## Getting Started
 To get a local copy up and running, follow these simple steps.
 
