@@ -35,6 +35,9 @@ Keeps students informed with the latest updates related to campus activities, su
 ### Gallery
 A space to share and cherish memories through photos and videos of campus events and festivities.
 
+![gitgallery](https://github.com/Aban3049/AbmsStudies/assets/157634467/a961930c-2009-489c-8e49-eb7a6d26e979)
+
+
 ### Math Lecture System
 Provides a series of math lectures to aid students in their academic pursuits.
 
