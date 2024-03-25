@@ -56,7 +56,9 @@ To get a local copy up and running, follow these simple steps.
 
 ### Installation
 1. Clone the repo
-   ```bash git clone https://github.com/Aban3049/AbmsStudies/
+   ```bash
+   git clone https://github.com/Aban3049/AbmsStudies/`
+
 
   
 
