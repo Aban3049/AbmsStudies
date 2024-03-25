@@ -56,8 +56,8 @@ To get a local copy up and running, follow these simple steps.
 
 ### Installation
 1. Clone the repo
-   ```sh
-  https://github.com/Aban3049/AbmsStudies.git
+   ```sh https://github.com/Aban3049/AbmsStudies.git
+  
 
 2. Open the project in Android Studio.
 3. Build the project and run on an Android device or emulator.
