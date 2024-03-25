@@ -3,7 +3,11 @@
 ## Introduction
 Abms Studies is a comprehensive Android application designed to enhance the academic and social experience of college students. Built using Kotlin and XML, this app integrates several key features that cater to the daily needs of campus life.
 
-![introgit1](https://github.com/Aban3049/AbmsStudies/assets/157634467/5915fb89-aca4-4bd9-b805-a3d4e3f4![introgit3](https://github.com/Aban3049/AbmsStudies/assets/157634467/9857a784-627f-4fe2-b7e7-caa2d92ab6e1)![introgit4](https://github.com/Aban3049/AbmsStudies/assets/157634467/8f511160-3083-4cba-b83e-5886984cf925)![introgit4](https://github.com/Aban3049/AbmsStudies/assets/157634467/7e1f5d53-6906-41b3-9c66-52728b3f05ae)! ebd1)![introgit2](https://github.com/Aban3049/AbmsStudies/assets/157634467/77503605-a829-4a74-ae82-dcb1056e0d01)
+![introgit1](https://github.com/Aban3049/AbmsStudies/assets/157634467/90770975-4b7e-4e07-8c25-53a2411a5e45)![introgit2](https://github.com/Aban3049/AbmsStudies/assets/157634467/3b05ab1d-5a6f-4e3a-a90e-e9e9fc2c09e0)
+![introgit5](https://github.com/Aban3049/AbmsStudies/assets/157634467/2a1246a9-1c06-4a23-91bc-9a5834099cfe)
+add)![introgit4](https://github.com/Aban3049/AbmsStudies/assets/157634467/c2128f6b-63e7-4884-8606-84c193884a3a)
+![introgit3](https://github.com/Aban3049/AbmsStudies/assets/157634467/2cb1e52b-8d1c-4602-a8bb-fc71c529279d)
+
 
 
 
